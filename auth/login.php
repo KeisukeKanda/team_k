@@ -1,13 +1,7 @@
 <?php
 session_start();
 
-function csrf()
-{
-    $TOKEN_LENGTH = 16;
-    $tokenByte = openssl_random_pseudo_bytes($TOKEN_LENGTH);
-    $csrfToken = bin2hex($tokenByte);
-    return $csrfToken;
-}
+require("../funcs.php");
 
 //CSRF対策
 $csrfToken = csrf();

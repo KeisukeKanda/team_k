@@ -2,9 +2,7 @@
 
 session_start();
 
-//CSRF対策
-$csrfToken = csrf();
-$_SESSION['csrfToken'] = $csrfToken;
+require("../funcs.php");
 
 ?>
 

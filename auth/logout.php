@@ -2,6 +2,8 @@
 
 session_start();
 
+require("../funcs.php");
+
 $_SESSION = array();
 
 if (isset($_COOKIE[session_name()])) {
