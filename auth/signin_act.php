@@ -2,20 +2,7 @@
 
 session_start();
 
-    //エラー処理
-function sql_error($stmt)
-{
-    $error = $stmt->errorInfo();
-    exit("ErrorQuery:".$error[2]);
-}
-
-//リダイレクト
-function redirect($file_name)
-{
-    header("Location: ".$file_name);
-    exit();
-}
-
+require("../funcs.php");
 
 $u_name = $_POST["u_name"];
 $u_id = $_POST["u_id"];
