@@ -1,5 +1,11 @@
 <?php
 
+//XXS対策
+function h($str)
+{
+    return htmlspecialchars($str, ENT_QUOTES, 'UTF-8');
+}
+
 // csrf対策
 function csrf()
 {
