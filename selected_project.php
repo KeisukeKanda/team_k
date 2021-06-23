@@ -59,5 +59,7 @@ sql_error($stmt);
 <p><?=$res["price"]?></p>
 
 
+<p>テスト</p>
+
 </body>
 </html>
