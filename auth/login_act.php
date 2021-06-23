@@ -3,7 +3,7 @@
 session_start();
 
 // DB接続とfancs.phpを読み込み
-require("../db/database.php");
+require("../db_set/db.php");
 require("../funcs.php");
 
 
@@ -34,6 +34,7 @@ $password = $_POST['password'];
                 // セッションIDとログインユーザー名をセッションに保存
                 if ($val["user_id"] !="") {
                     $_SESSION["chk_ssid"] = session_id();
+                    $_SESSION["user_id"] = $val["user_id"];
                     $_SESSION["name"] = $val["name"];
 
                     redirect("../index_login.php");

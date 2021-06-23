@@ -2,7 +2,7 @@
 
 session_start();
 
-require("./db/database.php");
+require("./db_set/db.php");
 require("funcs.php");
 
 //セッションハイジャック対策
@@ -39,7 +39,8 @@ $username = $_SESSION["name"];
                         <li>
                             こんにちは、<?= $username ?>
                         </li>
-                        <li>マイページ</li>
+                        <li><a href="profile.php">マイページ</a></li>
+                        <li><a href="auth/logout.php">ログアウト</a></li>
                     </ul>
                 </div>
             </div>
