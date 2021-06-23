@@ -48,16 +48,16 @@ $comment_review = $_POST["comment_review"];
 //----------------------------------------------------
 //３. DB接続します(エラー処理追加)
 //----------------------------------------------------
-include("./funcs.php");
-// $pdo = db_conn();
+require("./funcs.php");
+require("../db/database.php");
 
 //----------------------------------------------------
 //４．データ登録SQL作成
 //----------------------------------------------------
-$stmt = $pdo->prepare("INSERT INTO review_table(review_id, u_id, p_id, contents_review, hospitality_review, communication_review, time_review, price_review, comment_review,)
-VALUES(NULL, :u_id, :p_id, :contents_review, :hospitality_review, :communication_review, :time_review, :price_review, :comment_review");
-$stmt->bindValue(':u_id', $u_id, PDO::PARAM_INT); //数値
-$stmt->bindValue(':p_id', $p_id, PDO::PARAM_INT); //数値
+$stmt = $pdo->prepare("INSERT INTO review_table(review_id, user_id, project_id, contents_review, hospitality_review, communication_review, time_review, price_review, comment_review,)
+VALUES(NULL, :user_id, :project_id, :contents_review, :hospitality_review, :communication_review, :time_review, :price_review, :comment_review");
+$stmt->bindValue(':user_id', $u_id, PDO::PARAM_INT); //数値
+$stmt->bindValue(':project_id', $p_id, PDO::PARAM_INT); //数値
 $stmt->bindValue(':contents_review', $contents_review, PDO::PARAM_INT); //数値
 $stmt->bindValue(':hospitality_review', $hospitality_review, PDO::PARAM_INT); //数値
 $stmt->bindValue(':communication_review', $communication_review, PDO::PARAM_INT); //数値
