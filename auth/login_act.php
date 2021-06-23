@@ -2,31 +2,41 @@
 
 session_start();
 
+// DB接続とfancs.phpを読み込み
 require("../db/database.php");
 require("../funcs.php");
 
-    $login_id = $_POST['login-id'];
-    $password = $_POST['password'];
 
-    if (!empty($_POST['login-id'])) {
+// ログインフォームで入力した値の受け取り
+$email = $_POST['login_id'];
+$password = $_POST['password'];
+
+
+    //空白を許可しない
+    if (!empty($_POST['login_id'])) {
+
+        // csrf対策
         if ($_POST['csrfToken'] === $_SESSION['csrfToken']) {
-            // $sql = "SELECT * FROM users WHERE u_id=:loginId";
-            // $stmt = $pdo->prepare($sql);
-            // $stmt->bindValue(':loginId', $loginId);
-            // $res = $stmt->execute();
-
+            $sql = "SELECT * FROM users WHERE email=:email";
+            $stmt = $pdo->prepare($sql);
+            $stmt->bindValue(':email', $email);
+            $res = $stmt->execute();
             if ($res==false) {
                 sql_error($stmt);
             }
 
+            // ログインユーザー情報のみをfetchで取得
             $val = $stmt->fetch();
 
-            if (password_verify($password, $val[""]) === true) {
-                if ($val[""] !="") {
-                    $_SESSION["chk_ssid"] = session_id();
-                    $_SESSION["u_name"] = $val[""];
+            // 入力されたパスワードとハッシュ化されたパスワードを照合
+            if (password_verify($password, $val["password"]) === true) {
 
-                    redirect("index_login.php");
+                // セッションIDとログインユーザー名をセッションに保存
+                if ($val["user_id"] !="") {
+                    $_SESSION["chk_ssid"] = session_id();
+                    $_SESSION["name"] = $val["name"];
+
+                    redirect("../index_login.php");
                 } else {
                     redirect("login.php");
                     exit();

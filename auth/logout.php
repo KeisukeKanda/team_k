@@ -2,6 +2,7 @@
 
 session_start();
 
+// DB接続とfancs.phpを読み込み
 require("../db/database.php");
 require("../funcs.php");
 
@@ -11,6 +12,7 @@ if (isset($_COOKIE[session_name()])) {
     setcookie(session_name(), '', time()-42000, '/');
 }
 
+// セッションを破棄してログアウトする
 session_destroy();
 
 redirect("index.php");

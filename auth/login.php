@@ -1,6 +1,7 @@
 <?php
 session_start();
 
+// DB接続とfancs.phpを読み込
 require("../db/database.php");
 require("../funcs.php");
 
@@ -25,7 +26,7 @@ $_SESSION['csrfToken'] = $csrfToken;
         <div class="box">
             <form action="login_act.php" method="post">
                 <label>ユーザーID</label>
-                <input type="text" name="login-id">
+                <input type="text" name="login_id">
                 <label>パスワード</label>
                 <input type="password" name="password">
                 <input type='hidden' name='csrfToken'

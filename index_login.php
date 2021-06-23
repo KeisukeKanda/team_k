@@ -14,7 +14,7 @@ if (!isset($_SESSION["chk_ssid"]) || $_SESSION["chk_ssid"]!=session_id()) {
     $_SESSION["chk_ssid"] = session_id();
 }
 
-$username = $_SESSION["u_name"];
+$username = $_SESSION["name"];
 
 ?>
 
