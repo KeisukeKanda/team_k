@@ -5,6 +5,10 @@ session_start();
 require("../db/database.php");
 require("../funcs.php");
 
+//CSRF対策
+$csrfToken = csrf();
+$_SESSION['csrfToken'] = $csrfToken;
+
 ?>
 
 <!DOCTYPE html>
@@ -21,9 +25,9 @@ require("../funcs.php");
     <div class="wrap">
         <div class="box">
             <form action="signin_act.php" method="post">
-                <div>ユーザー名</div><input type="text" name="u_name"><br>
-                <div>ユーザーID</div><input type="text" name="u_id"><br>
-                <div>パスワード</div><input type="password" name="u_pw"><br>
+                <div>ユーザー名</div><input type="text" name="name"><br>
+                <div>ユーザーID</div><input type="text" name="email"><br>
+                <div>パスワード</div><input type="password" name="password"><br>
                 <input type='hidden' name='csrfToken'
                     value='<?= $csrfToken ?>'>
                 <input type="submit" value="サインイン">
