@@ -17,7 +17,7 @@
                 <div class="nav-box">
                     <ul>
                         <li><a href="auth/signin.php">サインイン</a></li>
-                        <li>ログイン</li>
+                        <li><a href="auth/login.php">ログイン</a></li>
                     </ul>
                 </div>
             </div>
