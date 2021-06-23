@@ -5,15 +5,15 @@ session_start();
 require("../db/database.php");
 require("../funcs.php");
 
-    $login_id = $_POST['login-id'];
+    $email = $_POST['login_id'];
     $password = $_POST['password'];
 
-    if (!empty($_POST['login-id'])) {
+    if (!empty($_POST['login_id'])) {
         if ($_POST['csrfToken'] === $_SESSION['csrfToken']) {
-            // $sql = "SELECT * FROM users WHERE u_id=:loginId";
-            // $stmt = $pdo->prepare($sql);
-            // $stmt->bindValue(':loginId', $loginId);
-            // $res = $stmt->execute();
+            $sql = "SELECT * FROM users WHERE email=:email";
+            $stmt = $pdo->prepare($sql);
+            $stmt->bindValue(':email', $email);
+            $res = $stmt->execute();
 
             if ($res==false) {
                 sql_error($stmt);
@@ -21,12 +21,12 @@ require("../funcs.php");
 
             $val = $stmt->fetch();
 
-            if (password_verify($password, $val[""]) === true) {
-                if ($val[""] !="") {
+            if (password_verify($password, $val["password"]) === true) {
+                if ($val["user_id"] !="") {
                     $_SESSION["chk_ssid"] = session_id();
-                    $_SESSION["u_name"] = $val[""];
+                    $_SESSION["name"] = $val["name"];
 
-                    redirect("index_login.php");
+                    redirect("../index_login.php");
                 } else {
                     redirect("login.php");
                     exit();
