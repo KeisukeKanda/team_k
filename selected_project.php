@@ -1,5 +1,5 @@
 <?php
-require("db/database.php");
+require("db_set/db.php");
 require("./funcs.php");
 
 session_start();
