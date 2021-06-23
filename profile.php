@@ -14,25 +14,22 @@ if (!isset($_SESSION["chk_ssid"]) || $_SESSION["chk_ssid"]!=session_id()) {
     $_SESSION["chk_ssid"] = session_id();
 }
 
-
+//ユーザー名を取得
 $username = $_SESSION["name"];
+$user_id = $_SESSION["user_id"];
 
-// usersテーブルのデータを取得
-$sql = "SELECT * FROM court WHERE place LIKE '%".$area."%' AND station LIKE '%".$station."%' AND distance LIKE '%".$distance."%'";
+//usersテーブルと接続
+$sql = "SELECT * FROM users WHERE user_id=:user_id";
 $stmt = $pdo->prepare($sql);
+$stmt->bindValue(':user_id', $user_id, PDO::PARAM_INT);  //Integer（数値の場合 PDO::PARAM_INT)
 $status = $stmt->execute();
 
+if ($status==false) {
+    $error = $stmt->errorInfo();
+    exit("SQLError:".$error[2]);
+}
 
-// 生年月日フォーム用
-for ($i=1920; $i <= 2010; $i++) {
-    $year .= '<option value="'.$i.'">'.$i.'年</option>';
-}
-for ($i=1; $i <= 12; $i++) {
-    $month .= '<option value="'.$i.'">'.$i.'月</option>';
-}
-for ($i=1; $i <= 31; $i++) {
-    $day .= '<option value="'.$i.'">'.$i.'日</option>';
-}
+
 
 ?>
 
@@ -43,6 +40,7 @@ for ($i=1; $i <= 31; $i++) {
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/reset.css">
     <title>Document</title>
 </head>
 
@@ -57,7 +55,7 @@ for ($i=1; $i <= 31; $i++) {
                         <li>
                             こんにちは、<?= $username ?>
                         </li>
-                        <li><a href="index_login.php">メインへ戻る</a></li>
+                        <li><a href="index.php">メインへ戻る</a></li>
                     </ul>
                 </div>
             </div>
@@ -67,41 +65,55 @@ for ($i=1; $i <= 31; $i++) {
         <div class="main">
             <div class="box">
 
-                <!-- プロフィールアップデートフォーム -->
-                <form action="profile_update.php" method="post" enctype="multipart/form-data">
-                    <div>プロフィール画像</div>
-                    <input type="file" name="user_img">
-                    <div>ニックネーム</div>
-                    <input type="text" name="nickname">
-                    <div>生年月日</div>
-                    <input type="date" name="birthdate">
-                    <!-- <select name="year"><?= $year ?></select>
-                    <select name="month"><?= $month ?></select>
-                    <select name="day"><?= $day ?></select> -->
-                    <div>性別</div>
-                    <input type="radio" name="sex" value="男" checked="checked" />男
-                    <input type="radio" name="sex" value="女" />女
-                    <div>住んでいる国</div>
-                    <select name="country">
-                        <option value=""></option>
-                        <option value="日本">日本</option>
-                        <option value="中国">中国</option>
-                    </select>
-                    <div>住んでいるエリア</div>
-                    <select name="user_area">
-                        <option value=""></option>
-                        <option value="東京">東京</option>
-                        <option value="大阪">大阪</option>
-                    </select>
-                    <div>自己紹介</div>
-                    <textarea name="introduction"></textarea><br>
-                    <input type="submit" value="プロフィールを更新">
-                </form>
-                <!-- プロフィールアップデートフォーム終わり -->
+                <!-- プロフィール表示 -->
+                <?php foreach ($stmt as $profile): ?>
+                <div>プロフィール画像</div>
+                <div class="user_img">
+                    <img src="<?= $profile["user_img"] ?>"
+                        alt="">
+                </div>
+                <div>ニックネーム</div>
+                <div class="nickname">
+                    <?= $profile["nickname"] ?>
+                </div>
+                <div>生年月日</div>
+                <div class="birthdate">
+                    <?= $profile["birthdate"] ?>
+                </div>
+                <div>性別</div>
+                <div class="sex">
+                    <?= $profile["sex"] ?>
+                </div>
+                <div>住んでいる国</div>
+                <div class="country">
+                    <?= $profile["country"] ?>
+                </div>
+                <div>住んでいるエリア</div>
+                <div class="user_area">
+                    <?= $profile["user_area"] ?>
+                </div>
+                <div>自己紹介</div>
+                <div class="introduction">
+                    <?= $profile["introduction"] ?>
+                </div>
+                <!-- プロフィール表示終わり -->
 
+                <!-- 編集ページへの移動ボタン -->
+                <button><a href="profile_edit.php">編集</a></button>
+                <?php endforeach; ?>
             </div>
         </div>
     </div>
+
+    <style>
+        .user_img {
+            width: 30%;
+        }
+
+        .user_img img {
+            width: 100%;
+        }
+    </style>
 
 </body>
 
