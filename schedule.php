@@ -25,7 +25,10 @@ require("db_set/db.php");
 		sql_error($stmt);
 	}else{
 			while( $result = $stmt->fetch(PDO::FETCH_ASSOC)){
-			$view1.='<div> Project'.$result["project_id"].' on '.$result["date"].' at '.$result["reservation_time"].'</div><br>';}
+			$view1.='<div> Project'.$result["project_id"].' on '.$result["date"].' at '.$result["reservation_time"].'  '.
+			'<a href="schedule_edit.php?id='.$result["reservation_id"].'">edit</a>'.'  '.
+			'<a href="schedule_delete.php?id='.$result["reservation_id"].'">delete</a>'.
+			'</div><br>';}
 	}
 
 //******************************************* */
@@ -78,7 +81,7 @@ require("db_set/db.php");
 											<input type="date" name="date" id="date" />
 										</div>
 										<div>
-											<label for="reservation_time">Country</label>
+											<label for="reservation_time">Time</label>
 											<input type="time" name="reservation_time" id="reservation_time" />
 										</div>
 										<div>
