@@ -68,11 +68,11 @@
       </dd>
       <dt>u_id</dt>
       <dd>
-        <input type="text" name="u_id" value="3">
+        <input type="text" name="user_id" value="3">
       </dd>
       <dt>p_id</dt>
       <dd>
-        <input type="text" name="p_id" value="1">
+        <input type="text" name="project_id" value="1">
       </dd>
     </dl>
     <div><input type="submit" value="登録する"></div>
