@@ -28,7 +28,7 @@ if (!empty($_POST["name"] && $_POST["email"] && $_POST["password"]) && mb_strlen
         if (filter_var($_POST["email"], FILTER_VALIDATE_EMAIL)) {
            
             //emailが重複した場合にエラーにする
-            $sql = "SELECT COUNT(*) AS cnt FROM users WHERE u_id=?";
+            $sql = "SELECT COUNT(*) AS cnt FROM users WHERE email=?";
             $stmt = $pdo->prepare($sql);
             $res = $stmt->execute(array($_POST["email"]));
             $val = $stmt->fetch();

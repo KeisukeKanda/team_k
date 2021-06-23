@@ -9,6 +9,7 @@ require("../funcs.php");
 $csrfToken = csrf();
 $_SESSION['csrfToken'] = $csrfToken;
 
+
 ?>
 
 <!DOCTYPE html>
