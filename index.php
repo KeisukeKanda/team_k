@@ -16,7 +16,7 @@
                 <div class="logo">Team K</div>
                 <div class="nav-box">
                     <ul>
-                        <li>サインイン</li>
+                        <li><a href="auth/signin.php">サインイン</a></li>
                         <li>ログイン</li>
                     </ul>
                 </div>
