@@ -1,7 +1,8 @@
 <?php
 // session_start();
 
-require("db/database.php");
+require("db_set/db.php");
+
 // require_once 'funcs.php';
 // sschk();
 // $pdo = connectDB();
@@ -55,9 +56,9 @@ require("db/database.php");
 
 
 								<!-- Trip Proposal -->
-					<section id="one">
+					<section>
 						<h3>Project Input Form</h3>
-						<div class="inner">
+						<div>
 							<section>
 								<form method="POST" action="project_insert.php" enctype="multipart/form-data">
 									<div>
