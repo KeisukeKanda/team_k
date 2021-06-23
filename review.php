@@ -66,11 +66,11 @@
       <dd>
         <input type="text" name="comment_review">
       </dd>
-      <dt>u_id</dt>
+      <dt>user_id</dt>
       <dd>
         <input type="text" name="user_id" value="3">
       </dd>
-      <dt>p_id</dt>
+      <dt>project_id</dt>
       <dd>
         <input type="text" name="project_id" value="1">
       </dd>
