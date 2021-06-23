@@ -56,8 +56,8 @@ require("db/database.php");
 //----------------------------------------------------
 $stmt = $pdo->prepare("INSERT INTO review_table(review_id, user_id, project_id, contents_review, hospitality_review, communication_review, time_review, price_review, comment_review,)
 VALUES(NULL, :user_id, :project_id, :contents_review, :hospitality_review, :communication_review, :time_review, :price_review, :comment_review");
-$stmt->bindValue(':user_id', $u_id, PDO::PARAM_INT); //数値
-$stmt->bindValue(':project_id', $p_id, PDO::PARAM_INT); //数値
+$stmt->bindValue(':user_id', $user_id, PDO::PARAM_INT); //数値
+$stmt->bindValue(':project_id', $project_id, PDO::PARAM_INT); //数値
 $stmt->bindValue(':contents_review', $contents_review, PDO::PARAM_INT); //数値
 $stmt->bindValue(':hospitality_review', $hospitality_review, PDO::PARAM_INT); //数値
 $stmt->bindValue(':communication_review', $communication_review, PDO::PARAM_INT); //数値
