@@ -37,7 +37,7 @@ $password = $_POST['password'];
                     $_SESSION["user_id"] = $val["user_id"];
                     $_SESSION["name"] = $val["name"];
 
-                    redirect("../index_login.php");
+                    redirect("../index.php");
                 } else {
                     redirect("login.php");
                     exit();
