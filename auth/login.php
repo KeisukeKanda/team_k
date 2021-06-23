@@ -1,6 +1,7 @@
 <?php
 session_start();
 
+require("../db/database.php");
 require("../funcs.php");
 
 //CSRF対策

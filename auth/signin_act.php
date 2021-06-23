@@ -2,6 +2,7 @@
 
 session_start();
 
+require("../db/database.php");
 require("../funcs.php");
 
 $u_name = $_POST["u_name"];

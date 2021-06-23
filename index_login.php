@@ -2,6 +2,9 @@
 
 session_start();
 
+require("../db/database.php");
+require("../funcs.php");
+
 //セッションハイジャック対策
 if (!isset($_SESSION["chk_ssid"]) || $_SESSION["chk_ssid"]!=session_id()) {
     echo "Login Error!";

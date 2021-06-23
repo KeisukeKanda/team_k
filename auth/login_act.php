@@ -2,6 +2,7 @@
 
 session_start();
 
+require("../db/database.php");
 require("../funcs.php");
 
     $login_id = $_POST['login-id'];
