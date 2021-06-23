@@ -60,6 +60,7 @@ sql_error($stmt);
 
 
 <p>テスト</p>
+<p>テスト</p>
 
 </body>
 </html>
