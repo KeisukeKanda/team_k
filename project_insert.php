@@ -2,7 +2,6 @@
 //1. POSTデータ取得
 
 $user_id = $_POST["user_id"];
-echo $user_id;
 $title = $_POST["title"];
 $category = $_POST["category"];
 $country = $_POST["country"];
@@ -19,7 +18,7 @@ if (!empty($_FILES['project_img']['name'])) {
 }
 
 //2. DB接続します
-require("db/database.php");
+require("db_set/db.php");
 
 
 //３．データ登録SQL作成
@@ -43,7 +42,7 @@ if($status==false){
   $error = $stmt->errorInfo();
   exit("SQLError:".$error[2]);
 }else{
-  header("Location: project.php");//半角スペースが必須
+  header("Location: schedule.php");//半角スペースが必須
   exit();
 }
 ?>
