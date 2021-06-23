@@ -3,7 +3,7 @@
 session_start();
 
 // DB接続とfancs.phpを読み込み
-require("../db/database.php");
+require("../db_set/db.php");
 require("../funcs.php");
 
 $_SESSION = array();
@@ -15,5 +15,5 @@ if (isset($_COOKIE[session_name()])) {
 // セッションを破棄してログアウトする
 session_destroy();
 
-redirect("index.php");
+redirect("../index.php");
 exit();

@@ -3,7 +3,7 @@
 session_start();
 
 // DB接続とfancs.phpを読み込み
-require("../db/database.php");
+require("../db_set/db.php");
 require("../funcs.php");
 
 // signin.phpのフォーム値を受け取り
@@ -62,5 +62,5 @@ if (!empty($_POST["name"] && $_POST["email"] && $_POST["password"]) && mb_strlen
         redirect("../index.php");
     }
 } else {
-    redirect("signin.php");
+    redirect("login.php");
 }
