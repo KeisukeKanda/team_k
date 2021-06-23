@@ -34,7 +34,7 @@
       </dd>
       <dt>コミュニケーションの満足度</dt>
       <dd>
-        <select name="communication" class="star">
+        <select name="communication_review" class="star">
           <option value="1">1</option>
           <option value="2">2</option>
           <option value="3">3</option>
@@ -65,6 +65,14 @@
       <dt>コメント</dt>
       <dd>
         <input type="text" name="comment_review">
+      </dd>
+      <dt>u_id</dt>
+      <dd>
+        <input type="text" name="u_id" value="3">
+      </dd>
+      <dt>p_id</dt>
+      <dd>
+        <input type="text" name="p_id" value="1">
       </dd>
     </dl>
     <div><input type="submit" value="登録する"></div>
