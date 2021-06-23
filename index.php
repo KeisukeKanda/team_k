@@ -34,6 +34,9 @@ $status = $stmt->execute();
                     <ul>
                         <li><a href="auth/signin.php">サインイン</a></li>
                         <li><a href="auth/login.php">ログイン</a></li>
+                        <li>こんにちは、<?= $username ?></li>
+                        <li><a href="profile.php">マイページ</a></li>
+                        <li><a href="auth/logout.php">ログアウト</a></li>
                     </ul>
                 </div>
             </div>
