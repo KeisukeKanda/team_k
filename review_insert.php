@@ -40,10 +40,12 @@ if (!isset($_POST["comment_review"]) || $_POST["comment_review"] == "") {
 //----------------------------------------------------
 $contents_review = $_POST["contents_review"];
 $hospitality_review = $_POST["hospitality_review"];
-$communication = $_POST["communication_review"];
+$communication_review = $_POST["communication_review"];
 $time_review = $_POST["time_review"];
 $price_review = $_POST["price_review"];
 $comment_review = $_POST["comment_review"];
+$user_id = $_POST["user_id"];
+$project_id = $_POST["project_id"];
 
 //----------------------------------------------------
 //３. DB接続します(エラー処理追加)
@@ -54,8 +56,8 @@ require("db/database.php");
 //----------------------------------------------------
 //４．データ登録SQL作成
 //----------------------------------------------------
-$stmt = $pdo->prepare("INSERT INTO review_table(review_id, user_id, project_id, contents_review, hospitality_review, communication_review, time_review, price_review, comment_review,)
-VALUES(NULL, :user_id, :project_id, :contents_review, :hospitality_review, :communication_review, :time_review, :price_review, :comment_review");
+$stmt = $pdo->prepare("INSERT INTO review(user_id, project_id, contents_review, hospitality_review, communication_review, time_review, price_review, comment_review)
+VALUES(:user_id, :project_id, :contents_review, :hospitality_review, :communication_review, :time_review, :price_review, :comment_review)");
 $stmt->bindValue(':user_id', $user_id, PDO::PARAM_INT); //数値
 $stmt->bindValue(':project_id', $project_id, PDO::PARAM_INT); //数値
 $stmt->bindValue(':contents_review', $contents_review, PDO::PARAM_INT); //数値
