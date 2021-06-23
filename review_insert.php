@@ -54,7 +54,7 @@ require("db/database.php");
 //----------------------------------------------------
 //４．データ登録SQL作成
 //----------------------------------------------------
-$stmt = $pdo->prepare("INSERT INTO review_table(review_id, user_id, project_id, contents_review, hospitality_review, communication_review, time_review, price_review, comment_review,)
+$stmt = $pdo->prepare("INSERT INTO review(review_id, user_id, project_id, contents_review, hospitality_review, communication_review, time_review, price_review, comment_review,)
 VALUES(NULL, :user_id, :project_id, :contents_review, :hospitality_review, :communication_review, :time_review, :price_review, :comment_review");
 $stmt->bindValue(':user_id', $user_id, PDO::PARAM_INT); //数値
 $stmt->bindValue(':project_id', $project_id, PDO::PARAM_INT); //数値
