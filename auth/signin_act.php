@@ -5,39 +5,39 @@ session_start();
 require("../db/database.php");
 require("../funcs.php");
 
-$u_name = $_POST["u_name"];
-$u_id = $_POST["u_id"];
-$u_pw = $_POST["u_pw"];
-$hash = password_hash($u_pw, PASSWORD_DEFAULT);
+$name = $_POST["name"];
+$email = $_POST["email"];
+$password = $_POST["password"];
+$hash = password_hash($password, PASSWORD_DEFAULT);
 
 //空白不可
-if (!empty($_POST["u_name"] && $_POST["u_id"] && $_POST["u_pw"]) && mb_strlen($_POST["u_pw"]) >= 6) {
+if (!empty($_POST["name"] && $_POST["email"] && $_POST["password"]) && mb_strlen($_POST["password"]) >= 6) {
     // トークン判定
     if ($_POST['csrfToken'] === $_SESSION['csrfToken']) {
         //メアドかどうか判定
-        if (filter_var($_POST["u_id"], FILTER_VALIDATE_EMAIL)) {
+        if (filter_var($_POST["email"], FILTER_VALIDATE_EMAIL)) {
             //u_idの重複判定
             $sql = "SELECT COUNT(*) AS cnt FROM users WHERE u_id=?";
             $stmt = $pdo->prepare($sql);
-            $res = $stmt->execute(array($_POST["u_id"]));
+            $res = $stmt->execute(array($_POST["email"]));
             $val = $stmt->fetch();
             if ($val["cnt"] > 0) {
                 echo "重複してます";
             } else {
-                $sql = "INSERT INTO users(u_name, u_id, u_pw, created_date)VALUES(:u_name, :u_id, :u_pw, sysdate())";
+                $sql = "INSERT INTO users(name, email, password, indate)VALUES(:name, :email, :password, sysdate())";
                 $stmt = $pdo->prepare($sql);
-                $stmt->bindValue(':u_name', $u_name, PDO::PARAM_STR);  //Integer（数値の場合 PDO::PARAM_INT)
-                $stmt->bindValue(':u_id', $u_id, PDO::PARAM_STR);  //Integer（数値の場合 PDO::PARAM_INT)
-                $stmt->bindValue(':u_pw', $hash, PDO::PARAM_STR);  //Integer（数値の場合 PDO::PARAM_INT)
+                $stmt->bindValue(':name', $name, PDO::PARAM_STR);  //Integer（数値の場合 PDO::PARAM_INT)
+                $stmt->bindValue(':email', $email, PDO::PARAM_STR);  //Integer（数値の場合 PDO::PARAM_INT)
+                $stmt->bindValue(':password', $hash, PDO::PARAM_STR);  //Integer（数値の場合 PDO::PARAM_INT)
                 $status = $stmt->execute();
 
                 if ($status==false) {
                     $error = $stmt->errorInfo();
                     exit("SQLError:".$error[2]);
                 } else {
-                    $_SESSION["u_name"] = $u_name;
+                    $_SESSION["name"] = $u_name;
                     $_SESSION["chk_ssid"] = session_id();
-                    redirect("index_login.php");
+                    redirect("../index_login.php");
                     exit();
                 }
             }
@@ -45,7 +45,7 @@ if (!empty($_POST["u_name"] && $_POST["u_id"] && $_POST["u_pw"]) && mb_strlen($_
             echo "メアドを入れてください";
         }
     } else {
-        redirect("index.php");
+        redirect("../index.php");
     }
 } else {
     redirect("signin.php");
