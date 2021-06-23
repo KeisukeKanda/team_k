@@ -36,7 +36,7 @@ sql_error($stmt);
 
 
 // 予約可能日時が一覧で表示された方が良いかも（従来別ページを想定していた。以下phpを記載。reserve_flagは後で定義確認）
-$sql2="SELECT*FROM reserve_table WHERE project_id=:project_id AND reserve_f=1";
+$sql2="SELECT*FROM reservation WHERE project_id=:project_id AND reserve_f=1";
 $stmt2=$pdo->prepare($sql2);
 $stmt2->bindValue(':project_id',$project_id,PDO::PARAM_INT);
 $status2=$stmt2->execute();
