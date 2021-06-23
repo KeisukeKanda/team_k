@@ -1,6 +1,7 @@
 <?php
 session_start();
 
+// DB接続とfancs.phpを読み込
 require("../db/database.php");
 require("../funcs.php");
 
