@@ -3,7 +3,7 @@ require("db/database.php");
 require("./funcs.php");
 
 session_start();
-$pdo = db_conn();
+
      
 //受け取り(GETで受けるかPOSTで受けるか未定だがとりあえず作成)
 $user_id=intval($_GET["user_id"]);
@@ -58,9 +58,13 @@ sql_error($stmt);
 <p><?=$res["tour_time"]?></p>
 <p><?=$res["price"]?></p>
 
+<form action="reserve.php" method="post">
 
-<p>テスト</p>
-<p>テスト</p>
+<input type="submit" value="予約する">
+
+</form>
+
+<p></p>
 
 </body>
 </html>
