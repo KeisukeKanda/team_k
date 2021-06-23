@@ -1,3 +1,18 @@
+<?php
+
+session_start();
+
+require("./db_set/db.php");
+require("funcs.php");
+
+$username = $_SESSION["name"];
+
+$sql = "SELECT * FROM project";
+$stmt = $pdo->prepare($sql);
+$status = $stmt->execute();
+
+?>
+
 <!DOCTYPE html>
 <html lang="ja">
 
@@ -5,6 +20,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/reset.css">
     <title>Document</title>
 </head>
 
@@ -33,6 +49,28 @@
             </div>
             <!-- メインビュー終わり -->
         </div>
+
+        <!-- プラン一覧を表示 -->
+        <div class="main">
+            <div class="box">
+                <?php foreach ($stmt as $content): ?>
+                <div class="content">
+                    <div class="content-img">
+                        <img src="<?= $content["project_img"] ?>"
+                            alt="">
+                    </div>
+                    <div class="content-title">
+                        <?= $content["title"] ?>
+                    </div>
+                    <div class="content-text">
+                        <?= $content["experience"] ?>
+                    </div>
+                </div>
+                <?php endforeach; ?>
+            </div>
+        </div>
+        <!-- プラン一覧を表示終わり -->
+
     </div>
 
 </body>
