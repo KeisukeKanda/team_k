@@ -48,6 +48,6 @@ if ($status==false) {
     $error = $stmt->errorInfo();
     exit("SQLError:".$error[2]);
 } else {
-    redirect("index_login.php");
+    redirect("profile_edit.php");
     exit();
 }
