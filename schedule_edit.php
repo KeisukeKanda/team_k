@@ -30,7 +30,7 @@ $result = $stmt->fetch();
 <!--             予約設定入力 -->
 <!-- ****************************************** -->
 					<section>
-						<h3>Schedule Form</h3>
+						<h3>Schedule Edit Form</h3>
 						<div>
 							<section>
 								<form method="POST" action="schedule_update.php" enctype="multipart/form-data">

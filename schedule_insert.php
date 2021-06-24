@@ -28,8 +28,7 @@ if($status==false){
   $error = $stmt->errorInfo();
   exit("SQLError:".$error[2]);
 }else{
-  header("Location: schedule.php");//半角スペースが必須
+  header("Location: host_index.php");//半角スペースが必須
   exit();
 }
 ?>
-
