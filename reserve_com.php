@@ -1,4 +1,9 @@
 <?php
+require("db_set/db.php");
+require("./funcs.php");
+session_start();
+
+
 $reservation_id=$_POST["reservation_id"];
 $reserve_flag=$_POST["reserve_flag"];
 
