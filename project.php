@@ -1,18 +1,11 @@
 <?php
-// session_start();
 
 require("db_set/db.php");
+require_once 'funcs.php';
+session_start();
+$user_id = $_SESSION["user_id"];
+$name= $_SESSION["name"];
 
-// require_once 'funcs.php';
-// sschk();
-// $pdo = connectDB();
-// $id = $_SESSION["id"];
-
-// $sql = 'SELECT * FROM users WHERE id = :id LIMIT 1';
-// $stmt = $pdo->prepare($sql);
-// $stmt->bindValue(':id', $id, PDO::PARAM_INT);
-// $stmt->execute();
-// $result = $stmt->fetch();
 ?>
 
 
@@ -57,14 +50,14 @@ require("db_set/db.php");
 
 								<!-- Trip Proposal -->
 					<section>
-						<h3>Project Input Form I</h3>
+						<h3>Project Input Form</h3>
 						<div>
 							<section>
 								<form method="POST" action="project_insert.php" enctype="multipart/form-data">
 									<div>
 										<div>
-											<label for="user_id">User ID</label>
-											<input type="text" name="user_id" id="user_id" value="1" />
+											<input type="hidden" name="user_id" id="user_id" value="1" />
+											<!-- <input type="hidden" name="user_id" id="user_id" value="<?= $_SESSION["user_id"]?>" /> -->
 										</div>
 										<div>
 											<label for="title">Title</label>

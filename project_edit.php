@@ -1,7 +1,11 @@
 <?php
-// session_start();
 
 require("db_set/db.php");
+require_once 'funcs.php';
+session_start();
+$user_id = $_SESSION["user_id"];
+$name= $_SESSION["name"];
+
 $project_id = filter_input( INPUT_GET, "id" );
 
 
@@ -65,8 +69,7 @@ $result = $stmt->fetch();
 								<form method="POST" action="project_update.php" enctype="multipart/form-data">
 									<div>
 										<div>
-											<label for="user_id">User ID</label>
-											<input type="text" name="user_id" id="user_id" value="<?=$result["user_id"] ?>" />
+											<input type="hidden" name="user_id" id="user_id" value="<?=$result["user_id"] ?>" />
 										</div>
 										<div>
 											<label for="title">Title</label>
@@ -103,7 +106,7 @@ $result = $stmt->fetch();
 										<div>
 											<input type="hidden" name="project_id" id="project_id" value="<?=$result["project_id"] ?>" />
 										</div>
-										
+
 											<div id="dragDropArea">
 												<div class="drag-drop-inside">
 													<p class="drag-drop-info">Project Photo <br>drag & drop</p>
