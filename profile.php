@@ -98,7 +98,7 @@ $val = $res->fetch();
                 <div class="sex">
                     <?= $val["sex"] ?>
                 </div>
-                <?php foreach ($res as $profile): ?>
+                <?php foreach ($stmt as $profile): ?>
                 <div>住んでいる国</div>
                 <div class="country">
                     <?= $profile["country"] ?>

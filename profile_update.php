@@ -24,16 +24,20 @@ $country = $_POST["country"];
 $user_area = $_POST["user_area"];
 
 //アップデートの実行
-$sql = "UPDATE users SET nickname=:nickname, birthdate=:birthdate, sex=:sex, introduction=:introduction, country=:country, user_area=:user_area WHERE user_id=:user_id";
-$stmt = $pdo->prepare($sql);
-$stmt->bindValue(':user_id', $user_id, PDO::PARAM_INT);  //Integer（数値の場合 PDO::PARAM_INT)
-$stmt->bindValue(':nickname', $nickname, PDO::PARAM_STR);  //Integer（数値の場合 PDO::PARAM_INT)
-$stmt->bindValue(':birthdate', $birthdate, PDO::PARAM_STR);  //Integer（数値の場合 PDO::PARAM_INT)
-$stmt->bindValue(':sex', $sex, PDO::PARAM_STR);  //Integer（数値の場合 PDO::PARAM_INT)
-$stmt->bindValue(':introduction', $introduction, PDO::PARAM_STR);  //Integer（数値の場合 PDO::PARAM_INT)
-$stmt->bindValue(':country', $country, PDO::PARAM_STR);  //Integer（数値の場合 PDO::PARAM_INT)
-$stmt->bindValue(':user_area', $user_area, PDO::PARAM_STR);  //Integer（数値の場合 PDO::PARAM_INT)
-$status = $stmt->execute();
+if ($_POST["nickname"] !== "" && $_POST["birthdate"] !=="" && $_POST["introduction"] !=="" && $_POST["country"] !=="" && $_POST["user_area"] !=="") {
+    $sql = "UPDATE users SET nickname=:nickname, birthdate=:birthdate, sex=:sex, introduction=:introduction, country=:country, user_area=:user_area WHERE user_id=:user_id";
+    $stmt = $pdo->prepare($sql);
+    $stmt->bindValue(':user_id', $user_id, PDO::PARAM_INT);  //Integer（数値の場合 PDO::PARAM_INT)
+    $stmt->bindValue(':nickname', $nickname, PDO::PARAM_STR);  //Integer（数値の場合 PDO::PARAM_INT)
+    $stmt->bindValue(':birthdate', $birthdate, PDO::PARAM_STR);  //Integer（数値の場合 PDO::PARAM_INT)
+    $stmt->bindValue(':sex', $sex, PDO::PARAM_STR);  //Integer（数値の場合 PDO::PARAM_INT)
+    $stmt->bindValue(':introduction', $introduction, PDO::PARAM_STR);  //Integer（数値の場合 PDO::PARAM_INT)
+    $stmt->bindValue(':country', $country, PDO::PARAM_STR);  //Integer（数値の場合 PDO::PARAM_INT)
+    $stmt->bindValue(':user_area', $user_area, PDO::PARAM_STR);  //Integer（数値の場合 PDO::PARAM_INT)
+    $status = $stmt->execute();
+} else {
+    redirect("profile_edit.php");
+}
 
 //画像が添付されなければ既存の画像を保持するように分岐処理
 if (isset($_FILES["user_img"]) && $_FILES["user_img"]["error"] == UPLOAD_ERR_OK) {
