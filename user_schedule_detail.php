@@ -61,10 +61,10 @@ if ($status == false) {
     <p><img src="project_img/<?= $row["project_img"] ?>" width="200"></p>
     <div>
       <p><?= $row["title"] ?></p>
-      <p>開催日時：<?= $row["date"]." ". $row["reservation_time"] ?></p>
+      <p>開催日時：<?= $row["date"] . " " . $row["reservation_time"] ?></p>
       <!-- <p><?= $row["reservation_time"] ?></p> -->
       <p>カテゴリー：<?= $row["category"] ?></p>
-      <p>案内場所：<?= $row["country"]." ". $row["project_area"] ?></p>
+      <p>案内場所：<?= $row["country"] . " " . $row["project_area"] ?></p>
       <!-- <p><?= $row["project_area"] ?></p> -->
       <p>体験の内容：<?= $row["experience"] ?></p>
       <p>ホストの思い：<?= $row["thoughts"] ?></p>
