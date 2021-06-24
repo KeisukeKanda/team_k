@@ -56,11 +56,11 @@ if ($state==false) {
                             こんにちは、<?= $username ?>
                         </li>
                         <li><a href="profile.php">マイプロフィール</a></li>
-                        <li><a href="">予約一覧</a></li>
+                        <li><a href="user_schedule.php">予約一覧</a></li>
 
                         <!-- ログインユーザーがすでにhost登録した場合のみ表示 -->
                         <?php if ($val["host"] == 1): ?>
-                        <li><a href="">ホスト管理画面</a></li>
+                        <li><a href="host_index.php">ホスト管理画面</a></li>
                         <?php endif; ?>
 
                         <li><a href="auth/logout.php">ログアウト</a></li>
