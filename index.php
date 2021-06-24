@@ -5,12 +5,27 @@ session_start();
 require("./db_set/db.php");
 require("funcs.php");
 
+// ログインしてるユーザー名とIDを取得
 $username = $_SESSION["name"];
 $user_id = $_SESSION["user_id"];
 
+// projectテーブルと接続
 $sql = "SELECT * FROM project";
 $stmt = $pdo->prepare($sql);
 $status = $stmt->execute();
+
+//usersテーブルと接続
+$sql = "SELECT * FROM users WHERE user_id=:user_id";
+$res = $pdo->prepare($sql);
+$res->bindValue(':user_id', $user_id, PDO::PARAM_INT);  //Integer（数値の場合 PDO::PARAM_INT)
+$state = $res->execute();
+$val = $res->fetch();
+
+if ($state==false) {
+    $error = $res->errorInfo();
+    exit("SQLError:".$error[2]);
+}
+
 
 ?>
 
@@ -42,7 +57,12 @@ $status = $stmt->execute();
                         </li>
                         <li><a href="profile.php">マイプロフィール</a></li>
                         <li><a href="">予約一覧</a></li>
+
+                        <!-- ログインユーザーがすでにhost登録した場合のみ表示 -->
+                        <?php if ($val["host"] == 1): ?>
                         <li><a href="">ホスト管理画面</a></li>
+                        <?php endif; ?>
+
                         <li><a href="auth/logout.php">ログアウト</a></li>
                         <?php endif; ?>
                     </ul>
