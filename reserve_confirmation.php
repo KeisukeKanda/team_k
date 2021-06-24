@@ -3,8 +3,9 @@ require("db_set/db.php");
 require("./funcs.php");
 session_start();
 
-// とりあえずGETで取ることを想定
-$reservation_id=$_GET["reservation_id"];
+// POSTで取ることを想定
+$reservation_id=$_POST["reservation_id"];
+$user_id=$_SESSION["user_id"];
 
 
 // reservationテーブルから呼び出す予約日時を呼び出して表示
@@ -37,9 +38,15 @@ sql_error($stmt);
 
 
     <form action="reserve_com.php" method="post">
+<<<<<<< HEAD
         <input type="hidden" name="reserve_flag" value="1">
         <input type="hidden" name="reservation_time" value="<?=$res["reservation_time"]?>">
         <input type="submit" value="はい">
+=======
+    <input type="hidden" name="reservation_id" value="<?=$res["reservation_id"]?>">
+    <input type="hidden" name="user_id" value="<?=$res["user_id"]?>">
+    <input type="submit" value="予約完了">
+>>>>>>> 84-reserve_confirmphp
     </form>
 </body>
 </html>
