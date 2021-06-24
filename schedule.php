@@ -1,25 +1,19 @@
 <?php
-// session_start();
 
 require("db_set/db.php");
+require_once 'funcs.php';
+session_start();
+$user_id = $_SESSION["user_id"];
+$name= $_SESSION["name"];
+
 $project_id = filter_input( INPUT_GET, "id" );
-
-// require_once 'funcs.php';
-// sschk();
-// $pdo = connectDB();
-// $id = $_SESSION["id"];
-
-// $sql = 'SELECT * FROM users WHERE id = :id LIMIT 1';
-// $stmt = $pdo->prepare($sql);
-// $stmt->bindValue(':id', $id, PDO::PARAM_INT);
-// $stmt->execute();
-// $result = $stmt->fetch();
 
 //******************************************* */
 //               予約設定表示
 //******************************************* */
 
 	$sql="SELECT*FROM reservation WHERE user_id=1 AND reserve_flag=0 ORDER BY date ASC";
+	// $sql="SELECT*FROM reservation WHERE user_id=$_SESSION["user_id"] AND reserve_flag=0 ORDER BY date ASC";
 	$stmt=$pdo->prepare($sql);
 	$status=$stmt->execute();
 	$view="";
@@ -38,6 +32,7 @@ $project_id = filter_input( INPUT_GET, "id" );
 //******************************************* */
 
 	$sql="SELECT*FROM reservation WHERE user_id=1 AND reserve_flag=1 ORDER BY date ASC";
+	// $sql="SELECT*FROM reservation WHERE user_id=$_SESSION["user_id"] AND reserve_flag=1 ORDER BY date ASC";
 	$stmt=$pdo->prepare($sql);
 	$status=$stmt->execute();
 	$view2="";
@@ -45,7 +40,7 @@ $project_id = filter_input( INPUT_GET, "id" );
 		sql_error($stmt);
 	}else{
 			while( $result = $stmt->fetch(PDO::FETCH_ASSOC)){
-			$view2.='<div> Project'.$result["project_id"].' on '.$result["date"].' at '.$result["reservation_time"].'　　?さんが予約した</div><br>';}
+			$view2.='<div> Project'.$result["project_id"].' on '.$result["date"].' at '.$result["reservation_time"].' by '.$result["user_id"].'さんが予約した</div><br>';}
 	}
 
 
@@ -70,10 +65,6 @@ $project_id = filter_input( INPUT_GET, "id" );
 							<section>
 								<form method="POST" action="schedule_insert.php" enctype="multipart/form-data">
 									<div>
-										<div>
-											<label for="user_id">User ID</label>
-											<input type="text" name="user_id" id="user_id" value="1" />
-										</div>
 										<div>
 											<label for="project_id">Project ID</label>
 											<input type="text" name="project_id" id="project_id" value="<?= $project_id  ?>" />

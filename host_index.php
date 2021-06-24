@@ -1,24 +1,18 @@
 <?php
-// session_start();
 
 require("db_set/db.php");
-// require_once 'funcs.php';
-// sschk();
-// $pdo = connectDB();
-// $id = $_SESSION["id"];
+require_once 'funcs.php';
+session_start();
+$user_id = $_SESSION["user_id"];
+$name= $_SESSION["name"];
 
-// $sql = 'SELECT * FROM users WHERE id = :id LIMIT 1';
-// $stmt = $pdo->prepare($sql);
-// $stmt->bindValue(':id', $id, PDO::PARAM_INT);
-// $stmt->execute();
-// $result = $stmt->fetch();
 
 //******************************************* */
 //               予約設定表示
 //******************************************* */
 
 	$sql="SELECT*FROM project WHERE user_id=1";
-	// $sql="SELECT*FROM reservation WHERE user_id=1 AND reserve_flag=1 ORDER BY date ASC";
+	// $sql="SELECT*FROM project WHERE user_id=$_SESSION["user_id"]";
 	$stmt=$pdo->prepare($sql);
 	$status=$stmt->execute();
 	$view="";
@@ -42,6 +36,7 @@ require("db_set/db.php");
 //******************************************* */
 
 	$sql="SELECT*FROM reservation WHERE user_id=1 ORDER BY date ASC";
+	// $sql="SELECT*FROM reservation WHERE user_id=$_SESSION["user_id"] ORDER BY date ASC";
 	$stmt=$pdo->prepare($sql);
 	$status=$stmt->execute();
 	$view2="";
@@ -49,7 +44,10 @@ require("db_set/db.php");
 		sql_error($stmt);
 	}else{
 			while( $result = $stmt->fetch(PDO::FETCH_ASSOC)){
-			$view2.='<div> Project'.$result["project_id"].' on '.$result["date"].' at '.$result["reservation_time"].'</div><br>';}
+			$view2.='<div> Project'.$result["project_id"].' on '.$result["date"].' at '.$result["reservation_time"].'  '.
+			'<a href="schedule_edit.php?id='.$result["reservation_id"].'">edit</a>'.'  '.
+			'<a href="schedule_delete.php?id='.$result["reservation_id"].'">delete</a>'.
+			'</div><br>';}
 	}
 
 	//******************************************* */
@@ -57,6 +55,7 @@ require("db_set/db.php");
 //******************************************* */
 
 	$sql="SELECT*FROM reservation WHERE user_id=1 AND reserve_flag=1 ORDER BY date ASC";
+	// $sql="SELECT*FROM reservation WHERE user_id=$_SESSION["user_id"] AND reserve_flag=1 ORDER BY date ASC";
 	$stmt=$pdo->prepare($sql);
 	$status=$stmt->execute();
 	$view3="";
@@ -64,7 +63,7 @@ require("db_set/db.php");
 		sql_error($stmt);
 	}else{
 			while( $result = $stmt->fetch(PDO::FETCH_ASSOC)){
-			$view3.='<div> Project'.$result["project_id"].' on '.$result["date"].' at '.$result["reservation_time"].'??さんが予約した</div><br>';}
+			$view3.='<div> Project'.$result["project_id"].' on '.$result["date"].' at '.$result["reservation_time"].' by '.$result["user_id"].'さんが予約した</div><br>';}
 	}
 
 ?>
@@ -90,6 +89,7 @@ require("db_set/db.php");
 									<div>
 										<div>
 											<input type="hidden" name="user_id" id="user_id" value="1" />
+											<!-- <input type="hidden" name="user_id" id="user_id" value="<?= $_SESSION["user_id"] ?>" /> -->
 										</div>
 									<div class="actions">
 										<input type="submit" value="Create Project" />
