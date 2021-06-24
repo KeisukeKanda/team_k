@@ -5,7 +5,7 @@ session_start();
 
      
 //受け取り(GETで受けるかPOSTで受けるか未定だがとりあえず作成)
-$user_id=intval($_GET["user_id"]);//これはホストではなく申込者のID
+$user_id=$_SESSION["user_id"];//これはホストではなく申込者のID
 $project_id=$_GET["project_id"];//index.phpから選択したプロジェクトをIDベースで引き継ぎ（セッションで記載しているがpostでもgetでもでもOK）
 
 
@@ -51,8 +51,9 @@ if($status2==false){
   sql_error($stmt2);
 }else{
     while( $res2 = $stmt2->fetch(PDO::FETCH_ASSOC)){
-    $view.='<p class=""><a href="reserve_confirmation.php?user_id='.$user_id.'&?reservation_id='.
-    $res2["reservation_id"].'">'.$res2["date"].'  '.$res2["reservation_time"].'時'.'</a>'.'</p><br>';}
+    $view.='<form action="reserve_confirmation.php" method="post">
+    <p>'.$res2["date"].'  '.$res2["reservation_time"].'時'.'</p><input type="submit" value="申込み">
+    </form><br>';}
 }
 
 
