@@ -6,7 +6,7 @@ session_start();
      
 //受け取り(GETで受けるかPOSTで受けるか未定だがとりあえず作成)
 $user_id=intval($_GET["user_id"]);//これはホストではなく申込者のID
-$project_id=$_SESSION["project_id"];//index.phpから選択したプロジェクトをIDベースで引き継ぎ（セッションで記載しているがpostでもgetでもでもOK）
+$project_id=$_GET["project_id"];//index.phpから選択したプロジェクトをIDベースで引き継ぎ（セッションで記載しているがpostでもgetでもでもOK）
 
 
 
@@ -35,8 +35,8 @@ sql_error($stmt);
 
 
 
-// 予約可能日時が一覧で表示された方が良いかも（従来別ページを想定していた。以下phpを記載。reserve_flagは後で定義確認）
-$sql2="SELECT*FROM reservation WHERE project_id=:project_id AND reserve_flag=1";
+// 予約可能日時が一覧で表示された方が良いかも（従来別ページを想定していた。以下phpを記載。reserve_flagは　0=「空き」、1=「予約が入った」、2=「サービス提供完了」）
+$sql2="SELECT*FROM reservation WHERE project_id=:project_id AND reserve_flag=0";
 $stmt2=$pdo->prepare($sql2);
 $stmt2->bindValue(':project_id',$project_id,PDO::PARAM_INT);
 $status2=$stmt2->execute();
@@ -51,7 +51,7 @@ if($status2==false){
   sql_error($stmt2);
 }else{
     while( $res2 = $stmt2->fetch(PDO::FETCH_ASSOC)){
-    $view.='<p class=""><a href="reserve_insert.php?reservation_id='.
+    $view.='<p class=""><a href="reserve_confirmation.php?user_id='.$user_id.'&?reservation_id='.
     $res2["reservation_id"].'">'.$res2["date"].'  '.$res2["reservation_time"].'時'.'</a>'.'</p><br>';}
 }
 
