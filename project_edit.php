@@ -2,17 +2,19 @@
 // session_start();
 
 require("db_set/db.php");
+$project_id = filter_input( INPUT_GET, "id" );
+
 
 // require_once 'funcs.php';
 // sschk();
 // $pdo = connectDB();
 // $id = $_SESSION["id"];
 
-// $sql = 'SELECT * FROM users WHERE id = :id LIMIT 1';
-// $stmt = $pdo->prepare($sql);
-// $stmt->bindValue(':id', $id, PDO::PARAM_INT);
-// $stmt->execute();
-// $result = $stmt->fetch();
+$sql = 'SELECT * FROM project WHERE project_id = :project_id LIMIT 1';
+$stmt = $pdo->prepare($sql);
+$stmt->bindValue(':project_id', $project_id, PDO::PARAM_INT);
+$stmt->execute();
+$result = $stmt->fetch();
 ?>
 
 
@@ -57,48 +59,51 @@ require("db_set/db.php");
 
 								<!-- Trip Proposal -->
 					<section>
-						<h3>Project Input Form</h3>
+						<h3>Project Edit Form</h3>
 						<div>
 							<section>
-								<form method="POST" action="project_insert.php" enctype="multipart/form-data">
+								<form method="POST" action="project_update.php" enctype="multipart/form-data">
 									<div>
 										<div>
 											<label for="user_id">User ID</label>
-											<input type="text" name="user_id" id="user_id" value="1" />
+											<input type="text" name="user_id" id="user_id" value="<?=$result["user_id"] ?>" />
 										</div>
 										<div>
 											<label for="title">Title</label>
-											<input type="text" name="title" id="title" value="aaa" />
+											<input type="text" name="title" id="title" value="<?=$result["title"] ?>" />
 										</div>
 										<div>
 											<label for="category">Category</label>
-											<input type="text" name="category" id="category" value="aaa" />
+											<input type="text" name="category" id="category" value="<?=$result["category"] ?>" />
 										</div>
 										<div>
 											<label for="country">Country</label>
-											<input type="text" name="country" id="country" value="aaa" />
+											<input type="text" name="country" id="country" value="<?=$result["country"] ?>" />
 										</div>
 										<div>
 											<label for="project_area">Area</label>
-											<input type="text" name="project_area" id="project_area" value="aaa" />
+											<input type="text" name="project_area" id="project_area" value="<?=$result["project_area"] ?>" />
 										</div>
 										<div>
 											<label for="experience">Experience</label>
-											<input type="text" name="experience" id="experience" value="aaa" />
+											<input type="text" name="experience" id="experience" value="<?=$result["experience"] ?>" />
 										</div>
 										<div>
 											<label for="thoughts">Thoughts</label>
-											<input type="text" name="thoughts" id="thoughts" value="aaa" />
+											<input type="text" name="thoughts" id="thoughts" value="<?=$result["thoughts"] ?>" />
 										</div>
 										<div>
 											<label for="tour_time">Tour Time</label>
-											<input type="text" name="tour_time" id="tour_time" value="1" />
+											<input type="text" name="tour_time" id="tour_time" value="<?=$result["tour_time"] ?>" />
 										</div>
 										<div>
 											<label for="price">Price</label>
-											<input type="text" name="price" id="price" value="1000" />
+											<input type="text" name="price" id="price" value="<?=$result["price"] ?>" />
 										</div>
-
+										<div>
+											<input type="hidden" name="project_id" id="project_id" value="<?=$result["project_id"] ?>" />
+										</div>
+										
 											<div id="dragDropArea">
 												<div class="drag-drop-inside">
 													<p class="drag-drop-info">Project Photo <br>drag & drop</p>
@@ -110,7 +115,7 @@ require("db_set/db.php");
 											</div>
 
 									<ul class="actions">
-										<li><input type="submit" value="Propose" /></li>
+										<li><input type="submit" value="Edit" /></li>
 										<li><input type="reset" value="Clear" /></li>
 									</ul>
 								</form>
