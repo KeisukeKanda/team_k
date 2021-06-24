@@ -28,9 +28,9 @@ $_SESSION['csrfToken'] = $csrfToken;
         <div class="box">
             <form action="login_act.php" method="post">
                 <label>ユーザーID</label>
-                <input type="text" name="login_id">
+                <input type="text" name="login_id" required>
                 <label>パスワード</label>
-                <input type="password" name="password">
+                <input type="password" name="password" required>
                 <input type='hidden' name='csrfToken'
                     value='<?= $csrfToken ?>'>
                 <input type="submit" value="送信">
