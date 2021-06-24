@@ -40,7 +40,9 @@ $status = $stmt->execute();
                         <li>
                             こんにちは、<?= $username ?>
                         </li>
-                        <li><a href="profile.php">マイページ</a></li>
+                        <li><a href="profile.php">マイプロフィール</a></li>
+                        <li><a href="">予約一覧</a></li>
+                        <li><a href="">ホスト管理画面</a></li>
                         <li><a href="auth/logout.php">ログアウト</a></li>
                         <?php endif; ?>
                     </ul>
