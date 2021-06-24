@@ -40,7 +40,9 @@ $status = $stmt->execute();
                         <li>
                             こんにちは、<?= $username ?>
                         </li>
-                        <li><a href="profile.php">マイページ</a></li>
+                        <li><a href="profile.php">マイプロフィール</a></li>
+                        <li><a href="">予約一覧</a></li>
+                        <li><a href="">ホスト管理画面</a></li>
                         <li><a href="auth/logout.php">ログアウト</a></li>
                         <?php endif; ?>
                     </ul>
@@ -65,8 +67,12 @@ $status = $stmt->execute();
                 <?php foreach ($stmt as $content): ?>
                 <div class="content">
                     <div class="content-img">
-                        <img src='<?= $content["project_img"] ?>'
-                            alt=''>
+                        <!-- projectの画像と文字に詳細画面へのリンクを付与
+                        URLでuser_idとproject_idを遷移先ページへと引き渡す-->
+                        <a href="./selected_project.php?user_id=<?= $user_id ?>&project_id=<?= $content['project_id'] ?>
+                            ">
+                            <img src='<?= $content["project_img"] ?>'
+                                alt="体験できるプロジェクトの画像">
                     </div>
                     <div class="content-title">
                         <?= $content["title"] ?>
@@ -74,6 +80,7 @@ $status = $stmt->execute();
                     <div class="content-text">
                         <?= $content["experience"] ?>
                     </div>
+                    </a>
                 </div>
                 <?php endforeach; ?>
             </div>
