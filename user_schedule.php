@@ -36,19 +36,19 @@ if ($status == false) {
   // $project_id = $res["project_id"];
   //Selectデータの数だけ自動でループしてくれる
   while ($res = $stmt->fetch(PDO::FETCH_ASSOC)) {
-    $view .= '<li class="user_reservation_list">';
-    $view .= '<p>' . $res["date"] . "|" . $res["reservation_time"] . '</p>';
-    $view .= '<p><img src="project_image' . $res["project_img"] . '" alt="" width="200"></p>';
-    $view .= '<p>' . $res["title"] . '</p>';
-    $view .= '<p>' . $res["category"] . '</p>';
-    $view .= '<p>' . $res["country"] . '</p>';
-    $view .= '<p>' . $res["project_area"] . '</p>';
-    $view .= '<p>' . $res["experience"] . '</p>';
-    $view .= '<p>' . $res["thoughts"] . '</p>';
-    $view .= '<p>' . $res["tour_time"] . '</p>';
-    $view .= '<p>' . $res["price"] . '</p>';
-    $view .= '<a href="user_schedule_detail.php?id=' . $res["project_id"] . '">詳細</a>';
-    $view .= '</li>';
+    $view .= '<div class="user_reservation_list">';
+    $view .= '<p>開催日時：' . $res["date"] . " " . $res["reservation_time"] . " " . $res["title"]. '</p>';
+    // $view .= '<p><img src="project_image' . $res["project_img"] . '" alt="" width="200"></p>';
+    // $view .= '<p>' . $res["title"] . '</p>';
+    // $view .= '<p>' . $res["category"] . '</p>';
+    $view .= '<p>案内場所：' . $res["country"] . " " . $res["project_area"] . '</p>';
+    // $view .= '<p>' . $res["project_area"] . '</p>';
+    // $view .= '<p>' . $res["experience"] . '</p>';
+    // $view .= '<p>' . $res["thoughts"] . '</p>';
+    // $view .= '<p>' ."ツアー時間:". $res["tour_time"] . "時間".'</p>';
+    // $view .= '<p>' ."料金". $res["price"] . "円".'</p>';
+    $view .= '<a href="user_schedule_detail.php?reservation_id=' . $res["reservation_id"] . '">詳細</a>';
+    $view .= '</div>';
   }
 }
 
@@ -64,6 +64,7 @@ if ($status == false) {
 </head>
 
 <body>
+<h1>予約一覧</h1>
   <div><?= $view ?></div>
 </body>
 
