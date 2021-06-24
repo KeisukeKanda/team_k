@@ -19,7 +19,7 @@ $username = $_SESSION["name"];
 $user_id = $_SESSION["user_id"];
 
 //usersテーブルと接続
-$sql = "SELECT * FROM users WHERE user_id=:user_id";
+$sql = "SELECT * FROM users AS u INNER JOIN country AS c ON u.country=c.country_id INNER JOIN japan AS j ON u.user_area=j.japan_id WHERE user_id=:user_id";
 $stmt = $pdo->prepare($sql);
 $stmt->bindValue(':user_id', $user_id, PDO::PARAM_INT);  //Integer（数値の場合 PDO::PARAM_INT)
 $status = $stmt->execute();
@@ -70,7 +70,7 @@ if ($status==false) {
                 <div>プロフィール画像</div>
                 <div class="user_img">
                     <img src="<?= $profile["user_img"] ?>"
-                        alt="">
+                        alt="ユーザープロフィール画像">
                 </div>
                 <div>ニックネーム</div>
                 <div class="nickname">
@@ -90,7 +90,7 @@ if ($status==false) {
                 </div>
                 <div>住んでいるエリア</div>
                 <div class="user_area">
-                    <?= $profile["user_area"] ?>
+                    <?= $profile["japan_area"] ?>
                 </div>
                 <div>自己紹介</div>
                 <div class="introduction">
