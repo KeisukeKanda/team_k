@@ -51,7 +51,7 @@ if (!empty($_POST["name"] && $_POST["email"] && $_POST["password"]) && mb_strlen
                 } else {
                     $_SESSION["name"] = $u_name;
                     $_SESSION["chk_ssid"] = session_id();
-                    redirect("../index_login.php");
+                    redirect("../index.php");
                     exit();
                 }
             }
