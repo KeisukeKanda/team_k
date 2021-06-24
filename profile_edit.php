@@ -73,19 +73,19 @@ for ($i=1; $i <= 31; $i++) {
                     <select name="month"><?= $month ?></select>
                     <select name="day"><?= $day ?></select> -->
                     <div>性別</div>
-                    <input type="radio" name="sex" value="男" checked="checked" />男
-                    <input type="radio" name="sex" value="女" />女
+                    <input type="radio" name="sex" value="men" checked="checked" />men
+                    <input type="radio" name="sex" value="women" />women
                     <div>住んでいる国</div>
                     <select name="country">
                         <option value=""></option>
-                        <option value="日本">日本</option>
-                        <option value="中国">中国</option>
+                        <option value="1">日本</option>
+                        <option value="2">中国</option>
                     </select>
                     <div>住んでいるエリア</div>
                     <select name="user_area">
                         <option value=""></option>
-                        <option value="東京">東京</option>
-                        <option value="大阪">大阪</option>
+                        <option value="1">東京</option>
+                        <option value="2">大阪</option>
                     </select>
                     <div>自己紹介</div>
                     <textarea name="introduction"></textarea><br>
