@@ -19,10 +19,16 @@ if (!isset($_SESSION["chk_ssid"]) || $_SESSION["chk_ssid"] != session_id()) {
 $username = $_SESSION["name"];
 $user_id = $_SESSION["user_id"];
 
+if (!isset($_GET["reservation_id"]) || $_GET["reservation_id"] == "") {
+  exit("ParamError!");
+} else {
+  $reservation_id = intval($_GET["reservation_id"]); //intval数値変換
+}
+
 //２．データ抽出SQL作成
-$sql = "SELECT * FROM reservation AS r INNER JOIN project AS p ON r.project_id = p.project_id  WHERE r.user_id=:user_id";
+$sql = "SELECT * FROM reservation AS r INNER JOIN project AS p ON r.project_id = p.project_id  WHERE reservation_id=:reservation_id";
 $stmt = $pdo->prepare($sql);
-$stmt->bindValue(":user_id", $user_id, PDO::PARAM_INT);
+$stmt->bindValue(":reservation_id", $reservation_id, PDO::PARAM_INT);
 $status = $stmt->execute();
 
 
@@ -33,20 +39,7 @@ if ($status == false) {
   $error = $stmt->errorInfo();
   exit("ErrorQuery:" . $error[2]);
 } else {
-    $res = $stmt->fetch(PDO::FETCH_ASSOC);
-    $view .= '<li class="user_reservation_list">';
-    $view .= '<p>' . $res["date"] . "|" . $res["reservation_time"] . '</p>';
-    $view .= '<p><img src="project_image' . $res["project_img"] . '" alt="" width="200"></p>';
-    $view .= '<p>' . $res["title"] . '</p>';
-    $view .= '<p>' . $res["category"] . '</p>';
-    $view .= '<p>' . $res["country"] . '</p>';
-    $view .= '<p>' . $res["project_area"] . '</p>';
-    $view .= '<p>' . $res["experience"] . '</p>';
-    $view .= '<p>' . $res["thoughts"] . '</p>';
-    $view .= '<p>' . $res["tour_time"] . '</p>';
-    $view .= '<p>' . $res["price"] . '</p>';
-    $view .= '<a href="#?id=' . $res["project_id"] . '">参加</a>';
-    $view .= '</li>';
+  $row = $stmt->fetch();
 }
 
 
@@ -62,19 +55,27 @@ if ($status == false) {
 </head>
 
 <body>
-  <div><?= $view ?></div>
-  <!-- <li class="user_reservation_list">
-    <p>date."|".reservation_time</p>
-    <p><img src="" alt=""></p>
-    <p>title</p>
-    <p>category</p>
-    <p>country</p>
-    <p>project_area</p>
-    <p>experience</p>
-    <p>thoughts</p>
-    <p>tour_time</p>
-    <p>price</p>
-  </li> -->
+  <main>
+
+    <!--詳細ページ-->
+    <p><img src="project_img/<?= $row["project_img"] ?>" width="200"></p>
+    <div>
+      <p><?= $row["title"] ?></p>
+      <p>開催日時：<?= $row["date"]." ". $row["reservation_time"] ?></p>
+      <!-- <p><?= $row["reservation_time"] ?></p> -->
+      <p>カテゴリー：<?= $row["category"] ?></p>
+      <p>案内場所：<?= $row["country"]." ". $row["project_area"] ?></p>
+      <!-- <p><?= $row["project_area"] ?></p> -->
+      <p>体験の内容：<?= $row["experience"] ?></p>
+      <p>ホストの思い：<?= $row["thoughts"] ?></p>
+      <p>ツアー時間：<?= $row["tour_time"] ?></p>
+      <p>価格：<?= $row["price"] ?></p>
+    </div>
+    <!--遷移ボタン-->
+    <div>
+      <a href="user_schedule.php">戻る</a>
+      <a href="#skyway">参加</a>
+    </div>
 </body>
 
 </html>
