@@ -10,10 +10,10 @@ $user_id = $_SESSION["user_id"];
 
 //画像アップロード時のファイル名を作成
 $image = date('YmdHis') .$_FILES['user_img']['name'];
-move_uploaded_file($_FILES['user_img']['tmp_name'], './image/' . $image);
+move_uploaded_file($_FILES['user_img']['tmp_name'], './user_img/' . $image);
 
 //ファイル名を代入
-$user_img = './image/'.$image;
+$user_img = './user_img/'.$image;
 
 //profile.phpで送信したフォームの値を取得
 $nickname = $_POST["nickname"];

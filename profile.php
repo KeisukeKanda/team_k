@@ -18,8 +18,12 @@ if (!isset($_SESSION["chk_ssid"]) || $_SESSION["chk_ssid"]!=session_id()) {
 $username = $_SESSION["name"];
 $user_id = $_SESSION["user_id"];
 
-//usersテーブルと接続
-$sql = "SELECT * FROM users AS u INNER JOIN country AS c ON u.country=c.country_id INNER JOIN japan AS j ON u.user_area=j.japan_id WHERE user_id=:user_id";
+//usersテーブルと国と地域のテーブルを接続
+// 国コードと地域コードから国名・地域名をプロフィールに表示させるため
+$sql = "SELECT * FROM users AS u 
+INNER JOIN country AS c ON u.country=c.country_id 
+INNER JOIN japan AS j ON u.user_area=j.japan_id 
+WHERE user_id=:user_id";
 $stmt = $pdo->prepare($sql);
 $stmt->bindValue(':user_id', $user_id, PDO::PARAM_INT);  //Integer（数値の場合 PDO::PARAM_INT)
 $status = $stmt->execute();
@@ -29,6 +33,17 @@ if ($status==false) {
     exit("SQLError:".$error[2]);
 }
 
+// usersテーブルのみを取得
+
+// ※※
+// 上記usersと国・地域コードをINNER JOINしたデータ記述だと、
+// 国コード・地域コード入力前の状態では正しく表示されないためこちらのデータ取得を行う
+// ※※
+$sql = "SELECT * FROM users WHERE user_id=:user_id";
+$res = $pdo->prepare($sql);
+$res->bindValue(':user_id', $user_id, PDO::PARAM_INT);  //Integer（数値の場合 PDO::PARAM_INT)
+$state = $res->execute();
+$val = $res->fetch();
 
 
 ?>
@@ -66,24 +81,24 @@ if ($status==false) {
             <div class="box">
 
                 <!-- プロフィール表示 -->
-                <?php foreach ($stmt as $profile): ?>
                 <div>プロフィール画像</div>
                 <div class="user_img">
-                    <img src="<?= $profile["user_img"] ?>"
+                    <img src="<?= $val["user_img"] ?>"
                         alt="ユーザープロフィール画像">
                 </div>
                 <div>ニックネーム</div>
                 <div class="nickname">
-                    <?= $profile["nickname"] ?>
+                    <?= $val["nickname"] ?>
                 </div>
                 <div>生年月日</div>
                 <div class="birthdate">
-                    <?= $profile["birthdate"] ?>
+                    <?= $val["birthdate"] ?>
                 </div>
                 <div>性別</div>
                 <div class="sex">
-                    <?= $profile["sex"] ?>
+                    <?= $val["sex"] ?>
                 </div>
+                <?php foreach ($res as $profile): ?>
                 <div>住んでいる国</div>
                 <div class="country">
                     <?= $profile["country"] ?>
@@ -92,18 +107,31 @@ if ($status==false) {
                 <div class="user_area">
                     <?= $profile["japan_area"] ?>
                 </div>
+                <?php endforeach; ?>
                 <div>自己紹介</div>
                 <div class="introduction">
-                    <?= $profile["introduction"] ?>
+                    <?= $val["introduction"] ?>
                 </div>
                 <!-- プロフィール表示終わり -->
 
                 <!-- 編集ページへの移動ボタン -->
                 <button><a href="profile_edit.php">編集</a></button>
-                <?php endforeach; ?>
             </div>
         </div>
     </div>
+
+    <!-- ここからsubコンテンツ -->
+    <div class="sub">
+        <div class="sub-box">
+
+            <!-- ログインユーザーがまだhost登録していない場合のみ表示する -->
+            <?php if ($val["host"] == 0): ?>
+            <a href="host_register.php">ホストに登録する</a>
+            <?php endif; ?>
+
+        </div>
+    </div>
+    <!-- subコンテンツここまで -->
 
     <style>
         .user_img {
