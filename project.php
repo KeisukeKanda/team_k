@@ -84,19 +84,19 @@ require("db_set/db.php");
 										</div>
 										<div>
 											<label for="experience">Experience</label>
-											<input type="text" name="experience" id="experience" value="aaa" />
+											<input type="experience" name="experience" id="experience" value="aaa" />
 										</div>
 										<div>
 											<label for="thoughts">Thoughts</label>
-											<input type="text" name="thoughts" id="thoughts" value="aaa" />
+											<input type="thoughts" name="thoughts" id="thoughts" value="aaa" />
 										</div>
 										<div>
 											<label for="tour_time">Tour Time</label>
-											<input type="text" name="tour_time" id="tour_time" value="1" />
+											<input type="tour_time" name="tour_time" id="tour_time" value="1" />
 										</div>
 										<div>
 											<label for="price">Price</label>
-											<input type="text" name="price" id="price" value="1000" />
+											<input type="price" name="price" id="price" value="1000" />
 										</div>
 
 											<div id="dragDropArea">
