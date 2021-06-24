@@ -35,7 +35,7 @@ sql_error($stmt);
 <h1>予約確認</h1>
     <p><?=$res["date"]?></p>
     <p><?=$res["reservation_time"]?>時に予約してもよろしいですか？？</p>
-
+<h1>テストテスｔ</h1>
 
     <form action="reserve_com.php" method="post">
         <input type="hidden" name="reserve_flag" value="1">
