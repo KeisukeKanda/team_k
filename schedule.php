@@ -2,6 +2,8 @@
 // session_start();
 
 require("db_set/db.php");
+$project_id = filter_input( INPUT_GET, "id" );
+
 // require_once 'funcs.php';
 // sschk();
 // $pdo = connectDB();
@@ -74,7 +76,7 @@ require("db_set/db.php");
 										</div>
 										<div>
 											<label for="project_id">Project ID</label>
-											<input type="text" name="project_id" id="project_id" value="1" />
+											<input type="text" name="project_id" id="project_id" value="<?= $project_id  ?>" />
 										</div>
 										<div>
 											<label for="date">Date</label>
