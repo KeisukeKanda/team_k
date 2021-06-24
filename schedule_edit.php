@@ -2,11 +2,12 @@
 // session_start();
 
 require("db_set/db.php");
+require_once 'funcs.php';
+session_start();
+$user_id = $_SESSION["user_id"];
+$name= $_SESSION["name"];
+
 $reservation_id = filter_input( INPUT_GET, "id" );
-// require_once 'funcs.php';
-// sschk();
-// $pdo = connectDB();
-// $id = $_SESSION["id"];
 
 $sql = 'SELECT * FROM reservation WHERE reservation_id = :reservation_id LIMIT 1';
 $stmt = $pdo->prepare($sql);
@@ -36,8 +37,7 @@ $result = $stmt->fetch();
 								<form method="POST" action="schedule_update.php" enctype="multipart/form-data">
 									<div>
 										<div>
-											<label for="user_id">User ID</label>
-											<input type="text" name="user_id" id="user_id" value="<?=$result["user_id"] ?>" />
+											<input type="hidden" name="user_id" id="user_id" value="<?=$result["user_id"] ?>" />
 										</div>
 										<div>
 											<label for="project_id">Project ID</label>
