@@ -75,7 +75,8 @@ if ($status == false) {
     <h1>予約をキャンセルしてもよろしいですか？</h1>
     <form action="user_schedule_update.php" method="post">
       <input type="hidden" name="reservation_id" value="<?= $row["reservation_id"] ?>">
-      <input type="hidden" name="user_id" value="<?= $row["user_id"] ?>">
+      <input type="hidden" name="project_id" value="<?= $row["project_id"] ?>">
+      <input type="hidden" name="user_id" value="NULL">
       <input type="hidden" name="date" value="<?= $row["date"] ?>">
       <input type="hidden" name="reservation_time" value="<?= $row["reservation_time"] ?>">
       <input type="hidden" name="reserve_flag" value="0">
