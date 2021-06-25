@@ -27,10 +27,10 @@ $_SESSION['csrfToken'] = $csrfToken;
     <div class="wrap">
         <div class="box">
             <form action="login_act.php" method="post">
-                <div>ユーザーID</div>
+                <div>ユーザーID（emailアドレス）</div>
                 <input type="text" name="login_id" required>
-                <div>パスワード</div>
-                <input type="password" name="password" required>
+                <div>パスワード（6文字以上）</div>
+                <input type="password" name="password" required pattern="(?=.*\d).{6,}" title="6文字以上のパスワードを入力してください。">
                 <input type='hidden' name='csrfToken'
                     value='<?= $csrfToken ?>'><br>
                 <input type="submit" value="送信">
