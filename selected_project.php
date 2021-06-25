@@ -73,7 +73,7 @@ if($status2==false){
 <body>
 <!-- プロジェクト詳細表示画面 -->
 <h1><?=$res["title"]?></h1>
-<img src='./upload/<?=$res["project_img"];?>'>;
+<img src='./project_img/<?=$res["project_img"];?>'>;
 <p><?=$res["category"]?></p>
 <p><?=$res["country"]?></p>
 <p><?=$res["project_area"]?></p>
