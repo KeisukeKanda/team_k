@@ -20,7 +20,6 @@ sql_error($stmt);
 }else{
     $res = $stmt->fetch(PDO::FETCH_ASSOC);
 }
-
 ?>
 
 
@@ -43,7 +42,7 @@ sql_error($stmt);
         <input type="submit" value="はい">
     <input type="hidden" name="reservation_id" value="<?=$res["reservation_id"]?>">
     <input type="hidden" name="user_id" value="<?=$res["user_id"]?>">
-    <input type="submit" value="予約完了">
+    <input type="submit" value="はい">
     </form>
 </body>
 </html>
