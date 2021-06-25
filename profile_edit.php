@@ -101,12 +101,12 @@ $val = $res->fetch();
                         value="<?= $val['nickname'] ?>"
                         required>
                     <div>生年月日</div>
-                    <!-- <input type="date" name="birthdate"
-                        value="<?= $val['birthdate'] ?>">
-                    -->
-                    <select name="year"><?= $year ?></select>
-                    <select name="month"><?= $month ?></select>
-                    <select name="day"><?= $day ?></select>
+                    <select name="year"
+                        value="<?= $val['year'] ?>"><?= $year ?></select>
+                    <select name="month"
+                        value="<?= $val['month'] ?>"><?= $month ?></select>
+                    <select name="day"
+                        value="<?= $val['day'] ?>"><?= $day ?></select>
                     <div>性別</div>
                     <input type="radio" name="sex" value="men" checked="checked" />men
                     <input type="radio" name="sex" value="women" />women

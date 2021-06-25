@@ -92,7 +92,9 @@ $val = $res->fetch();
                 </div>
                 <div>生年月日</div>
                 <div class="birthdate">
-                    <?= $val["birthdate"] ?>
+                    <?= $val["year"] ?>/
+                    <?= $val["month"] ?>/
+                    <?= $val["day"] ?>
                 </div>
                 <div>性別</div>
                 <div class="sex">
