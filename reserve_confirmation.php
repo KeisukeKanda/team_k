@@ -23,6 +23,7 @@ sql_error($stmt);
 ?>
 
 
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -31,17 +32,13 @@ sql_error($stmt);
     <title>Document</title>
 </head>
 <body>
-<h1>予約確認</h1>
+<h1>予約確認</h1><p>テスト</p>
     <p><?=$res["date"]?></p>
     <p><?=$res["reservation_time"]?>時に予約してもよろしいですか？？</p>
-<h1>テストテスｔ</h1>
-
     <form action="reserve_com.php" method="post">
-        <input type="hidden" name="reserve_flag" value="1">
-        <input type="hidden" name="reservation_time" value="<?=$res["reservation_time"]?>">
-        <input type="submit" value="はい">
     <input type="hidden" name="reservation_id" value="<?=$res["reservation_id"]?>">
     <input type="hidden" name="user_id" value="<?=$res["user_id"]?>">
+    <input type="hidden" name="reserve_flag" value="1">
     <input type="submit" value="はい">
     </form>
 </body>
