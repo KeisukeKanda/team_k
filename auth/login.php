@@ -27,17 +27,22 @@ $_SESSION['csrfToken'] = $csrfToken;
     <div class="wrap">
         <div class="box">
             <form action="login_act.php" method="post">
-                <label>ユーザーID</label>
+                <div>ユーザーID</div>
                 <input type="text" name="login_id" required>
-                <label>パスワード</label>
+                <div>パスワード</div>
                 <input type="password" name="password" required>
                 <input type='hidden' name='csrfToken'
-                    value='<?= $csrfToken ?>'>
+                    value='<?= $csrfToken ?>'><br>
                 <input type="submit" value="送信">
             </form>
+            <div>
+                まだサインインがお済みでない方は
+                <a href="signin.php">こちら</a>
+            </div>
+            <a href="../index.php">戻る</a>
         </div>
     </div>
-
+    <script src="../js/sweetalert2.all.min.js"></script>
 </body>
 
 </html>

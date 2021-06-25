@@ -34,6 +34,11 @@ $_SESSION['csrfToken'] = $csrfToken;
                     value='<?= $csrfToken ?>'>
                 <input type="submit" value="サインイン">
             </form>
+            <div>
+                すでにアカウントがある方は
+                <a href="login.php">こちら</a>
+            </div>
+            <a href="../index.php">戻る</a>
         </div>
     </div>
 
