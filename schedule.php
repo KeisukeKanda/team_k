@@ -12,8 +12,10 @@ $project_id = filter_input( INPUT_GET, "id" );
 //               予約設定表示
 //******************************************* */
 
-	$sql="SELECT*FROM reservation WHERE user_id=1 AND reserve_flag=0 ORDER BY date ASC";
-	// $sql="SELECT*FROM reservation WHERE user_id=$_SESSION["user_id"] AND reserve_flag=0 ORDER BY date ASC";
+	// $sql="SELECT*FROM reservation WHERE user_id=1 AND reserve_flag=0 ORDER BY date ASC";
+	// $sql="SELECT*FROM reservation WHERE user_id=$user_id AND reserve_flag=0 ORDER BY date ASC";
+	$sql="SELECT*FROM reservation AS r JOIN project AS p ON r.project_id = p.project_id WHERE p.user_id=$user_id ORDER BY date ASC";
+
 	$stmt=$pdo->prepare($sql);
 	$status=$stmt->execute();
 	$view="";
@@ -31,8 +33,10 @@ $project_id = filter_input( INPUT_GET, "id" );
 //               予約済み表示
 //******************************************* */
 
-	$sql="SELECT*FROM reservation WHERE user_id=1 AND reserve_flag=1 ORDER BY date ASC";
-	// $sql="SELECT*FROM reservation WHERE user_id=$_SESSION["user_id"] AND reserve_flag=1 ORDER BY date ASC";
+	// $sql="SELECT*FROM reservation WHERE user_id=1 AND reserve_flag=1 ORDER BY date ASC";
+	// $sql="SELECT*FROM reservation WHERE user_id=$user_id AND reserve_flag=1 ORDER BY date ASC";
+	$sql="SELECT*FROM reservation AS r JOIN project AS p ON r.project_id = p.project_id WHERE p.user_id=$user_id AND reserve_flag=1 ORDER BY date ASC";
+
 	$stmt=$pdo->prepare($sql);
 	$status=$stmt->execute();
 	$view2="";

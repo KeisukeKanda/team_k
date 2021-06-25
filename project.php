@@ -56,8 +56,8 @@ $name= $_SESSION["name"];
 								<form method="POST" action="project_insert.php" enctype="multipart/form-data">
 									<div>
 										<div>
-											<input type="hidden" name="user_id" id="user_id" value="1" />
-											<!-- <input type="hidden" name="user_id" id="user_id" value="<?= $_SESSION["user_id"]?>" /> -->
+											<!-- <input type="hidden" name="user_id" id="user_id" value="1" /> -->
+											<input type="hidden" name="user_id" id="user_id" value="<?= $user_id ?>" />
 										</div>
 										<div>
 											<label for="title">Title</label>

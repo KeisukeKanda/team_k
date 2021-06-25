@@ -11,8 +11,8 @@ $name= $_SESSION["name"];
 //               予約設定表示
 //******************************************* */
 
-	$sql="SELECT*FROM project WHERE user_id=1";
-	// $sql="SELECT*FROM project WHERE user_id=$_SESSION["user_id"]";
+	// $sql="SELECT*FROM project WHERE user_id=1";
+	$sql="SELECT*FROM project WHERE user_id=$user_id";
 	$stmt=$pdo->prepare($sql);
 	$status=$stmt->execute();
 	$view="";
@@ -35,8 +35,9 @@ $name= $_SESSION["name"];
 //               予約設定表示
 //******************************************* */
 
-	$sql="SELECT*FROM reservation WHERE user_id=1 ORDER BY date ASC";
-	// $sql="SELECT*FROM reservation WHERE user_id=$_SESSION["user_id"] ORDER BY date ASC";
+	// $sql="SELECT*FROM reservation WHERE user_id=1 ORDER BY date ASC";
+	// $sql="SELECT*FROM reservation WHERE user_id=$user_id ORDER BY date ASC";
+	$sql="SELECT*FROM reservation AS r JOIN project AS p ON r.project_id = p.project_id WHERE p.user_id=$user_id ORDER BY date ASC";
 	$stmt=$pdo->prepare($sql);
 	$status=$stmt->execute();
 	$view2="";
@@ -54,8 +55,10 @@ $name= $_SESSION["name"];
 //               予約済み表示
 //******************************************* */
 
-	$sql="SELECT*FROM reservation WHERE user_id=1 AND reserve_flag=1 ORDER BY date ASC";
-	// $sql="SELECT*FROM reservation WHERE user_id=$_SESSION["user_id"] AND reserve_flag=1 ORDER BY date ASC";
+	// $sql="SELECT*FROM reservation WHERE user_id=1 AND reserve_flag=1 ORDER BY date ASC";
+	// $sql="SELECT*FROM reservation WHERE user_id=$user_id AND reserve_flag=1 ORDER BY date ASC";
+	$sql="SELECT*FROM reservation AS r JOIN project AS p ON r.project_id = p.project_id WHERE p.user_id=$user_id AND reserve_flag=1 ORDER BY date ASC";
+
 	$stmt=$pdo->prepare($sql);
 	$status=$stmt->execute();
 	$view3="";
@@ -88,8 +91,8 @@ $name= $_SESSION["name"];
 								<form method="POST" action="project.php" enctype="multipart/form-data">
 									<div>
 										<div>
-											<input type="hidden" name="user_id" id="user_id" value="1" />
-											<!-- <input type="hidden" name="user_id" id="user_id" value="<?= $_SESSION["user_id"] ?>" /> -->
+											<!-- <input type="hidden" name="user_id" id="user_id" value="1" /> -->
+											<input type="hidden" name="user_id" id="user_id" value="<?= $user_id ?>" />
 										</div>
 									<div class="actions">
 										<input type="submit" value="Create Project" />
