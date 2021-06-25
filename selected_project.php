@@ -52,7 +52,8 @@ if($status2==false){
 }else{
     while( $res2 = $stmt2->fetch(PDO::FETCH_ASSOC)){
     $view.='<form action="reserve_confirmation.php" method="post">
-    <p>'.$res2["date"].'  '.$res2["reservation_time"].'時'.'</p><input type="submit" value="申込み">
+    <p>'.$res2["date"].'  '.$res2["reservation_time"].'時'.'</p><input type="hidden" name="reservation_id" value="'.$res2["reservation_id"].'">'
+    .'<input type="submit" value="申込み">
     </form><br>';}
 }
 
