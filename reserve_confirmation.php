@@ -32,7 +32,7 @@ sql_error($stmt);
     <title>Document</title>
 </head>
 <body>
-<h1>予約確認</h1>
+<h1>予約確認</h1><p>テスト</p>
     <p><?=$res["date"]?></p>
     <p><?=$res["reservation_time"]?>時に予約してもよろしいですか？？</p>
     <form action="reserve_com.php" method="post">
