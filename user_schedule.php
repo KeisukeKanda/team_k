@@ -20,7 +20,7 @@ $username = $_SESSION["name"];
 $user_id = $_SESSION["user_id"];
 
 //２．データ抽出SQL作成
-$sql = "SELECT * FROM reservation AS r INNER JOIN project AS p ON r.project_id = p.project_id  WHERE r.user_id=:user_id ORDER BY date ASC";
+$sql = "SELECT * FROM reservation AS r INNER JOIN project AS p ON r.project_id = p.project_id  WHERE r.user_id=:user_id AND reserve_flag=1 ORDER BY date ASC";
 $stmt = $pdo->prepare($sql);
 $stmt->bindValue(":user_id", $user_id, PDO::PARAM_INT);
 $status = $stmt->execute();
@@ -48,6 +48,7 @@ if ($status == false) {
     // $view .= '<p>' ."ツアー時間:". $res["tour_time"] . "時間".'</p>';
     // $view .= '<p>' ."料金". $res["price"] . "円".'</p>';
     $view .= '<a href="user_schedule_detail.php?reservation_id=' . $res["reservation_id"] . '">詳細</a>';
+    $view .= '<a href="user_schedule_cancel.php?reservation_id=' . $res["reservation_id"] . '">予約のキャンセル</a>';
     $view .= '</div>';
   }
 }
@@ -66,6 +67,7 @@ if ($status == false) {
 <body>
 <h1>予約一覧</h1>
   <div><?= $view ?></div>
+  <div><a href="index.php">ホームへ</a></div>
 </body>
 
 </html>

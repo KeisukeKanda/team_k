@@ -26,7 +26,7 @@ if (!isset($_GET["reservation_id"]) || $_GET["reservation_id"] == "") {
 }
 
 //２．データ抽出SQL作成
-$sql = "SELECT * FROM reservation AS r INNER JOIN project AS p ON r.project_id = p.project_id  WHERE reservation_id=:reservation_id AND reserve_flag=1";
+$sql = "SELECT * FROM reservation AS r INNER JOIN project AS p ON r.project_id = p.project_id  WHERE reservation_id=:reservation_id";
 $stmt = $pdo->prepare($sql);
 $stmt->bindValue(":reservation_id", $reservation_id, PDO::PARAM_INT);
 $status = $stmt->execute();
@@ -72,10 +72,16 @@ if ($status == false) {
       <p>価格：<?= $row["price"] ?></p>
     </div>
     <!--遷移ボタン-->
-    <div>
-      <a href="user_schedule.php">戻る</a>
-      <a href="#skyway">参加</a>
-    </div>
+    <h1>予約をキャンセルしてもよろしいですか？</h1>
+    <form action="user_schedule_update.php" method="post">
+      <input type="hidden" name="reservation_id" value="<?= $row["reservation_id"] ?>">
+      <input type="hidden" name="user_id" value="<?= $row["user_id"] ?>">
+      <input type="hidden" name="date" value="<?= $row["date"] ?>">
+      <input type="hidden" name="reservation_time" value="<?= $row["reservation_time"] ?>">
+      <input type="hidden" name="reserve_flag" value="0">
+      <input type="submit" value="はい">
+    </form>
+    <div><a href="user_schedule.php">戻る</a></div>
 </body>
 
 </html>
