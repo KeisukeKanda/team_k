@@ -17,19 +17,23 @@ $user_img = './user_img/'.$image;
 
 //profile.phpで送信したフォームの値を取得
 $nickname = $_POST["nickname"];
-$birthdate = $_POST["birthdate"];
+$year = $_POST["year"];
+$month = $_POST["month"];
+$day = $_POST["day"];
 $sex = $_POST["sex"];
 $introduction = $_POST["introduction"];
 $country = $_POST["country"];
 $user_area = $_POST["user_area"];
 
 //アップデートの実行
-if ($_POST["nickname"] !== "" && $_POST["birthdate"] !=="" && $_POST["introduction"] !=="" && $_POST["country"] !=="" && $_POST["user_area"] !=="") {
-    $sql = "UPDATE users SET nickname=:nickname, birthdate=:birthdate, sex=:sex, introduction=:introduction, country=:country, user_area=:user_area WHERE user_id=:user_id";
+if ($_POST["nickname"] !== "" &&  $_POST["introduction"] !=="" && $_POST["country"] !=="" && $_POST["user_area"] !=="") {
+    $sql = "UPDATE users SET nickname=:nickname, year=:year, month=:month, day=:day, sex=:sex, introduction=:introduction, country=:country, user_area=:user_area WHERE user_id=:user_id";
     $stmt = $pdo->prepare($sql);
     $stmt->bindValue(':user_id', $user_id, PDO::PARAM_INT);  //Integer（数値の場合 PDO::PARAM_INT)
     $stmt->bindValue(':nickname', $nickname, PDO::PARAM_STR);  //Integer（数値の場合 PDO::PARAM_INT)
-    $stmt->bindValue(':birthdate', $birthdate, PDO::PARAM_STR);  //Integer（数値の場合 PDO::PARAM_INT)
+    $stmt->bindValue(':year', $year, PDO::PARAM_INT);  //Integer（数値の場合 PDO::PARAM_INT)
+    $stmt->bindValue(':month', $month, PDO::PARAM_INT);  //Integer（数値の場合 PDO::PARAM_INT)
+    $stmt->bindValue(':day', $day, PDO::PARAM_INT);  //Integer（数値の場合 PDO::PARAM_INT)
     $stmt->bindValue(':sex', $sex, PDO::PARAM_STR);  //Integer（数値の場合 PDO::PARAM_INT)
     $stmt->bindValue(':introduction', $introduction, PDO::PARAM_STR);  //Integer（数値の場合 PDO::PARAM_INT)
     $stmt->bindValue(':country', $country, PDO::PARAM_STR);  //Integer（数値の場合 PDO::PARAM_INT)
