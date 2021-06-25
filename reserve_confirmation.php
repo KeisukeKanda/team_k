@@ -38,6 +38,7 @@ sql_error($stmt);
     <form action="reserve_com.php" method="post">
     <input type="hidden" name="reservation_id" value="<?=$res["reservation_id"]?>">
     <input type="hidden" name="user_id" value="<?=$res["user_id"]?>">
+    <input type="hidden" name="reserve_flag" value="1">
     <input type="submit" value="はい">
     </form>
 </body>
