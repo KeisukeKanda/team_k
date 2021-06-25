@@ -65,7 +65,7 @@ $name= $_SESSION["name"];
 	}else{
 			while( $result = $stmt->fetch(PDO::FETCH_ASSOC)){
 			$view3.='<div> Project'.$result["project_id"].' on '.$result["date"].' at '.$result["reservation_time"].' by '.$result["name"].'さんが予約した  '.
-			'<a href="#">mail</a>'.'  '.
+			'<a href="mail_input.php">mail</a>'.'  '.
 			'</div><br>';}
 	}
 
