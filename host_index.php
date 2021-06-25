@@ -35,8 +35,6 @@ $name= $_SESSION["name"];
 //               予約設定表示
 //******************************************* */
 
-	// $sql="SELECT*FROM reservation WHERE user_id=1 ORDER BY date ASC";
-	// $sql="SELECT*FROM reservation WHERE user_id=$user_id ORDER BY date ASC";
 	$sql="SELECT*FROM reservation AS r JOIN project AS p ON r.project_id = p.project_id WHERE p.user_id=$user_id ORDER BY date ASC";
 	$stmt=$pdo->prepare($sql);
 	$status=$stmt->execute();
@@ -55,9 +53,9 @@ $name= $_SESSION["name"];
 //               予約済み表示
 //******************************************* */
 
-	// $sql="SELECT*FROM reservation WHERE user_id=1 AND reserve_flag=1 ORDER BY date ASC";
-	// $sql="SELECT*FROM reservation WHERE user_id=$user_id AND reserve_flag=1 ORDER BY date ASC";
-	$sql="SELECT*FROM reservation AS r JOIN project AS p ON r.project_id = p.project_id WHERE p.user_id=$user_id AND reserve_flag=1 ORDER BY date ASC";
+	$sql="SELECT*FROM reservation AS r INNER JOIN project AS p ON r.project_id = p.project_id
+	INNER JOIN users AS u ON r.user_id = u.user_id
+	WHERE p.user_id=$user_id AND reserve_flag=1 ORDER BY date ASC";
 
 	$stmt=$pdo->prepare($sql);
 	$status=$stmt->execute();
@@ -66,7 +64,9 @@ $name= $_SESSION["name"];
 		sql_error($stmt);
 	}else{
 			while( $result = $stmt->fetch(PDO::FETCH_ASSOC)){
-			$view3.='<div> Project'.$result["project_id"].' on '.$result["date"].' at '.$result["reservation_time"].' by '.$result["user_id"].'さんが予約した</div><br>';}
+			$view3.='<div> Project'.$result["project_id"].' on '.$result["date"].' at '.$result["reservation_time"].' by '.$result["name"].'さんが予約した  '.
+			'<a href="#">mail</a>'.'  '.
+			'</div><br>';}
 	}
 
 ?>
@@ -101,6 +101,8 @@ $name= $_SESSION["name"];
 							</section>
 						</div>
 					</section>
+
+          <a href="index.php">メインへ戻る</a>
 
 <!-- ****************************************** -->
 <!--             hostが作ったProjectの一覧 -->
