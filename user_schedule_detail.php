@@ -74,7 +74,7 @@ if ($status == false) {
     <!--遷移ボタン-->
     <div>
       <a href="user_schedule.php">戻る</a>
-      <a href="#skyway">参加</a>
+      <a href="service_main.php?reservation_id=<?= $row["reservation_id"] ?>">参加</a>
     </div>
 </body>
 
