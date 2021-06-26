@@ -21,5 +21,7 @@
     echo "メール送信失敗です";
   }
  ?>
+ <a href="host_index.php">Host Indexへ戻る</a>
+
 </body>
 </html>

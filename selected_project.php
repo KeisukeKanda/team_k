@@ -3,7 +3,7 @@ require("db_set/db.php");
 require("./funcs.php");
 session_start();
 
-     
+
 //受け取り(GETで受けるかPOSTで受けるか未定だがとりあえず作成)
 $user_id=$_SESSION["user_id"];//これはホストではなく申込者のID
 $project_id=$_GET["project_id"];//index.phpから選択したプロジェクトをIDベースで引き継ぎ（セッションで記載しているがpostでもgetでもでもOK）
@@ -58,6 +58,19 @@ if($status2==false){
 }
 
 
+// お気に入りチェック
+$sql3="SELECT*FROM favorites WHERE project_id=:project_id AND user_id=:user_id";
+$stmt3=$pdo->prepare($sql3);
+$stmt3->bindValue(':project_id',$project_id,PDO::PARAM_INT);
+$stmt3->bindValue(':user_id',$user_id,PDO::PARAM_INT);
+$status3=$stmt3->execute();
+
+if($status3==false){
+  sql_error($stmt3);
+}else{
+  $res3 = $stmt3->fetch(PDO::FETCH_ASSOC);
+}
+
 ?>
 
 
@@ -81,7 +94,23 @@ if($status2==false){
 <p><?=$res["thoughts"]?></p>
 <p><?=$res["tour_time"]?></p>
 <p><?=$res["price"]?></p>
+<p><?=$res3 ?></p>
 
+<!-- お気に入り登録 -->
+        <form class="favorite_count" action="favo_add.php" method="post">
+            <input type="hidden" name="project_id"
+                value="<?= $res["project_id"] ?>">
+            <input type="hidden" name="user_id"
+                value="<?= $user_id ?>">
+            <?php if ($res3 != NULL): ?>
+            <p>【お気に入り登録済み】</p>
+            <input type="submit" name="favo" class="favo-btn01" value="登録解除">
+            <?php else: ?>
+            <input type="submit" name="favo" class="favo-btn02" value="お気に入り登録">
+            <?php endif; ?>
+        </form>
+
+          <a href="index.php">メインへ戻る</a>
 
 <!-- 予約可能日時が一覧で表示された方が良いかも（従来別ページを想定していた） -->
 <h1 class="">予約可能日時一覧</h1>
