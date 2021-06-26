@@ -1,0 +1,66 @@
+.wrap {
+  background-color: #f1f1f1;
+  height: 80vh;
+}
+
+h1 {
+  font-size: 24px;
+  font-weight: bold;
+  color: #5c5c5c;
+  /* text-align: center; */
+  padding: 20px 20px;
+  width: 50%;
+  margin: 0 auto;
+}
+
+.user_reservation_list {
+  width: 50%;
+  margin: 0 auto;
+  background-color: white;
+  border-radius: 0.3rem;
+
+}
+
+.project_title {
+  color: #268CB6;
+  font-size: 20px;
+  font-weight: bold;
+  padding: 10px 10px 10px 10px;
+}
+
+.project_contents {
+  padding: 5px 10px 5px 10px;
+}
+
+.project_button {
+  display: flex;
+  justify-content: flex-end;
+  padding: 0 0 10px 0;
+}
+
+
+.project_button > a {
+  width: 170px;
+  height: 30px;
+  background-color: #298BAD;
+  color: white;
+  font-weight: bold;
+  text-align: center;
+  line-height: 30px;
+  border-radius: 0.3rem;
+  margin-right: 10px;
+}
+
+.home_button {
+  text-align: center;
+  margin: 20px 20px;
+}
+
+.home_button > a {
+  font-size: 20px;
+  color: white;
+  text-align: center;
+  background-color: #566884;
+  border-radius: 0.3rem;
+  padding: 5px 10px 5px 10px;
+}
