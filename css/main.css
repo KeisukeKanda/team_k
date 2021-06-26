@@ -47,6 +47,9 @@ img{
     margin: 2vh 5vw;
 }
 
+.logo a{
+    color: #000;
+}
 
 .menu{
     display: flex;
