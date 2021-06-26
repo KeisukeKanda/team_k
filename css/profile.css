@@ -1,0 +1,97 @@
+/*------------------------------------------
+
+レイアウト調整 
+
+------------------------------------------*/
+/* paddingやmarginでのはみ出しを防止 */
+body{
+    box-sizing: border-box;
+}
+
+/* リンクのアンダーラインを消す */
+a{
+    text-decoration: none;
+}
+
+/* 画像から無駄な余白を削除 */
+img{
+    vertical-align:top;
+}
+
+/*------------------------------------------------ 
+
+プロフィール一覧のレイアウト
+
+------------------------------------------------*/
+.box{
+    width: 70%;
+    display: flex;
+    margin: 0 auto;
+    margin-top: 5vh;
+}
+
+/*------------------------------------------------ 
+
+プロフィール画像
+
+------------------------------------------------*/
+.user-img{
+    width: 40%;
+    margin: 6vw 2vw;
+}
+
+.img-box {
+    border: 1px solid rgb(172, 172, 172);
+    border-radius: 60%;
+    height: 50vh;
+}
+
+.img-box img {
+    width: 70%;
+    display: block;
+    margin: 0 auto;
+    margin-top: 3vh;
+    border-radius: 20%;
+}
+
+
+/*------------------------------------------------ 
+
+プロフィールテキスト
+
+------------------------------------------------*/
+.user-info{
+    width: 60%;
+    margin: 2vw;
+}
+
+.title{
+    margin: 1.5vw 0;
+    padding: 1vw;
+    font-size: 1.5vw;
+    background-color: #fc7b93;
+    color: #fff;
+    border-radius:20px;
+}
+
+.text{
+    margin: 1.5vw 0;
+    padding: 1vw;
+}
+
+.edit{
+    width: 50%;
+    margin: 0 auto;
+    margin-top: 5vh;
+    padding: 15px;
+    background-color: #989898;
+    border: none;
+    border-radius: 20px;
+}
+
+.edit a{
+    color: #fff;
+    font-size: 1.2vw;
+    display: block;
+    text-align: center;
+}
