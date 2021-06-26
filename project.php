@@ -61,27 +61,27 @@ $name= $_SESSION["name"];
 										</div>
 										<div>
 											<label for="title">Title</label>
-											<input type="text" name="title" id="title" value="aaa" />
+											<input type="text" name="title" id="title" value="" />
 										</div>
 										<div>
 											<label for="category">Category</label>
-											<input type="text" name="category" id="category" value="aaa" />
+											<input type="text" name="category" id="category" value="" />
 										</div>
 										<div>
 											<label for="country">Country</label>
-											<input type="text" name="country" id="country" value="aaa" />
+											<input type="text" name="country" id="country" value="" />
 										</div>
 										<div>
 											<label for="project_area">Area</label>
-											<input type="text" name="project_area" id="project_area" value="aaa" />
+											<input type="text" name="project_area" id="project_area" value="" />
 										</div>
 										<div>
 											<label for="experience">Experience</label>
-											<input type="experience" name="experience" id="experience" value="aaa" />
+											<textarea name="experience" id="experience" cols="30" rows="10"></textarea>
 										</div>
 										<div>
 											<label for="thoughts">Thoughts</label>
-											<input type="thoughts" name="thoughts" id="thoughts" value="aaa" />
+											<textarea name="thoughts" id="thoughts" cols="30" rows="10"></textarea>
 										</div>
 										<div>
 											<label for="tour_time">Tour Time</label>
