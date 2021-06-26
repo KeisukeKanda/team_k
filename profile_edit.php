@@ -68,26 +68,15 @@ $val = $res->fetch();
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/reset.css">
+    <link rel="stylesheet" href="./css/header.css">
     <title>Document</title>
 </head>
 
 <body>
     <div class="wrap">
-        <!-- ヘッダー -->
-        <div class="header">
-            <div class="header-box">
-                <div class="logo">Team K</div>
-                <div class="nav-box">
-                    <ul>
-                        <li>
-                            こんにちは、<?= $username ?>
-                        </li>
-                        <li><a href="index.php">メインへ戻る</a></li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-        <!-- ヘッダー終わり -->
+        <!-- componentフォルダからヘッダーを読み込み -->
+        <?php include("component/header.php") ?>
 
         <div class="main">
             <div class="box">

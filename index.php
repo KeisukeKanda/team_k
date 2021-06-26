@@ -38,42 +38,14 @@ if ($state==false) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./css/reset.css">
     <link rel="stylesheet" href="./css/main.css">
+    <link rel="stylesheet" href="./css/header.css">
     <title>Document</title>
 </head>
 
 <body>
     <div class="wrap">
-        <div class="header">
-            <!-- ヘッダー -->
-            <div class="header-box">
-                <div class="logo">
-                    <a href="index.php">Team K</a>
-                </div>
-                <div class="nav-box">
-                    <ul class="menu">
-                        <?php if ($user_id == 0): ?>
-                        <li class="menu-list"><a href="auth/signup.php">サインアップ</a></li>
-                        <li class="menu-list"><a href="auth/login.php">ログイン</a></li>
-                        <?php else: ?>
-                        <li class="menu-list">
-                            こんにちは、<?= $username ?>
-                        </li>
-                        <li class="menu-list"><a href="profile.php">マイプロフィール</a></li>
-                        <li class="menu-list"><a href="user_schedule.php">予約一覧</a></li>
-                        <li class="menu-list"><a href="favorites.php">お気に入り一覧</a></li>
-
-                        <!-- ログインユーザーがすでにhost登録した場合のみ表示 -->
-                        <?php if ($val["host"] == 1): ?>
-                        <li class="menu-list"><a href="host_index.php">ホスト管理画面</a></li>
-                        <?php endif; ?>
-
-                        <li class="menu-list"><a href="auth/logout.php">ログアウト</a></li>
-                        <?php endif; ?>
-                    </ul>
-                </div>
-            </div>
-            <!-- ヘッダー終わり -->
-        </div>
+        <!-- componentフォルダからヘッダーを読み込み -->
+        <?php include("component/header.php") ?>
 
         <!-- メインビュー -->
         <div class="firstview">
@@ -85,8 +57,8 @@ if ($state==false) {
                 <p>知らない人がいる</p>
             </div>
             <div class="back-color"></div>
-            <!-- メインビュー終わり -->
         </div>
+        <!-- メインビュー終わり -->
 
         <!-- プラン一覧を表示 -->
         <div class="main">
