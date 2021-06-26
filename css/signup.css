@@ -1,0 +1,102 @@
+/*------------------------------------------
+
+レイアウト調整 
+
+------------------------------------------*/
+/* paddingやmarginでのはみ出しを防止 */
+body{
+    box-sizing: border-box;
+}
+
+/* リンクのアンダーラインを消す */
+a{
+    text-decoration: none;
+}
+
+/* 画像から無駄な余白を削除 */
+img{
+    vertical-align:top;
+}
+
+
+
+/*------------------------------------------
+
+全体 
+
+------------------------------------------*/
+.wrap{
+}
+
+/*------------------------------------------
+
+サインアップフォーム
+
+------------------------------------------*/
+.box{
+    width: 50%;
+    height: 50vh;
+    margin: 0 auto;
+    margin-top: 10vh;
+}
+
+.form-box{
+    margin: 5vh;
+}
+
+
+h1 {
+  font-size: 30px;
+  margin: 0px;
+  padding: 0px;
+}
+h3 {
+  margin: 0px;
+  padding: 20px 0;
+  color: #999;
+}
+
+.wrap {
+  width: 500px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  vertical-align: middle;
+}
+
+.wrap div {
+  position: relative;
+  margin: 30px 0;
+}
+
+label {
+  position: absolute;
+  top: -25px;
+  font-size: 15px;
+  margin: 18px;
+  background-color: #fff;
+  -webkit-transition: top .2s ease-in-out, 
+                      font-size .2s ease-in-out;
+  transition: top .2s ease-in-out, 
+              font-size .2s ease-in-out;
+}
+
+input {
+  width: 90%;
+  padding: 15px;
+  border: 1px solid #000;
+  font-size: 20px;
+} 
+
+input:focus {
+  outline: none;
+}
+
+.submit-btn{
+    width: 95%;
+    background-color: #F62B5D;
+    color: #fff;
+    font-size: 15px;
+    border: none;
+}

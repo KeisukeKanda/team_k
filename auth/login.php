@@ -33,11 +33,11 @@ $_SESSION['csrfToken'] = $csrfToken;
                 <input type="password" name="password" required pattern="(?=.*\d).{6,}" title="6文字以上のパスワードを入力してください。">
                 <input type='hidden' name='csrfToken'
                     value='<?= $csrfToken ?>'><br>
-                <input type="submit" value="送信">
+                <input type="submit" value="ログイン">
             </form>
             <div>
                 まだサインインがお済みでない方は
-                <a href="signin.php">こちら</a>
+                <a href="signup.php">こちら</a>
             </div>
             <a href="../index.php">戻る</a>
         </div>
