@@ -59,7 +59,7 @@ if (!empty($_POST["name"] && $_POST["email"] && $_POST["password"]) && mb_strlen
             echo "メールアドレスをご入力ください";
         }
     } else {
-        redirect("../index.php");
+        redirect("login.php");
     }
 } else {
     redirect("login.php");

@@ -73,6 +73,7 @@ $_SESSION['csrfToken'] = $csrfToken;
                 <input type='hidden' name='csrfToken'
                     value='<?= $csrfToken ?>'>
                 <input class="submit-btn" type="submit" value="登録する">
+            </div>
         </form>
         <div>
             すでにアカウントをお持ちの方は
@@ -80,9 +81,8 @@ $_SESSION['csrfToken'] = $csrfToken;
         </div>
         <!-- <a href="../index.php">戻る</a> -->
     </div>
-    </div>
-    </div>
 
+    <!-- jQueryの読み込み -->
     <script src=" https://code.jquery.com/jquery-3.6.0.min.js"
         integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
     <script>
