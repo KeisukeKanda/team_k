@@ -19,7 +19,7 @@ $project_id=$_GET["project_id"];//index.phpから選択したプロジェクト�
 // usersテーブルと結合してユーザーネーム、を取得するのがよいかも（ややこしくなりそうなのであとで変更）
 
 
-$sql="SELECT*FROM project WHERE project_id=:project_id";
+$sql="SELECT*FROM project AS p INNER JOIN users as u ON p.user_id=u.user_id WHERE project_id=:project_id";
 $stmt = $pdo->prepare($sql);
 $stmt->bindValue('project_id',$project_id,PDO::PARAM_INT);
 $status = $stmt->execute();
@@ -87,14 +87,16 @@ if($status3==false){
 <!-- プロジェクト詳細表示画面 -->
 <h1><?=$res["title"]?></h1>
 <img src='./project_img/<?=$res["project_img"];?>'>;
-<p><?=$res["category"]?></p>
-<p><?=$res["country"]?></p>
-<p><?=$res["project_area"]?></p>
-<p><?=$res["experience"]?></p>
-<p><?=$res["thoughts"]?></p>
-<p><?=$res["tour_time"]?></p>
-<p><?=$res["price"]?></p>
+<p>Category:<?=$res["category"]?></p>
+<p>Country:<?=$res["country"]?></p>
+<p>Area:<?=$res["project_area"]?></p>
+<p>Experience:<?=$res["experience"]?></p>
+<p>Thought:<?=$res["thoughts"]?></p>
+<p>Tour time:<?=$res["tour_time"]?></p>
+<p>Price:<?=$res["price"]?></p>
+<p><a href="./host_profile.php?user_id=<?=$res['user_id']?>">Host:<?=$res["nickname"]?></a></p>
 <p><?=$res3 ?></p>
+
 
 <!-- お気に入り登録 -->
         <form class="favorite_count" action="favo_add.php" method="post">
