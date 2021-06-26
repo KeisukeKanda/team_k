@@ -50,7 +50,7 @@ if ($state==false) {
                 <div class="nav-box">
                     <ul class="menu">
                         <?php if ($user_id == 0): ?>
-                        <li class="menu-list"><a href="auth/signin.php">サインイン</a></li>
+                        <li class="menu-list"><a href="auth/signup.php">サインアップ</a></li>
                         <li class="menu-list"><a href="auth/login.php">ログイン</a></li>
                         <?php else: ?>
                         <li class="menu-list">
