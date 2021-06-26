@@ -36,7 +36,8 @@ if ($state==false) {
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="./css/reset.css">
+    <link rel="stylesheet" href="./css/main.css">
     <title>Document</title>
 </head>
 
@@ -47,23 +48,23 @@ if ($state==false) {
             <div class="header-box">
                 <div class="logo">Team K</div>
                 <div class="nav-box">
-                    <ul>
+                    <ul class="menu">
                         <?php if ($user_id == 0): ?>
-                        <li><a href="auth/signin.php">サインイン</a></li>
-                        <li><a href="auth/login.php">ログイン</a></li>
+                        <li class="menu-list"><a href="auth/signin.php">サインイン</a></li>
+                        <li class="menu-list"><a href="auth/login.php">ログイン</a></li>
                         <?php else: ?>
-                        <li>
+                        <li class="menu-list">
                             こんにちは、<?= $username ?>
                         </li>
-                        <li><a href="profile.php">マイプロフィール</a></li>
-                        <li><a href="user_schedule.php">予約一覧</a></li>
+                        <li class="menu-list"><a href="profile.php">マイプロフィール</a></li>
+                        <li class="menu-list"><a href="user_schedule.php">予約一覧</a></li>
 
                         <!-- ログインユーザーがすでにhost登録した場合のみ表示 -->
                         <?php if ($val["host"] == 1): ?>
-                        <li><a href="host_index.php">ホスト管理画面</a></li>
+                        <li class="menu-list"><a href="host_index.php">ホスト管理画面</a></li>
                         <?php endif; ?>
 
-                        <li><a href="auth/logout.php">ログアウト</a></li>
+                        <li class="menu-list"><a href="auth/logout.php">ログアウト</a></li>
                         <?php endif; ?>
                     </ul>
                 </div>
@@ -72,17 +73,21 @@ if ($state==false) {
         </div>
 
         <!-- メインビュー -->
-        <div class="main">
-            <div class="main-img"></div>
-            <div class="main-text">
+        <div class="firstview">
+            <div class="firstview-img">
+                <img src="./background_img/top.png" alt="サイトのファーストビュー">
+            </div>
+            <div class="firstview-text">
                 <p>知らない場所には</p>
                 <p>知らない人がいる</p>
             </div>
+            <div class="back-color"></div>
             <!-- メインビュー終わり -->
         </div>
 
         <!-- プラン一覧を表示 -->
         <div class="main">
+            <h1 class="title">新着の体験</h1>
             <div class="box">
                 <?php foreach ($stmt as $content): ?>
                 <div class="content">
@@ -108,17 +113,6 @@ if ($state==false) {
         <!-- プラン一覧を表示終わり -->
 
     </div>
-
-    <style>
-        .content-img {
-            width: 30%;
-        }
-
-        .content-img img {
-            width: 100%;
-        }
-    </style>
-
 </body>
 
 </html>

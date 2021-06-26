@@ -1,0 +1,137 @@
+/*------------------------------------------
+
+レイアウト調整 
+
+------------------------------------------*/
+/* paddingやmarginでのはみ出しを防止 */
+body{
+    box-sizing: border-box;
+}
+
+/* リンクのアンダーラインを消す */
+a{
+    text-decoration: none;
+}
+
+/* 画像から無駄な余白を削除 */
+img{
+    vertical-align:top;
+}
+
+
+
+/*------------------------------------------
+
+全体 
+
+------------------------------------------*/
+.wrap{
+}
+
+
+
+/*------------------------------------------
+
+ヘッダー
+
+------------------------------------------*/
+.header{
+    height: 10vh;
+}
+
+.header-box{
+    height: 7vh;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 2vh 5vw;
+}
+
+
+.menu{
+    display: flex;
+
+}
+
+.menu-list{
+    margin: 2vh;
+}
+
+.menu-list a{
+    color: #000;
+}
+
+
+
+/*------------------------------------------
+
+ファーストビュー
+
+------------------------------------------*/
+.firstview{
+    height: 80vh;
+    position: relative;
+}
+
+.firstview-img{
+
+}
+
+.main-img img{
+    width: 100%;
+}
+
+.firstview-text{
+    position: absolute;
+    top: 10%;
+    left: 50%;
+}
+
+.firstview-text p{
+    font-size: 3.5vw;
+    font-weight: bold;
+    color: #fff;
+    margin: 2vw;
+    letter-spacing: 0.5vw;
+}
+/*------------------------------------------
+
+体験一覧
+
+------------------------------------------*/
+.main{
+    width: 95%;
+    margin: 0 auto;
+}
+
+.title{
+    font-size: 2.5vw;
+    padding: 1vw;
+}
+
+.box{
+    display: flex;
+    width: 100%;
+    flex-wrap: wrap;
+}
+
+.content{
+    width: 31%;
+    margin: 1vw;
+}
+
+.content-img img{
+    width: 100%;
+}
+
+.content-title{
+    color: #000;
+    font-size: 1.5vw;
+    padding: 1vw;
+}
+
+.content-text{
+    color: #000;
+    font-size: 1.2vw;
+    padding: 1vw;
+}
