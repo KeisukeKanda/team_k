@@ -37,11 +37,11 @@ if ($status == false) {
   //Selectデータの数だけ自動でループしてくれる
   while ($res = $stmt->fetch(PDO::FETCH_ASSOC)) {
     $view .= '<div class="user_reservation_list">';
-    $view .= '<div class="project_title"><i class="fas fa-globe"></i>' . $res["title"] . '</div>';
-    $view .= '<div class="project_contents"><i class="fas fa-table"></i>' . $res["date"] . " " . $res["reservation_time"] . '</div>';
+    $view .= '<div class="project_title"><i class="fas fa-globe"></i> ' . $res["title"] . '</div>';
+    $view .= '<div class="project_contents"><i class="fas fa-table"></i> ' . $res["date"] . " " . $res["reservation_time"] . '</div>';
     // $view .= '<p><img src="project_img/' . $res["project_img"] . '" alt="" width="200"></p>';
     // $view .= '<p>' . $res["category"] . '</p>';
-    $view .= '<div class="project_contents"><i class="fas fa-search-location"></i>' . $res["country"] . " " . $res["project_area"] . '</div>';
+    $view .= '<div class="project_contents"><i class="fas fa-search-location"></i> ' . $res["country"] . " " . $res["project_area"] . '</div>';
     // $view .= '<p>' . $res["project_area"] . '</p>';
     // $view .= '<p>' . $res["experience"] . '</p>';
     // $view .= '<p>' . $res["thoughts"] . '</p>';
@@ -64,46 +64,13 @@ if ($status == false) {
   <meta charset="UTF-8">
   <title>ユーザー予約一覧</title>
   <link rel="stylesheet" href="./css/reset.css">
-  <link rel="stylesheet" href="./css/header.css">
+  <link rel="stylesheet" href="./css/main.css">
   <link rel="stylesheet" href="./css/user_schedule.css">
   <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
 </head>
 
 <body>
-  <header>
-    <div class="header">
-      <!-- ヘッダー -->
-      <div class="header-box">
-        <div class="logo">
-          <a href="index.php">Team K</a>
-        </div>
-        <div class="nav-box">
-          <ul class="menu">
-            <?php if ($user_id == 0) : ?>
-              <li class="menu-list"><a href="auth/signup.php">サインアップ</a></li>
-              <li class="menu-list"><a href="auth/login.php">ログイン</a></li>
-            <?php else : ?>
-              <li class="menu-list">
-                こんにちは、<?= $username ?>
-              </li>
-              <li class="menu-list"><a href="profile.php">マイプロフィール</a></li>
-              <li class="menu-list"><a href="user_schedule.php">予約一覧</a></li>
-              <li class="menu-list"><a href="favorites.php">お気に入り一覧</a></li>
-
-              <!-- ログインユーザーがすでにhost登録した場合のみ表示 -->
-              <?php if ($val["host"] == 1) : ?>
-                <li class="menu-list"><a href="host_index.php">ホスト管理画面</a></li>
-              <?php endif; ?>
-
-              <li class="menu-list"><a href="auth/logout.php">ログアウト</a></li>
-            <?php endif; ?>
-          </ul>
-        </div>
-      </div>
-      <!-- ヘッダー終わり -->
-    </div>
-  </header>
-  <div class="wrap">
+  <div class="contents">
     <h1>予約一覧</h1>
     <div><?= $view ?></div>
     <div class="home_button"><a href="index.php">ホームへ</a></div>
