@@ -8,7 +8,6 @@ require("funcs.php");
 // ログインしてるユーザー名とIDを取得
 $username = $_SESSION["name"];
 $user_id = $_SESSION["user_id"];
-echo $user_id;
 
 //******************************************* */
 //               お気に入り表示
