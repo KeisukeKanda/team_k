@@ -57,6 +57,7 @@ $val = $res->fetch();
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./css/reset.css">
     <link rel="stylesheet" href="./css/header.css">
+    <link rel="stylesheet" href="./css/profile.css">
     <title>Document</title>
 </head>
 
@@ -69,43 +70,48 @@ $val = $res->fetch();
             <div class="box">
 
                 <!-- プロフィール表示 -->
-                <div>プロフィール画像</div>
-                <div class="user_img">
-                    <img src="<?= $val["user_img"] ?>"
-                        alt="ユーザープロフィール画像">
+                <div class="user-img">
+                    <div class="img-box">
+                        <img src="<?= $val["user_img"] ?>"
+                            alt="ユーザープロフィール画像">
+                    </div>
+                    <!-- 編集ページへの移動ボタン -->
+                    <div class="edit">
+                        <a href="profile_edit.php">プロフィール編集</a>
+                    </div>
                 </div>
-                <div>ニックネーム</div>
-                <div class="nickname">
-                    <?= $val["nickname"] ?>
-                </div>
-                <div>生年月日</div>
-                <div class="birthdate">
-                    <?= $val["year"] ?>/
-                    <?= $val["month"] ?>/
-                    <?= $val["day"] ?>
-                </div>
-                <div>性別</div>
-                <div class="sex">
-                    <?= $val["sex"] ?>
-                </div>
-                <?php foreach ($stmt as $profile): ?>
-                <div>住んでいる国</div>
-                <div class="country">
-                    <?= $profile["country"] ?>
-                </div>
-                <div>住んでいるエリア</div>
-                <div class="user_area">
-                    <?= $profile["japan_area"] ?>
-                </div>
-                <?php endforeach; ?>
-                <div>自己紹介</div>
-                <div class="introduction">
-                    <?= $val["introduction"] ?>
+                <div class="user-info">
+                    <div class="title">ニックネーム</div>
+                    <div class="text nickname">
+                        <?= $val["nickname"] ?>
+                    </div>
+                    <div class="title">生年月日</div>
+                    <div class="text birthdate">
+                        <?= $val["year"] ?>/
+                        <?= $val["month"] ?>/
+                        <?= $val["day"] ?>
+                    </div>
+                    <div class="title">性別</div>
+                    <div class="text sex">
+                        <?= $val["sex"] ?>
+                    </div>
+                    <?php foreach ($stmt as $profile): ?>
+                    <div class="title">住んでいる国</div>
+                    <div class="text country">
+                        <?= $profile["country"] ?>
+                    </div>
+                    <div class="title">住んでいるエリア</div>
+                    <div class="text user_area">
+                        <?= $profile["japan_area"] ?>
+                    </div>
+                    <?php endforeach; ?>
+                    <div class="title">自己紹介</div>
+                    <div class="text introduction">
+                        <?= $val["introduction"] ?>
+                    </div>
                 </div>
                 <!-- プロフィール表示終わり -->
 
-                <!-- 編集ページへの移動ボタン -->
-                <button><a href="profile_edit.php">編集</a></button>
             </div>
         </div>
     </div>
@@ -122,17 +128,6 @@ $val = $res->fetch();
         </div>
     </div>
     <!-- subコンテンツここまで -->
-
-    <style>
-        .user_img {
-            width: 30%;
-        }
-
-        .user_img img {
-            width: 100%;
-        }
-    </style>
-
 </body>
 
 </html>
