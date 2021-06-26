@@ -29,41 +29,11 @@ img{
 }
 
 
-
 /*------------------------------------------
 
-ヘッダー
+※ヘッダーのレイアウトはheader.cssに記載 
 
 ------------------------------------------*/
-.header{
-    height: 10vh;
-}
-
-.header-box{
-    height: 7vh;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin: 2vh 5vw;
-}
-
-.logo a{
-    color: #000;
-}
-
-.menu{
-    display: flex;
-
-}
-
-.menu-list{
-    margin: 2vh;
-}
-
-.menu-list a{
-    color: #000;
-}
-
 
 
 /*------------------------------------------
