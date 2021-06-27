@@ -60,12 +60,6 @@ if ($state==false) {
                 <!-- 検索機能作成中 -->
                 <input type="text" id="search1" placeholder="どこで">
                 <input type="text" id="search3" placeholder="何する？">
-                <select id="search4" name="price">
-                    <option value="0">指定なし</option>
-                    <option value="1">2,000円未満</option>
-                    <option value="2">2,000円〜4,999円</option>
-                    <option value="3">5,000円以上</option>
-                </select>
                 <button id="send">検索</button> 
             </div>
             <div class="back-color"></div>
