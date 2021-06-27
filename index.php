@@ -2,8 +2,10 @@
 
 session_start();
 
+// 検索機能作成中
 require("./db_set/db.php");
 require("funcs.php");
+$view = "";
 
 // ログインしてるユーザー名とIDを取得
 $username = $_SESSION["name"];
@@ -55,10 +57,23 @@ if ($state==false) {
             <div class="firstview-text">
                 <p>知らない場所には</p>
                 <p>知らない人がいる</p>
+                <!-- 検索機能作成中 -->
+                <input type="text" id="search1" placeholder="どこで">
+                <input type="text" id="search3" placeholder="何する？">
+                <select id="search4" name="price">
+                    <option value="0">指定なし</option>
+                    <option value="1">2,000円未満</option>
+                    <option value="2">2,000円〜4,999円</option>
+                    <option value="3">5,000円以上</option>
+                </select>
+                <button id="send">検索</button> 
             </div>
             <div class="back-color"></div>
         </div>
         <!-- メインビュー終わり -->
+
+        <!-- 検索結果の割り込み表示 -->
+            <div class="container jumbotron" id="view"><?php echo $view; ?></div>
 
         <!-- プラン一覧を表示 -->
         <div class="main">
@@ -71,7 +86,7 @@ if ($state==false) {
                         URLでuser_idとproject_idを遷移先ページへと引き渡す-->
                         <a href="./selected_project.php?user_id=<?= $user_id ?>&project_id=<?= $content['project_id'] ?>
                             ">
-                            <img src='<?= $content["project_img"] ?>'
+                            <img src='project_img/<?= $content["project_img"] ?>'
                                 alt="体験できるプロジェクトの画像">
                     </div>
                     <div class="content-title">
@@ -88,6 +103,35 @@ if ($state==false) {
         <!-- プラン一覧を表示終わり -->
 
     </div>
+
+<!-- 検索結果 -->
+        <div class="container jumbotron" id="view"><?php echo $view; ?></div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+<script>
+$("#send").on("click",function(){
+    //Ajax（非同期通信）
+    //1．パラメータの変更
+    //2. 送信先
+    //3. DOM操作
+    const params = new URLSearchParams();
+    params.append('search1',$("#search1").val() );
+    params.append('search3',$("#search3").val() );
+    params.append('search4',$("#search4").val() );
+
+    //axiosでAjax送信
+    axios.post('index_search2.php',params).then(function (response) {
+        console.log(response.data);//通信OK
+        $("#view").html(response.data);
+    }).catch(function (error) {
+        console.log(error);//通信Error
+    }).then(function () {
+        console.log("Last");//通信OK/Error後に処理を必ずさせたい場合
+    });
+});
+</script>
+
+
 </body>
 
 </html>
