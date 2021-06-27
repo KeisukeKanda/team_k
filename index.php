@@ -41,6 +41,11 @@ if ($state==false) {
     <link rel="stylesheet" href="./css/reset.css">
     <link rel="stylesheet" href="./css/main.css">
     <link rel="stylesheet" href="./css/header.css">
+
+    <!-- ここからカレンダーのテスト -->
+    <script src="https://kit.fontawesome.com/41d0c3f425.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="./css/test.css">
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
     <title>Document</title>
 </head>
 
@@ -58,8 +63,12 @@ if ($state==false) {
                 <p>知らない場所には</p>
                 <p>知らない人がいる</p>
                 <!-- 検索機能作成中 -->
-                <input type="text" id="search1" placeholder="どこで">
-                <input type="text" id="search3" placeholder="何する？">
+                <input type="text" id="search1" placeholder="国名、地域">
+                <input type="text" id="search3" placeholder="キーワード">
+                
+                <input  type="text" style="display:none" size="10" class="calendar_pop" id="input1" />
+                <i id="calendar" class="fas fa-calendar-alt calendar"></i>
+                
                 <button id="send">検索</button> 
             </div>
             <div class="back-color"></div>
@@ -102,7 +111,28 @@ if ($state==false) {
         <div class="container jumbotron" id="view"><?php echo $view; ?></div>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+<!-- カレンダーアイコンのクリックイベント作成 -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1/i18n/jquery.ui.datepicker-ja.min.js"></script>
 <script>
+    $(function () {
+        $.datepicker.setDefaults($.datepicker.regional["ja"]);
+        $("#input1").datepicker();
+    });
+</script>
+
+<script>
+var calendar = document.getElementById('calendar');
+var input1 = document.getElementById('input1');
+
+calendar.addEventListener('click', function() {
+input1.style.display = 'block';
+});
+
+
+
 $("#send").on("click",function(){
     //Ajax（非同期通信）
     //1．パラメータの変更
