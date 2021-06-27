@@ -52,37 +52,60 @@ if ($status == false) {
   <meta charset="UTF-8">
   <title>ユーザー予約詳細</title>
   <link rel="stylesheet" href="css/reset.css">
+  <link rel="stylesheet" href="css/all.css">
+  <link rel="stylesheet" href="css/header.css">
+  <link rel="stylesheet" href="css/user_schedule.css">
+  <link rel="stylesheet" href="./css/footer.css">
+  <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
 </head>
 
 <body>
+  <header>
+    <?php include("component/header.php") ?>
+  </header>
   <main>
-
     <!--詳細ページ-->
-    <p><img src="project_img/<?= $row["project_img"] ?>" width="200"></p>
-    <div>
-      <p><?= $row["title"] ?></p>
-      <p>開催日時：<?= $row["date"] . " " . $row["reservation_time"] ?></p>
-      <!-- <p><?= $row["reservation_time"] ?></p> -->
-      <p>カテゴリー：<?= $row["category"] ?></p>
-      <p>案内場所：<?= $row["country"] . " " . $row["project_area"] ?></p>
-      <!-- <p><?= $row["project_area"] ?></p> -->
-      <p>体験の内容：<?= $row["experience"] ?></p>
-      <p>ホストの思い：<?= $row["thoughts"] ?></p>
-      <p>ツアー時間：<?= $row["tour_time"] ?>時間</p>
-      <p>価格：<?= $row["price"] ?></p>
+    <div class="contents">
+      <h1>予約をキャンセルしてもよろしいですか？</h1>
+      <div class="user_reservation">
+        <div class="user_reservation_list">
+          <div><img src="project_img/<?= $row["project_img"] ?>" width="300"></div>
+          <div>
+            <div class="project_title"><i class="fas fa-globe"></i> <?= $row["title"] ?></div>
+            <div class="project_contents"><i class="fas fa-table"></i> <?= $row["date"] . " " . $row["reservation_time"] ?></div>
+            <div class="project_contents">○ カテゴリー</div>
+            <div class="project_contents">　<?= $row["category"] ?></div>
+            <div class="project_contents">○ 案内する場所</div>
+            <div class="project_contents">　<?= $row["country"] . " " . $row["project_area"] ?></div>
+            <div class="project_contents">○ 内容</div>
+            <div class="project_contents">　<?= $row["experience"] ?></div>
+            <div class="project_contents">○ ホストの思い</div>
+            <div class="project_contents">　<?= $row["thoughts"] ?></div>
+            <div class="project_contents">○ ツアー時間</div>
+            <div class="project_contents">　<?= $row["tour_time"] ?>時間</div>
+            <div class="project_contents">○ 価格</div>
+            <div class="project_contents">　<?= $row["price"] ?>円</div>
+            <!--遷移ボタン-->
+          </div>
+        </div>
+        <div class="project_button">
+          <div class="btn"><a href="user_schedule.php" class="btn">戻る</a></div>
+          <form action="user_schedule_update.php" method="post">
+            <input type="hidden" name="reservation_id" value="<?= $row["reservation_id"] ?>">
+            <input type="hidden" name="project_id" value="<?= $row["project_id"] ?>">
+            <input type="hidden" name="user_id" value="NULL">
+            <input type="hidden" name="date" value="<?= $row["date"] ?>">
+            <input type="hidden" name="reservation_time" value="<?= $row["reservation_time"] ?>">
+            <input type="hidden" name="reserve_flag" value="0">
+            <input type="submit" value="キャンセルする" class="yes">
+          </form>
+        </div>
+      </div>
     </div>
-    <!--遷移ボタン-->
-    <h1>予約をキャンセルしてもよろしいですか？</h1>
-    <form action="user_schedule_update.php" method="post">
-      <input type="hidden" name="reservation_id" value="<?= $row["reservation_id"] ?>">
-      <input type="hidden" name="project_id" value="<?= $row["project_id"] ?>">
-      <input type="hidden" name="user_id" value="NULL">
-      <input type="hidden" name="date" value="<?= $row["date"] ?>">
-      <input type="hidden" name="reservation_time" value="<?= $row["reservation_time"] ?>">
-      <input type="hidden" name="reserve_flag" value="0">
-      <input type="submit" value="はい">
-    </form>
-    <div><a href="user_schedule.php">戻る</a></div>
+    <!-- フッターを呼び出し -->
+    <footer>
+      <?php include("component/footer.php") ?>
+    </footer>
 </body>
 
 </html>

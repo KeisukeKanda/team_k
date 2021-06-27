@@ -52,39 +52,53 @@ if ($status == false) {
   <meta charset="UTF-8">
   <title>ユーザー予約詳細</title>
   <link rel="stylesheet" href="css/reset.css">
+  <link rel="stylesheet" href="css/all.css">
+  <link rel="stylesheet" href="css/header.css">
   <link rel="stylesheet" href="css/user_schedule.css">
+  <link rel="stylesheet" href="./css/footer.css">
   <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
 </head>
 
 <body>
-  <main>
+  <header>
     <!--詳細ページ-->
+    <?php include("component/header.php") ?>
+  </header>
+  <main>
     <div class="contents">
       <h1>予約詳細</h1>
-      <div class="user_reservation_list">
-        <p><img src="project_img/<?= $row["project_img"] ?>" width="200"></p>
-        <div>
-          <div class="project_title"><i class="fas fa-globe"></i><?= $row["title"] ?></div>
-          <div class="project_contents"><i class="fas fa-table"></i><?= $row["date"] . " " . $row["reservation_time"] ?></div>
-          <!-- <p><?= $row["reservation_time"] ?></p> -->
-          <div class="project_contents">カテゴリー：<?= $row["category"] ?></div>
-          <div class="project_contents"><i class="fas fa-search-location"></i><?= $row["country"] . " " . $row["project_area"] ?></div>
-          <!-- <p><?= $row["project_area"] ?></p> -->
-          <div class="project_contents">体験の内容</div>
-          <div class="project_contents"><?= $row["experience"] ?></div>
-          <div class="project_contents">ホストの思い</div>
-          <div class="project_contents"><?= $row["thoughts"] ?></div>
-          <div class="project_contents">ツアー時間：<?= $row["tour_time"] ?>時間</div>
-          <div class="project_contents">価格：<?= $row["price"] ?></div>
+      <div class="user_reservation">
+        <div class="user_reservation_list">
+          <div><img src="project_img/<?= $row["project_img"] ?>" width="300"></div>
+          <div>
+            <div class="project_title"><i class="fas fa-globe"></i> <?= $row["title"] ?></div>
+            <div class="project_contents"><i class="fas fa-table"></i> <?= $row["date"] . " " . $row["reservation_time"] ?></div>
+            <div class="project_contents">○ カテゴリー</div>
+            <div class="project_contents">　<?= $row["category"] ?></div>
+            <div class="project_contents">○ 案内する場所</div>
+            <div class="project_contents">　<?= $row["country"] . " " . $row["project_area"] ?></div>
+            <div class="project_contents">○ 内容</div>
+            <div class="project_contents">　<?= $row["experience"] ?></div>
+            <div class="project_contents">○ ホストの思い</div>
+            <div class="project_contents">　<?= $row["thoughts"] ?></div>
+            <div class="project_contents">○ ツアー時間</div>
+            <div class="project_contents">　<?= $row["tour_time"] ?>時間</div>
+            <div class="project_contents">○ 価格</div>
+            <div class="project_contents">　<?= $row["price"] ?>円</div>
+            <!--遷移ボタン-->
+          </div>
         </div>
-        <!--遷移ボタン-->
         <div class=" project_button">
-          <a href="user_schedule.php">戻る</a>
-          <a href="service_main.php?reservation_id=<?= $row["reservation_id"] ?>">参加</a>
+          <div class="btn"><a href="user_schedule.php" class="btn">戻る</a></div>
+          <div class="btn go"><a href="service_main.php?reservation_id=<?= $row["reservation_id"] ?>" class="btn go">参加</a></div>
         </div>
       </div>
-      <div class="home_button"><a href="index.php">ホームへ</a></div>
     </div>
+  </main>
+  <!-- フッターを呼び出し -->
+  <footer>
+    <?php include("component/footer.php") ?>
+  </footer>
 </body>
 
 </html>
