@@ -71,6 +71,7 @@ $val = $res->fetch();
     <link rel="stylesheet" href="./css/reset.css">
     <link rel="stylesheet" href="./css/all.css">
     <link rel="stylesheet" href="./css/header.css">
+    <link rel="stylesheet" href="./css/footer.css">
     <link rel="stylesheet" href="./css/profile_edit.css">
     <title>Document</title>
 </head>
@@ -126,6 +127,8 @@ $val = $res->fetch();
     </div>
     <!-- プロフィールアップデートフォーム終わり -->
 
+    <!-- フッターを呼び出し -->
+    <?php include("component/footer.php") ?>
 </body>
 
 </html>

@@ -58,6 +58,7 @@ $val = $res->fetch();
     <link rel="stylesheet" href="./css/reset.css">
     <link rel="stylesheet" href="./css/all.css">
     <link rel="stylesheet" href="./css/header.css">
+    <link rel="stylesheet" href="./css/footer.css">
     <link rel="stylesheet" href="./css/profile.css">
     <title>ISEKAI</title>
 </head>
@@ -129,6 +130,9 @@ $val = $res->fetch();
         </div>
     </div>
     <!-- subコンテンツここまで -->
+
+    <!-- フッターを呼び出し -->
+    <?php include("component/footer.php") ?>
 </body>
 
 </html>

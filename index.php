@@ -42,6 +42,7 @@ if ($state==false) {
     <link rel="stylesheet" href="./css/all.css">
     <link rel="stylesheet" href="./css/main.css">
     <link rel="stylesheet" href="./css/header.css">
+    <link rel="stylesheet" href="./css/footer.css">
     <title>ISEKAI</title>
 </head>
 
@@ -61,7 +62,7 @@ if ($state==false) {
                 <!-- 検索機能作成中 -->
                 <input type="text" id="search1" placeholder="どこで">
                 <input type="text" id="search3" placeholder="何する？">
-                <button id="send">検索</button> 
+                <button id="send">検索</button>
             </div>
             <div class="back-color"></div>
         </div>
@@ -129,7 +130,8 @@ if ($state==false) {
         });
     </script>
 
-
+    <!-- フッターを呼び出し -->
+    <?php include("component/footer.php") ?>
 </body>
 
 </html>

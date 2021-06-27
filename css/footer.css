@@ -1,0 +1,17 @@
+.footer{
+    background-color: #000;
+}
+
+.footer-box{
+    width: 100%;
+    background-color: #000;
+    margin-top: 2vh;
+    padding: 2vh 0;
+}
+
+.footer-box p{
+    color:#fff;
+    font-size: 1vh;
+    text-align: center;
+    align-items: center;
+}
