@@ -13,7 +13,7 @@ $image = date('YmdHis') .$_FILES['user_img']['name'];
 move_uploaded_file($_FILES['user_img']['tmp_name'], './user_img/' . $image);
 
 //ファイル名を代入
-$user_img = './user_img/'.$image;
+$user_img = $image;
 
 //profile.phpで送信したフォームの値を取得
 $nickname = $_POST["nickname"];

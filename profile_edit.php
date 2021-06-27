@@ -69,8 +69,9 @@ $val = $res->fetch();
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./css/reset.css">
+    <link rel="stylesheet" href="./css/all.css">
     <link rel="stylesheet" href="./css/header.css">
-    <link rel="stylesheet" href="./css/profile.css">
+    <link rel="stylesheet" href="./css/profile_edit.css">
     <title>Document</title>
 </head>
 
@@ -80,51 +81,50 @@ $val = $res->fetch();
         <?php include("component/header.php") ?>
 
         <div class="main">
-            <div class="box">
 
-                <!-- プロフィールアップデートフォーム -->
-                <form action="profile_update.php" method="post" enctype="multipart/form-data">
-                    <div>プロフィール画像</div>
-                    <input type="file" name="user_img">
-                    <div>ニックネーム</div>
-                    <input type="text" name="nickname"
-                        value="<?= $val['nickname'] ?>"
-                        required>
-                    <div>生年月日</div>
-                    <select name="year"
-                        value="<?= $val['year'] ?>"><?= $year ?></select>
-                    <select name="month"
-                        value="<?= $val['month'] ?>"><?= $month ?></select>
-                    <select name="day"
-                        value="<?= $val['day'] ?>"><?= $day ?></select>
-                    <div>性別</div>
-                    <input type="radio" name="sex" value="men" checked="checked" />men
-                    <input type="radio" name="sex" value="women" />women
-                    <div>住んでいる国</div>
-                    <select name="country" required>
-                        <option value="">選択してください</option>
-                        <option value="1">日本</option>
-                        <option value="2">中国</option>
-                    </select>
-                    <div>住んでいるエリア</div>
-                    <select name="user_area" required>
-                        <option value="">選択してください</option>
-                        <option value="1">東京</option>
-                        <option value="2">大阪</option>
-                    </select>
-                    <div>自己紹介</div>
-                    <textarea name="introduction"
-                        required><?= $val['introduction'] ?></textarea><br>
-                    <input type="submit" value="プロフィールを更新">
-                </form>
-                <!-- プロフィールアップデートフォーム終わり -->
-
-                <!-- プロフィール画面へ戻る -->
-                <button><a href="profile.php">戻る</a></button>
-
-            </div>
+            <!-- プロフィールアップデートフォーム -->
+            <form action="profile_update.php" method="post" enctype="multipart/form-data">
+                <div class="box">
+                    <div class="user-img">
+                        <div class="img-box">
+                            <input type="file" name="user_img">
+                        </div>
+                    </div>
+                    <div class="user-info">
+                        <div class="title">ニックネーム</div>
+                        <input class="nickname" type="text" name="nickname"
+                            value="<?= $val['nickname'] ?>"
+                            required>
+                        <div class="title">生年月日</div>
+                        <select name="year" class="selected"
+                            value="<?= $val['year'] ?>"><?= $year ?></select>
+                        <select name="month" class="selected"
+                            value="<?= $val['month'] ?>"><?= $month ?></select>
+                        <select name="day" class="selected"
+                            value="<?= $val['day'] ?>"><?= $day ?></select>
+                        <div class="title">性別</div>
+                        <input type="radio" name="sex" value="men" checked="checked" />men
+                        <input type="radio" name="sex" value="women" />women
+                        <div class="title">住んでいる国</div>
+                        <select name="country" class="selected" required>
+                            <option value="">選択してください</option>
+                            <option value="1">日本</option>
+                            <option value="2">中国</option>
+                        </select>
+                        <div class="title">住んでいるエリア</div>
+                        <select name="user_area" class="selected" required>
+                            <option value="">選択してください</option>
+                            <option value="1">東京</option>
+                            <option value="2">大阪</option>
+                        </select>
+                        <div class="title">自己紹介</div>
+                        <textarea name="introduction" class="introduction"
+                            required><?= $val['introduction'] ?></textarea><br>
+                        <input type="submit" class="edit-comp" value="プロフィールを更新">
+            </form>
         </div>
     </div>
+    <!-- プロフィールアップデートフォーム終わり -->
 
 </body>
 
