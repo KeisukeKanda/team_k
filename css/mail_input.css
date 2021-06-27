@@ -1,0 +1,29 @@
+.warp{
+    height: 100vh;
+}
+
+.box{
+    width: 60%;
+    margin: 0 auto;
+    margin-top: 8vh;
+}
+
+.form-title{
+    padding: 2vh 0;
+    font-size: 1.5vw;
+}
+
+.mail-inputform{
+    width: 30%;
+    padding: 0.5vw;
+}
+
+.mail-submit-btn{
+    width: 30%;
+    margin: 1.5vw 0;
+    padding: 0.5vw;
+    border: none;
+    background-color: #F62B5D;;
+    color: #fff;
+    font-size: 1.5vw;
+}
