@@ -64,12 +64,14 @@ if ($status == false) {
   <meta charset="UTF-8">
   <title>ユーザー予約一覧</title>
   <link rel="stylesheet" href="./css/reset.css">
+  <link rel="stylesheet" href="./css/header.css">
   <link rel="stylesheet" href="./css/main.css">
   <link rel="stylesheet" href="./css/user_schedule.css">
   <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
 </head>
 
 <body>
+  <?php include("component/header.php") ?>
   <div class="contents">
     <h1>予約一覧</h1>
     <div><?= $view ?></div>
