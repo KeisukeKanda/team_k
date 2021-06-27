@@ -1,65 +1,92 @@
-.contents {
-  background-color: #f1f1f1;
-  height: 80vh;
+h1 {
+  text-align: center;
+  padding: 20px 20px;
 }
 
-h1 {
-  font-size: 24px;
-  font-weight: bold;
-  color: #5c5c5c;
-  padding: 20px 20px;
-  width: 50%;
-  margin: 0 auto;
+.contents {
+  height: 100vh;
+  background-color: #f4f4f4;
 }
 
 .user_reservation_list {
-  width: 50%;
-  margin: 0 auto;
-  background-color: white;
-  border-radius: 0.3rem;
-
+  display: flex;
 }
 
 .project_title {
-  color: #268CB6;
+  color: #268cb6;
   font-size: 20px;
   font-weight: bold;
-  padding: 10px 10px 10px 10px;
+  padding: 10px 10px 10px 30px;
 }
 
 .project_contents {
+  padding: 5px 10px 5px 30px;
+}
+
+.p_contents {
+  margin: 10px 10px 10px 30px;
   padding: 5px 10px 5px 10px;
+  background-color: #53BFE6;
+  border: 2px solid #f4f4f4;
+  border-radius: 0.3rem;
 }
 
-.project_button {
-  display: flex;
-  justify-content: flex-end;
-  padding: 0 0 10px 0;
-}
-
-
-.project_button > a {
-  width: 170px;
+.btn {
   height: 30px;
+  line-height: 30px;
+}
+
+.cancel {
+  margin-left: 100px;
+  margin-top: 100px;
+  background-color: white;
+  color: #5c5c5c;
+  border: #5c5c5c 1px solid;
+}
+
+.detail {
+  background-color: #F62B5D;
+  margin-left: 10px;
+  margin-top: 100px;
+}
+
+.btn .back {
+  width: 13vw;
+  height: 4.5vh;
   background-color: #298BAD;
   color: white;
   font-weight: bold;
   text-align: center;
-  line-height: 30px;
-  border-radius: 0.3rem;
-  margin-right: 10px;
+  line-height: 4.5vh;
+  border-radius: 0.5rem;
 }
 
-.home_button {
-  text-align: center;
-  margin: 20px 20px;
+.go {
+  background-color: #F62B5D;
+  margin-left: 10px;
 }
 
-.home_button > a {
-  font-size: 20px;
-  color: white;
+.user_reservation {
+  width: 70%;
+  margin: 0 auto;
+  background-color: white;
+  border-radius: 0.4rem;
+}
+
+.project_button {
+  display: flex;
+  justify-content: center;
+  padding: 20px 20px;
+}
+
+.yes {
+  width: 13vw;
+  height: 4.5vh;
+  background-color: white;
+  color: #5c5c5c;
+  font-weight: bold;
   text-align: center;
-  background-color: #566884;
-  border-radius: 0.3rem;
-  padding: 5px 10px 5px 10px;
+  line-height: 4.5vh;
+  border-radius: 0.5rem;
+  margin-left: 10px;
 }

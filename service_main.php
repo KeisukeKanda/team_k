@@ -29,7 +29,7 @@ $project_id=$_GET["project_id"];
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="../_shared/style.css">
     <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script> -->
-    
+
 </head>
 
 
