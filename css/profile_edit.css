@@ -61,6 +61,22 @@ input{
     margin: 6vw 2vw;
 }
 
+.img-review{
+    width: 90%;
+    height: 40vh;
+    display: block;
+    margin: 0 auto;
+}
+
+.img-review img{
+    width: 90%;
+    height: 35vh;
+    display: block;
+    margin: 0 auto;
+    /* opacity: 0.5; */
+    border-radius: 0.5rem;
+}
+
 .img-box {
     border: 1px solid rgb(172, 172, 172);
     border-radius: 0.5rem;
@@ -98,6 +114,10 @@ input{
 .text{
     margin: 1.5vw 0;
     padding: 1vw;
+}
+
+.introduction{
+    line-height: 3.5vh;
 }
 
 .edit{

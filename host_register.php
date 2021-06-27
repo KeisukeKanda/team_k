@@ -41,35 +41,31 @@ if ($status==false) {
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/reset.css">
-    <title>Document</title>
+    <link rel="stylesheet" href="./css/all.css">
+    <link rel="stylesheet" href="./css/header.css">
+    <link rel="stylesheet" href="./css/footer.css">
+    <link rel="stylesheet" href="./css/host_register.css">
+    <title>ISEKAI</title>
 </head>
 
 <body>
     <div class="wrap">
-        <!-- ヘッダー -->
-        <div class="header">
-            <div class="header-box">
-                <div class="logo">Team K</div>
-                <div class="nav-box">
-                </div>
-            </div>
-        </div>
-        <!-- ヘッダー終わり -->
+        <!-- componentフォルダからヘッダーを読み込み -->
+        <?php include("component/header.php") ?>
+
 
         <div class="main">
             <div class="box">
+                <div class="sub">
+                    <form action="host_register_act.php" method="post">
+                        <input type="hidden" name="host" value="1">
+                        <input type="submit" class="btn host-btn" value="ホストになる">
+                    </form>
+                </div>
             </div>
         </div>
-        <div class="sub">
-        <form action="host_register_act.php" method="post">
-            <input type="hidden" name="host" value="1">
-            <input type="submit" value="ホストになる">
-        </form>
-            <div class="sub-box">
-                <a href="profile.php">マイページへ戻る</a>
-            </div>
-        </div>
-
+        <!-- フッターを呼び出し -->
+        <?php include("component/footer.php") ?>
         <style>
             .user_img {
                 width: 30%;

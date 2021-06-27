@@ -69,6 +69,11 @@ $val = $res->fetch();
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./css/reset.css">
+
+    <!-- bootstrapのurl -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+
     <link rel="stylesheet" href="./css/all.css">
     <link rel="stylesheet" href="./css/header.css">
     <link rel="stylesheet" href="./css/footer.css">
@@ -86,16 +91,24 @@ $val = $res->fetch();
             <!-- プロフィールアップデートフォーム -->
             <form action="profile_update.php" method="post" enctype="multipart/form-data">
                 <div class="box">
+
+                    <!-- ユーザープロフィール画像 -->
                     <div class="user-img">
                         <div class="img-box">
-                            <input type="file" name="user_img">
+                            <div class="img-review">
+                                <img src="background_img/profile-default.svg" class="preview" alt="変更したいプロフィールの画像">
+                            </div>
+                            <input type="file" class="image-input" name="user_img">
                         </div>
                     </div>
+
+                    <!-- プロフィールテキスト -->
                     <div class="user-info">
                         <div class="title">ニックネーム</div>
                         <input class="nickname" type="text" name="nickname"
                             value="<?= $val['nickname'] ?>"
                             required>
+
                         <div class="title">生年月日</div>
                         <select name="year" class="selected"
                             value="<?= $val['year'] ?>"><?= $year ?></select>
@@ -103,21 +116,25 @@ $val = $res->fetch();
                             value="<?= $val['month'] ?>"><?= $month ?></select>
                         <select name="day" class="selected"
                             value="<?= $val['day'] ?>"><?= $day ?></select>
+
                         <div class="title">性別</div>
                         <input type="radio" name="sex" value="men" checked="checked" />men
                         <input type="radio" name="sex" value="women" />women
+
                         <div class="title">住んでいる国</div>
                         <select name="country" class="selected" required>
                             <option value="">選択してください</option>
                             <option value="1">日本</option>
                             <option value="2">中国</option>
                         </select>
+
                         <div class="title">住んでいるエリア</div>
                         <select name="user_area" class="selected" required>
                             <option value="">選択してください</option>
                             <option value="1">東京</option>
                             <option value="2">大阪</option>
                         </select>
+
                         <div class="title">自己紹介</div>
                         <textarea name="introduction" class="introduction"
                             required><?= $val['introduction'] ?></textarea><br>
@@ -129,6 +146,9 @@ $val = $res->fetch();
 
     <!-- フッターを呼び出し -->
     <?php include("component/footer.php") ?>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="js/profile_edit.js"></script>
 </body>
 
 </html>
