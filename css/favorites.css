@@ -1,0 +1,20 @@
+h1 {
+  text-align: center;
+  padding: 20px 20px;
+}
+
+.contents {
+  height: 100vh;
+  background-color: #f4f4f4;
+}
+
+.user_favorite {
+  width: 70%;
+  margin: 0 auto;
+  background-color: white;
+  border-radius: 0.4rem;
+}
+
+.user_favorite_list {
+  display: flex;
+}
