@@ -35,7 +35,7 @@ $name= $_SESSION["name"];
 //               予約設定表示
 //******************************************* */
 
-	$sql="SELECT*FROM reservation AS r JOIN project AS p ON r.project_id = p.project_id WHERE p.user_id=$user_id ORDER BY date ASC";
+	$sql="SELECT*FROM reservation AS r JOIN project AS p ON r.project_id = p.project_id WHERE p.user_id=$user_id AND reserve_flag=0 ORDER BY date ASC";
 	$stmt=$pdo->prepare($sql);
 	$status=$stmt->execute();
 	$view2="";
