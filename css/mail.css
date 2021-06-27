@@ -1,0 +1,17 @@
+.warp{
+    height: 100vh;
+}
+
+.message{
+    padding: 2vw;
+}
+
+.backhome{
+    padding: 0 2vw;
+}
+
+.backhome a{
+    text-decoration: none;
+    color: #5c5c5c;
+    border-bottom: 1px solid #5c5c5c;
+}

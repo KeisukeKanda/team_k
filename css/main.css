@@ -4,6 +4,7 @@
 
 ------------------------------------------*/
 .wrap{
+    line-height: 5vh;
 }
 
 
@@ -90,4 +91,5 @@
     color: #000;
     font-size: 1.2vw;
     padding: 1vw;
+    height: 20vh;
 }
