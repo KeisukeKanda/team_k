@@ -39,11 +39,14 @@ if ($state==false) {
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./css/reset.css">
-    <link rel="stylesheet" href="./css/all.css">
     <link rel="stylesheet" href="./css/main.css">
     <link rel="stylesheet" href="./css/header.css">
-    <link rel="stylesheet" href="./css/footer.css">
-    <title>ISEKAI</title>
+
+    <!-- ここからカレンダーのテスト -->
+    <script src="https://kit.fontawesome.com/41d0c3f425.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="./css/test.css">
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
+    <title>Document</title>
 </head>
 
 <body>
@@ -54,24 +57,26 @@ if ($state==false) {
         <!-- メインビュー -->
         <div class="firstview">
             <div class="firstview-img">
-                <!-- <img src="./background_img/top.png" alt="サイトのファーストビュー"> -->
+                <img src="./background_img/top.png" alt="サイトのファーストビュー">
             </div>
             <div class="firstview-text">
                 <p>知らない場所には</p>
                 <p>知らない人がいる</p>
                 <!-- 検索機能作成中 -->
-                <input type="text" id="search1" placeholder="どこで">
-                <input type="text" id="search3" placeholder="何する？">
-                <button id="send">検索</button>
+                <input type="text" id="search1" placeholder="国名、地域">
+                <input type="text" id="search3" placeholder="キーワード">
+                
+                <input  type="text" style="display:none" size="10" class="calendar_pop" id="input1" />
+                <i id="calendar" class="fas fa-calendar-alt calendar"></i>
+                
+                <button id="send">検索</button> 
             </div>
             <div class="back-color"></div>
         </div>
         <!-- メインビュー終わり -->
 
         <!-- 検索結果の割り込み表示 -->
-        <div class="container jumbotron" id="view">
-            <?php echo $view; ?>
-        </div>
+            <div class="container jumbotron" id="view"><?php echo $view; ?></div>
 
         <!-- プラン一覧を表示 -->
         <div class="main">
@@ -102,36 +107,55 @@ if ($state==false) {
 
     </div>
 
-    <!-- 検索結果 -->
-    <div class="container jumbotron" id="view"><?php echo $view; ?>
-    </div>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-    <script>
-        $("#send").on("click", function() {
-            //Ajax（非同期通信）
-            //1．パラメータの変更
-            //2. 送信先
-            //3. DOM操作
-            const params = new URLSearchParams();
-            params.append('search1', $("#search1").val());
-            params.append('search3', $("#search3").val());
-            params.append('search4', $("#search4").val());
+<!-- 検索結果 -->
+        <div class="container jumbotron" id="view"><?php echo $view; ?></div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 
-            //axiosでAjax送信
-            axios.post('index_search2.php', params).then(function(response) {
-                console.log(response.data); //通信OK
-                $("#view").html(response.data);
-            }).catch(function(error) {
-                console.log(error); //通信Error
-            }).then(function() {
-                console.log("Last"); //通信OK/Error後に処理を必ずさせたい場合
-            });
-        });
-    </script>
+<!-- カレンダーアイコンのクリックイベント作成 -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1/i18n/jquery.ui.datepicker-ja.min.js"></script>
+<script>
+    $(function () {
+        $.datepicker.setDefaults($.datepicker.regional["ja"]);
+        $("#input1").datepicker();
+    });
+</script>
 
-    <!-- フッターを呼び出し -->
-    <?php include("component/footer.php") ?>
+<script>
+var calendar = document.getElementById('calendar');
+var input1 = document.getElementById('input1');
+
+calendar.addEventListener('click', function() {
+input1.style.display = 'block';
+});
+
+
+
+$("#send").on("click",function(){
+    //Ajax（非同期通信）
+    //1．パラメータの変更
+    //2. 送信先
+    //3. DOM操作
+    const params = new URLSearchParams();
+    params.append('search1',$("#search1").val() );
+    params.append('search3',$("#search3").val() );
+    params.append('search4',$("#search4").val() );
+
+    //axiosでAjax送信
+    axios.post('index_search2.php',params).then(function (response) {
+        console.log(response.data);//通信OK
+        $("#view").html(response.data);
+    }).catch(function (error) {
+        console.log(error);//通信Error
+    }).then(function () {
+        console.log("Last");//通信OK/Error後に処理を必ずさせたい場合
+    });
+});
+</script>
+
+
 </body>
 
 </html>
