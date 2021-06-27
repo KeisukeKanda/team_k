@@ -76,10 +76,18 @@ $val = $res->fetch();
                     <div class="img-box">
                         <img src="./user_img/<?= $val["user_img"] ?>"
                             alt="ユーザープロフィール画像">
+
                         <!-- 編集ページへの移動ボタン -->
                         <div class="edit">
                             <a href="profile_edit.php">プロフィール編集</a>
                         </div>
+
+                        <!-- ログインユーザーがまだhost登録していない場合のみ表示する -->
+                        <?php if ($val["host"] == 0): ?>
+                        <div class="host-btn">
+                            <a href="host_register.php">ホストに登録する</a>
+                        </div>
+                        <?php endif; ?>
                     </div>
                 </div>
                 <div class="user-info">
@@ -89,9 +97,12 @@ $val = $res->fetch();
                     </div>
                     <div class="title">生年月日</div>
                     <div class="text birthdate">
+                        <?php if ($val["year"] ==""): ?>
+                        <?php else: ?>
                         <?= $val["year"] ?>/
                         <?= $val["month"] ?>/
                         <?= $val["day"] ?>
+                        <?php endif; ?>
                     </div>
                     <div class="title">性別</div>
                     <div class="text sex">
@@ -121,11 +132,6 @@ $val = $res->fetch();
     <!-- ここからsubコンテンツ -->
     <div class="sub">
         <div class="sub-box">
-
-            <!-- ログインユーザーがまだhost登録していない場合のみ表示する -->
-            <?php if ($val["host"] == 0): ?>
-            <a href="host_register.php">ホストに登録する</a>
-            <?php endif; ?>
 
         </div>
     </div>

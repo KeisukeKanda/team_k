@@ -80,27 +80,29 @@ if ($state==false) {
 
         <!-- プラン一覧を表示 -->
         <div class="main">
-            <h1 class="title">新着の体験</h1>
-            <div class="box">
-                <?php foreach ($stmt as $content): ?>
-                <div class="content">
-                    <div class="content-img">
-                        <!-- projectの画像と文字に詳細画面へのリンクを付与
+            <div class="main-container">
+                <h1 class="title">新着の体験</h1>
+                <div class="box">
+                    <?php foreach ($stmt as $content): ?>
+                    <div class="content">
+                        <div class="content-img">
+                            <!-- projectの画像と文字に詳細画面へのリンクを付与
                         URLでuser_idとproject_idを遷移先ページへと引き渡す-->
-                        <a href="./selected_project.php?user_id=<?= $user_id ?>&project_id=<?= $content['project_id'] ?>
+                            <a href="./selected_project.php?user_id=<?= $user_id ?>&project_id=<?= $content['project_id'] ?>
                             ">
-                            <img src='project_img/<?= $content["project_img"] ?>'
-                                alt="体験できるプロジェクトの画像">
+                                <img src='project_img/<?= $content["project_img"] ?>'
+                                    alt="体験できるプロジェクトの画像">
+                        </div>
+                        <div class="content-title">
+                            <?= $content["title"] ?>
+                        </div>
+                        <div class="content-text">
+                            <?= $content["experience"] ?>
+                        </div>
+                        </a>
                     </div>
-                    <div class="content-title">
-                        <?= $content["title"] ?>
-                    </div>
-                    <div class="content-text">
-                        <?= $content["experience"] ?>
-                    </div>
-                    </a>
+                    <?php endforeach; ?>
                 </div>
-                <?php endforeach; ?>
             </div>
         </div>
         <!-- プラン一覧を表示終わり -->

@@ -23,7 +23,7 @@
 .img-box {
     border: 1px solid rgb(172, 172, 172);
     border-radius: 0.5rem;
-    height: 50vh;
+    height: 70vh;
 }
 
 .img-box img {
@@ -59,6 +59,10 @@
     padding: 1vw;
 }
 
+.introduction{
+    line-height: 3.5vh;
+}
+
 .edit{
     width: 50%;
     margin: 0 auto;
@@ -70,6 +74,23 @@
 }
 
 .edit a{
+    color: #fff;
+    font-size: 1.2vw;
+    display: block;
+    text-align: center;
+}
+
+.host-btn{
+    width: 50%;
+    margin: 0 auto;
+    margin-top: 5vh;
+    padding: 15px;
+    background-color: #F62B5D;
+    border: none;
+    border-radius: 0.5rem;
+}
+
+.host-btn a{
     color: #fff;
     font-size: 1.2vw;
     display: block;

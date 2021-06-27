@@ -60,5 +60,7 @@ h2{
     font-weight: bold;
     text-align: center;
     line-height: 4.5vh;
+    border: none;
     border-radius: 0.5rem;
+    cursor: pointer;
 }
