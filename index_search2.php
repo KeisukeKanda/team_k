@@ -61,7 +61,7 @@ if ($status == false) {
     //Selectデータの数だけ自動でループしてくれる
     //FETCH_ASSOC=http://php.net/manual/ja/pdostatement.fetch.php
     while ($result = $stmt->fetch(PDO::FETCH_ASSOC)) {
-        $view .= '<img src="./project_img/<?='.$result["project_img"].'?>">';
+        $view .= '<img src="project_img/<?='.$result["project_img"].'?>">';
         $view .= '<p>';
         $view .= $result["title"];
         $view .= $result["experience"] . "<br>" . $result["thoughts"];
