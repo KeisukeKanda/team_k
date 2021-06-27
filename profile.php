@@ -56,9 +56,10 @@ $val = $res->fetch();
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./css/reset.css">
+    <link rel="stylesheet" href="./css/all.css">
     <link rel="stylesheet" href="./css/header.css">
     <link rel="stylesheet" href="./css/profile.css">
-    <title>Document</title>
+    <title>ISEKAI</title>
 </head>
 
 <body>
@@ -72,12 +73,12 @@ $val = $res->fetch();
                 <!-- プロフィール表示 -->
                 <div class="user-img">
                     <div class="img-box">
-                        <img src="<?= $val["user_img"] ?>"
+                        <img src="./user_img/<?= $val["user_img"] ?>"
                             alt="ユーザープロフィール画像">
-                    </div>
-                    <!-- 編集ページへの移動ボタン -->
-                    <div class="edit">
-                        <a href="profile_edit.php">プロフィール編集</a>
+                        <!-- 編集ページへの移動ボタン -->
+                        <div class="edit">
+                            <a href="profile_edit.php">プロフィール編集</a>
+                        </div>
                     </div>
                 </div>
                 <div class="user-info">

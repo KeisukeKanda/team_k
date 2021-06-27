@@ -39,9 +39,10 @@ if ($state==false) {
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./css/reset.css">
+    <link rel="stylesheet" href="./css/all.css">
     <link rel="stylesheet" href="./css/main.css">
     <link rel="stylesheet" href="./css/header.css">
-    <title>Document</title>
+    <title>ISEKAI</title>
 </head>
 
 <body>
@@ -52,7 +53,7 @@ if ($state==false) {
         <!-- メインビュー -->
         <div class="firstview">
             <div class="firstview-img">
-                <img src="./background_img/top.png" alt="サイトのファーストビュー">
+                <!-- <img src="./background_img/top.png" alt="サイトのファーストビュー"> -->
             </div>
             <div class="firstview-text">
                 <p>知らない場所には</p>
@@ -66,14 +67,16 @@ if ($state==false) {
                     <option value="2">2,000円〜4,999円</option>
                     <option value="3">5,000円以上</option>
                 </select>
-                <button id="send">検索</button> 
+                <button id="send">検索</button>
             </div>
             <div class="back-color"></div>
         </div>
         <!-- メインビュー終わり -->
 
         <!-- 検索結果の割り込み表示 -->
-            <div class="container jumbotron" id="view"><?php echo $view; ?></div>
+        <div class="container jumbotron" id="view">
+            <?php echo $view; ?>
+        </div>
 
         <!-- プラン一覧を表示 -->
         <div class="main">
@@ -104,32 +107,33 @@ if ($state==false) {
 
     </div>
 
-<!-- 検索結果 -->
-        <div class="container jumbotron" id="view"><?php echo $view; ?></div>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-<script>
-$("#send").on("click",function(){
-    //Ajax（非同期通信）
-    //1．パラメータの変更
-    //2. 送信先
-    //3. DOM操作
-    const params = new URLSearchParams();
-    params.append('search1',$("#search1").val() );
-    params.append('search3',$("#search3").val() );
-    params.append('search4',$("#search4").val() );
+    <!-- 検索結果 -->
+    <div class="container jumbotron" id="view"><?php echo $view; ?>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script>
+        $("#send").on("click", function() {
+            //Ajax（非同期通信）
+            //1．パラメータの変更
+            //2. 送信先
+            //3. DOM操作
+            const params = new URLSearchParams();
+            params.append('search1', $("#search1").val());
+            params.append('search3', $("#search3").val());
+            params.append('search4', $("#search4").val());
 
-    //axiosでAjax送信
-    axios.post('index_search2.php',params).then(function (response) {
-        console.log(response.data);//通信OK
-        $("#view").html(response.data);
-    }).catch(function (error) {
-        console.log(error);//通信Error
-    }).then(function () {
-        console.log("Last");//通信OK/Error後に処理を必ずさせたい場合
-    });
-});
-</script>
+            //axiosでAjax送信
+            axios.post('index_search2.php', params).then(function(response) {
+                console.log(response.data); //通信OK
+                $("#view").html(response.data);
+            }).catch(function(error) {
+                console.log(error); //通信Error
+            }).then(function() {
+                console.log("Last"); //通信OK/Error後に処理を必ずさせたい場合
+            });
+        });
+    </script>
 
 
 </body>

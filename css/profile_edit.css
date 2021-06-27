@@ -1,5 +1,46 @@
 /*------------------------------------------------ 
 
+inputタグを装飾する
+
+------------------------------------------------*/
+input{
+    font-size: 1.2vw;
+    border-radius: 0.5rem;
+    padding: 0.5vw;
+}
+
+.nickname{
+    width: 90%;
+    font-size: 1.2vw;
+    border-radius: 0.5rem;
+    padding: 0.5vw;
+}
+
+.selected{
+    font-size: 1.2vw;
+    border-radius: 0.5rem;
+    padding: 0.5vw;
+}
+
+.introduction{
+    width: 95%;
+    height: 30vh;
+    font-size: 1.2vw;
+    border-radius: 0.5rem;
+    padding: 0.5vw;
+}
+
+.edit-comp{
+    width: 100%;
+    margin: 4vh 0;
+    cursor: pointer;
+    background-color: #F62B5D;
+    color: #fff;
+    border: none;
+}
+
+/*------------------------------------------------ 
+
 プロフィール一覧のレイアウト
 
 ------------------------------------------------*/
