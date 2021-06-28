@@ -1,6 +1,6 @@
 #layer {
     display: none;  /* 初期表示は非表示 */
-    position: fixed; 
+    position: fixed;
     left: 0px;
     top: 0px;
     width: 100%;
@@ -10,7 +10,7 @@
 }
 #popup {
     display: none;  /* 初期表示は非表示 */
-    position: fixed; 
+    position: fixed;
     left: 50%;
     top: 50%;
     width: 300px;
@@ -25,7 +25,7 @@
 
 #go_review {
     display: none;  /* 初期表示は非表示 */
-    position: fixed; 
+    position: fixed;
     left: 50%;
     top: 50%;
     width: 300px;
