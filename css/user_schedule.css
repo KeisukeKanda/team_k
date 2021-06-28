@@ -4,7 +4,6 @@ h1 {
 }
 
 .contents {
-  height: 100vh;
   background-color: #f4f4f4;
 }
 
@@ -21,14 +20,6 @@ h1 {
 
 .project_contents {
   padding: 5px 10px 5px 30px;
-}
-
-.p_contents {
-  margin: 10px 10px 10px 30px;
-  padding: 5px 10px 5px 10px;
-  background-color: #53BFE6;
-  border: 2px solid #f4f4f4;
-  border-radius: 0.3rem;
 }
 
 .btn {
