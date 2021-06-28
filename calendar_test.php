@@ -26,7 +26,7 @@
         <script>
             $(function() {
             $('.datepicker').datepicker({
-                buttonImage: "./user_img/calendar.jpeg",  // カレンダーアイコン画像
+                buttonImage: "./background_img/calendar.jpeg",  // カレンダーアイコン画像
                 buttonText: "",  // アイコンホバー時の表示文言
                 buttonImageOnly: true, // ボタンとして表示
                 showOn: "both",  // アイコン、テキストボックスどちらをクリックでもカレンダー表示
