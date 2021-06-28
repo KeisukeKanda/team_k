@@ -12,104 +12,94 @@ $name= $_SESSION["name"];
 <!DOCTYPE HTML>
 <html>
 	<head>
-		<title>teamk</title>
+		<title>ISEKAI</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-		<style>
-			#dragDropArea{
-				background-color: #f4f4f4;
-				margin: 10px;
-				padding: 10px;
-				border: #ddd dashed 5px;
-				min-height: 200px;
-				text-align: center;
-			}
-			#dragDropArea p{
-					color: #999;
-					font-weight: bold;
-					font-size: 14px;
-					font-size: 1.4em;
-			}
-			#dragDropArea .drag-drop-buttons{
-					margin-top: 20px;
-					font-size: 12px;
-					font-size: 1.2em;
-			}
-			.drag-drop-buttons input{
-					margin: auto;
-			}
-			#previewImage{
-					width: 500px;
-			}
-		</style>
+		<link rel="stylesheet" href="./css/reset.css">
+    <link rel="stylesheet" href="./css/all.css">
+    <link rel="stylesheet" href="./css/header.css">
+    <link rel="stylesheet" href="./css/footer.css">
+    <link rel="stylesheet" href="./css/project.css">
+
 	</head>
 	<body>
+        <?php include("component/header.php") ?>
 
 		<!-- Wrapper -->
 
 
 								<!-- Trip Proposal -->
 					<section>
-						<h3>Project Input Form</h3>
+						<h1>Project Input Form</h1>
 						<div>
-							<section>
+
+
 								<form method="POST" action="project_insert.php" enctype="multipart/form-data">
-									<div>
+									<div class="form">
+
+										<div id="dragDropArea">
+											<div class="drag-drop-inside">
+												<p class="drag-drop-info">Project Photo <br>drag & drop</p>
+												<p>
+													<input name="project_img" id="project_img" type="file" accept="image/*" onChange="photoPreview(event)">
+												</p>
+												<div id="previewArea"></div>
+											</div>
+										</div>
+
+										<div class="project-info">
 										<div>
-											<!-- <input type="hidden" name="user_id" id="user_id" value="1" /> -->
 											<input type="hidden" name="user_id" id="user_id" value="<?= $user_id ?>" />
 										</div>
-										<div>
-											<label for="title">Title</label>
-											<input type="text" name="title" id="title" value="" />
-										</div>
-										<div>
-											<label for="category">Category</label>
-											<input type="text" name="category" id="category" value="" />
-										</div>
-										<div>
-											<label for="country">Country</label>
-											<input type="text" name="country" id="country" value="" />
-										</div>
-										<div>
-											<label for="project_area">Area</label>
-											<input type="text" name="project_area" id="project_area" value="" />
-										</div>
-										<div>
-											<label for="experience">Experience</label>
-											<textarea name="experience" id="experience" cols="30" rows="10"></textarea>
-										</div>
-										<div>
-											<label for="thoughts">Thoughts</label>
-											<textarea name="thoughts" id="thoughts" cols="30" rows="10"></textarea>
-										</div>
-										<div>
-											<label for="tour_time">Tour Time</label>
-											<input type="tour_time" name="tour_time" id="tour_time" value="1" />
-										</div>
-										<div>
-											<label for="price">Price</label>
-											<input type="price" name="price" id="price" value="1000" />
-										</div>
-
-											<div id="dragDropArea">
-												<div class="drag-drop-inside">
-													<p class="drag-drop-info">Project Photo <br>drag & drop</p>
-													<p>
-														<input name="project_img" id="project_img" type="file" accept="image/*" onChange="photoPreview(event)">
-													</p>
-													<div id="previewArea"></div>
-												</div>
+										<div class="form_half">
+											<div>
+												<div class="title">Title</div>
+												<input type="text" name="title" id="title" value="" />
 											</div>
+											<div>
+												<div class="title">Category</div>
+												<input type="text" name="category" id="category" value="" />
+											</div>
+										</div>
+										<div class="form_half">
+											<div>
+												<div class="title">Country</div>
+												<input type="text" name="country" id="country" value="" />
+											</div>
+											<div>
+												<div class="title">Area</div>
+												<input type="text" name="project_area" id="project_area" value="" />
+											</div>
+										</div>
+										<div class="form_half">
+											<div>
+												<div class="title">Experience</div>
+												<textarea name="experience" id="experience" cols="30" rows="10"></textarea>
+											</div>
+											<div>
+												<div class="title">Thoughts</div>
+												<textarea name="thoughts" id="thoughts" cols="30" rows="10"></textarea>
+											</div>
+										</div>
+										<div class="form_half">
+											<div>
+												<div class="title">Tour Time</div>
+												<input type="tour_time" name="tour_time" id="tour_time" value="1" />
+											</div>
+											<div>
+												<div class="title">Price</div>
+												<input type="price" name="price" id="price" value="1000" />
+											</div>
+										</div>
+									</div>
+									</div>
 
-									<ul class="actions">
-										<li><input type="submit" value="Propose" /></li>
-										<li><input type="reset" value="Clear" /></li>
-									</ul>
+									<div class="nav_btn">
+										<input type="submit" value="Propose" class="btn"/>
+										<input type="reset" value="Clear" class="btn" />
+									</div>
 								</form>
-							</section>
 						</div>
-					</section>
 
 
 			<script>
@@ -157,5 +147,8 @@ $name= $_SESSION["name"];
 						reader.readAsDataURL(file);
 					};
 			</script>
+
+    <?php include("component/footer.php") ?>
+
 	</body>
 </html>

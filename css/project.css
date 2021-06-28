@@ -1,0 +1,122 @@
+h1 {
+  margin-top: 60px;
+  /* margin-bottom: 50px; */
+  text-align: center;
+  padding: 20px 20px;
+}
+.form{
+    width: 70%;
+    margin: auto;
+    display: flex;
+}
+
+.form_half{
+    display: flex;
+    justify-content:space-around;
+    margin: auto;
+}
+
+.nav_btn{
+  display: flex;
+  justify-content: center;
+}
+
+input.btn {
+  height: 50px;
+  line-height: 30px;
+  margin: 30px;
+  font-size: 30px;
+}
+/*------------------------------------------------
+
+inputタグを装飾する
+
+------------------------------------------------*/
+input{
+    font-size: 1.2vw;
+    border-radius: 0.5rem;
+    padding: 0.5vw;
+}
+
+/*------------------------------------------------
+
+プロフィール一覧のレイアウト
+
+------------------------------------------------*/
+.box{
+    width: 70%;
+    display: flex;
+    margin: 0 auto;
+    margin-top: 5vh;
+}
+
+
+/*------------------------------------------------
+
+プロフィールテキスト
+
+------------------------------------------------*/
+.project-info{
+    width: 60%;
+    margin: 2vw;
+}
+
+.title{
+    margin: 1.5vw 0;
+    padding: 1vw;
+    font-size: 1.5vw;
+    background-color: #298BAD;
+    color: #fff;
+    border-radius: 0.5rem;
+}
+
+.text{
+    margin: 1.5vw 0;
+    padding: 1vw;
+}
+
+.edit{
+    width: 50%;
+    margin: 0 auto;
+    margin-top: 5vh;
+    padding: 15px;
+    background-color: #989898;
+    border: none;
+    border-radius: 0.5rem;
+}
+
+.edit a{
+    color: #fff;
+    font-size: 1.2vw;
+    display: block;
+    text-align: center;
+}
+
+/* drag and drop photo */
+#dragDropArea{
+    width: 40%;
+    /* height: 100%; */
+    background-color: #f4f4f4;
+    margin: 50px 10px;
+    padding: 10px;
+    border: #ddd dashed 5px;
+    min-height: 200px;
+    text-align: center;
+}
+#dragDropArea p{
+        color: #999;
+        font-weight: bold;
+        font-size: 14px;
+        font-size: 1.4em;
+}
+#dragDropArea .drag-drop-buttons{
+        margin-top: 20px;
+        font-size: 12px;
+        font-size: 1.2em;
+}
+.drag-drop-buttons input{
+        margin: auto;
+}
+#previewImage{
+        width: 300px;
+}

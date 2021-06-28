@@ -1,0 +1,143 @@
+h1 {
+  margin-top: 60px;
+  text-align: center;
+  padding: 20px 20px;
+}
+h2 {
+  margin-top: 60px;
+  margin-bottom: 50px;
+  text-align: center;
+}
+
+.nav_btn{
+  display: flex;
+  justify-content: center;
+}
+.contents {
+  height: 100vh;
+  background-color: #f4f4f4;
+}
+
+.view_wrap{
+  display: flex;
+  width: 80%;
+  margin: auto;
+}
+.wrap1{
+  padding-right: 20px;
+  width: 60%;
+}
+.wrap2{
+  width: 40%;
+}
+.align_left{
+  text-align: left;
+}
+
+.r_card{
+  display: flex;
+  width: 80%;
+  margin: auto;
+  border: 1px solid grey;
+  border-radius: 20px;
+}
+
+.p_card{
+  display: flex;
+  margin: auto;
+  border: 1px solid grey;
+  border-radius: 20px;
+}
+.s_card{
+  display: flex;
+  margin: auto;
+  border: 1px solid grey;
+  border-radius: 20px;
+}
+
+.img_card{
+  margin: 10px 0 0 10px;
+}
+.txt_card{
+  /* padding-left: 30px; */
+}
+
+.txt_country_card,
+.txt_time_price_card,
+.btn_card,
+.txt_expe_card,
+.txt_thoughts_card {
+  display: flex;
+  font-size: 15px;
+  font-weight: bold;
+  padding: 10px 10px 10px 30px;
+  width: 55%;
+
+}
+
+.txt_title_card {
+  display: flex;
+  color: #268cb6;
+  font-size: 20px;
+  font-weight: bold;
+  padding: 10px 10px 10px 30px;
+  width: 55%;
+
+}
+
+.btn {
+  height: 30px;
+  line-height: 30px;
+  margin: 10px;
+  font-size: 15px;
+}
+.main {
+  margin: 30px;
+  height:50px;
+  background-color: grey;
+}
+
+.cancel {
+  margin-left: 100px;
+  margin-top: 100px;
+  background-color: white;
+  color: #5c5c5c;
+  border: #5c5c5c 1px solid;
+}
+
+.detail {
+  background-color: #F62B5D;
+  margin-left: 10px;
+  margin-top: 100px;
+}
+
+.btn .back {
+  width: 13vw;
+  height: 4.5vh;
+  background-color: #298BAD;
+  color: white;
+  font-weight: bold;
+  text-align: center;
+  line-height: 4.5vh;
+  border-radius: 0.5rem;
+}
+.title{
+    margin: 1.5vw 0;
+    padding: 1vw;
+    font-size: 1.5vw;
+    background-color: #298BAD;
+    color: #fff;
+    border-radius: 0.5rem;
+}
+input{
+    width: 50%;
+    font-size: 1.2vw;
+    border-radius: 0.5rem;
+    padding: 0.5vw;
+}
+.form_box{
+  width: 30%;
+  margin: auto;
+  margin-bottom: 30px;
+}
+
