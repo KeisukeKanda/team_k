@@ -87,22 +87,24 @@ $status = $stmt->execute();
                     <div class="content">
                         <!-- projectの画像と文字に詳細画面へのリンクを付与
                         URLでuser_idとproject_idを遷移先ページへと引き渡す-->
-                        <a
-                            href="./selected_project.php?project_id=<?= $content['project_id'] ?>">
-                            <div class="content-img">
-                                <img src='project_img/<?= $content["project_img"] ?>'
-                                    alt="体験できるプロジェクトの画像">
-                                <!-- ＜テスト中＞hoverしたら出てくる要素 -->
-                                <!-- <div class="comment">
+                        <div class="content-info">
+                            <a
+                                href="./selected_project.php?project_id=<?= $content['project_id'] ?>">
+                                <div class="content-img">
+                                    <img src='project_img/<?= $content["project_img"] ?>'
+                                        alt="体験できるプロジェクトの画像">
+                                    <!-- ＜テスト中＞hoverしたら出てくる要素 -->
+                                    <!-- <div class="comment">
                                     <?= $content["title"] ?>
-                            </div> -->
-                    </div>
-                    <div class="content-title">
-                        <?= $content["title"] ?>
-                    </div>
-                    <!-- <div class="content-text">
-                            <?= $content["experience"] ?>
-                </div> -->
+                                </div> -->
+                        </div>
+                        <div class="content-title">
+                            <?= $content["title"] ?>
+                        </div>
+                        <!-- <div class="content-text">
+                                    <?= $content["experience"] ?>
+                    </div> -->
+                </div>
                 </a>
                 <a
                     href="host_profile.php?user_id=<?= $content["user_id"] ?>">

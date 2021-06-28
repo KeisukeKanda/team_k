@@ -87,7 +87,7 @@
     border-radius: 0.5rem;
 }
 
-.content:hover{
+.content-info:hover{
     opacity: 0.6;
 }
 
@@ -115,6 +115,10 @@
 .host-info{
     display: flex;
     align-items: center;
+}
+
+.host-info:hover{
+    opacity: 0.6;
 }
 
 .host-img{
