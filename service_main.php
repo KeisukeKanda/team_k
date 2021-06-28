@@ -49,7 +49,25 @@ $project_id=$_GET["project_id"];
                         <div class="gamen_pass">
                             <input type="text" placeholder="Room Name" id="js-room-id">
                             <button id="js-join-trigger">Join</button>
+<<<<<<< HEAD
+                            
+                            <button  id="show">Leave</button>
+                        <!-- テスト中 -->
+                            <!-- レイヤー -->
+                            <div id="layer"></div>
+                            <!-- ポップアップ -->
+                            <div id="popup">
+                                <div>通話を終了してもよろしいですか？</div>
+                                <input type="button" id="js-leave-trigger" value="はい">
+                                <input type="button" id="back_coll" value="いいえ">
+                            </div>
+
+
+
+                            <!-- <div><button id="js-leave-trigger">はい</button></div> -->
+=======
                             <button  id="js-leave-trigger">Leave</button>
+>>>>>>> parent of 800d967... スカイウェイのポップアップ→レビュー作成完了
                         </div>
                 </div>
 
@@ -74,6 +92,31 @@ $project_id=$_GET["project_id"];
     <script src="//cdn.webrtc.ecl.ntt.com/skyway-4.4.1.js"></script>
     <script src="./_shared/key.js"></script>
     <script src="./js/script.js"></script>
+<<<<<<< HEAD
+
+
+    <!-- ここからモーダルテスト -->
+    <script>
+    $(function() {
+    // show popupボタンクリック時の処理
+    $('#show').click(function(e) {
+        $('#popup, #layer').show();
+    });
+
+    // レイヤー/ポップアップのcloseボタンクリック時の処理
+    $('#js-leave-trigger, #layer').click(function(e) {
+        $('#popup, #layer').hide();
+        $('#go_review').show();
+    });
+    $('#back_coll').click(function(e) {
+        $('#popup, #layer').hide();
+    });
+
+
+});
+</script>
+=======
+>>>>>>> parent of 800d967... スカイウェイのポップアップ→レビュー作成完了
 </div>
 
 
