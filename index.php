@@ -46,8 +46,13 @@ $status = $stmt->execute();
 
     <!-- ここからカレンダーのテスト -->
     <script src="https://kit.fontawesome.com/41d0c3f425.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/themes/base/jquery-ui.min.css">
     <link rel="stylesheet" href="./css/test.css">
     <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
+    <script type="text/javascript" src="http://code.jquery.com/jquery-3.1.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    
     <title>Document</title>
 </head>
 
@@ -65,17 +70,23 @@ $status = $stmt->execute();
                 <input type="text" id="search1" placeholder="国名、地域">
                 <input type="text" id="search3" placeholder="キーワード">
 
-                <input type="text" style="display:none" size="10" class="calendar_pop" id="input1" />
-                <i id="calendar" class="fas fa-calendar-alt calendar"></i>
-
-                <button id="send">検索</button>
+<!-- ここからカレンダー結合部分 -->
+            <div class="contents">
+                <div class="calendar">
+                    <input type="text" id="search5" name="datepicker" style="display:none" class="datepicker" value="">
+                    <div class="calendar__modal"></div>
+                    <button id="send">検索</button>
+                </div>
             </div>
-            <div class="back-color"></div>
-        </div>
+                <div class="container jumbotron"></div>
+            </div>
+                <div class="back-color"></div>
+            </div>
         <!-- メインビュー終わり -->
 
         <!-- 検索結果の割り込み表示 -->
-        <div class="container jumbotron" id="view"><?php echo $view; ?>
+        <div class="container jumbotron" id="view">
+            <?php echo $view2;?>
         </div>
 
         <!-- プラン一覧を表示 -->
@@ -136,23 +147,26 @@ $status = $stmt->execute();
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1/i18n/jquery.ui.datepicker-ja.min.js"></script>
-    <script>
-        $(function() {
-            $.datepicker.setDefaults($.datepicker.regional["ja"]);
-            $("#input1").datepicker();
-        });
-    </script>
-
-    <script>
-        var calendar = document.getElementById('calendar');
-        var input1 = document.getElementById('input1');
-
-        calendar.addEventListener('click', function() {
-            input1.style.display = 'block';
-        });
+    
 
 
+<!-- // カレンダー最終結合テスト -->
+        <script>
+            $(function() {
+            $('.datepicker').datepicker({
+                buttonImage: "./background_img/calendar.jpg",  // カレンダーアイコン画像
+                buttonText: "",  // アイコンホバー時の表示文言
+                buttonImageOnly: true, // ボタンとして表示
+                showOn: "both",  // アイコン、テキストボックスどちらをクリックでもカレンダー表示
+                beforeShow: function(input, inst){
+                inst.dpDiv.css({top: 50 + '%', left: 50 + '%'});
+                }
+            });
+            });
+        </script>
 
+
+<script>
         $("#send").on("click", function() {
             //Ajax（非同期通信）
             //1．パラメータの変更
@@ -162,7 +176,7 @@ $status = $stmt->execute();
             params.append('search1', $("#search1").val());
             params.append('search3', $("#search3").val());
             params.append('search4', $("#search4").val());
-
+            params.append('search5', $("#search5").val());  
             //axiosでAjax送信
             axios.post('index_search2.php', params).then(function(response) {
                 console.log(response.data); //通信OK
