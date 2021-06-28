@@ -39,8 +39,10 @@ if ($state==false) {
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./css/reset.css">
+    <link rel="stylesheet" href="./css/all.css">
     <link rel="stylesheet" href="./css/main.css">
     <link rel="stylesheet" href="./css/header.css">
+    <link rel="stylesheet" href="./css/footer.css">
 
     <!-- ここからカレンダーのテスト -->
     <script src="https://kit.fontawesome.com/41d0c3f425.js" crossorigin="anonymous"></script>
@@ -83,27 +85,32 @@ if ($state==false) {
                 <div class="box">
                     <?php foreach ($stmt as $content): ?>
                     <div class="content">
-                        <div class="content-img">
-                            <!-- projectの画像と文字に詳細画面へのリンクを付与
+                        <!-- projectの画像と文字に詳細画面へのリンクを付与
                         URLでuser_idとproject_idを遷移先ページへと引き渡す-->
-                            <a href="./selected_project.php?user_id=<?= $user_id ?>&project_id=<?= $content['project_id'] ?>
-                            ">
+                        <a
+                            href="./selected_project.php?user_id=<?= $user_id ?>&project_id=<?= $content['project_id'] ?>">
+                            <div class="content-img">
                                 <img src='project_img/<?= $content["project_img"] ?>'
                                     alt="体験できるプロジェクトの画像">
-                        </div>
-                        <div class="content-title">
-                            <?= $content["title"] ?>
-                        </div>
-                        <div class="content-text">
-                            <?= $content["experience"] ?>
-                        </div>
-                        </a>
+                                <!-- ＜テスト中＞hoverしたら出てくる要素 -->
+                                <!-- <div class="comment">
+                                    <?= $content["title"] ?>
+                            </div> -->
                     </div>
-                    <?php endforeach; ?>
-                </div>
+                    <div class="content-title">
+                        <?= $content["title"] ?>
+                    </div>
+                    <!-- <div class="content-text">
+                            <?= $content["experience"] ?>
+                </div> -->
+                </a>
             </div>
+            <?php endforeach; ?>
         </div>
-        <!-- プラン一覧を表示終わり -->
+    </div>
+    </div>
+    </div>
+    <!-- プラン一覧を表示終わり -->
 
     </div>
 
@@ -156,7 +163,22 @@ if ($state==false) {
         });
     </script>
 
+    <script>
+        // プロジェクトをhoverした際、右側にポップアップを表示させる
+        $(function() {
+            $('.comment').hide();
+            $('.content-img').hover(
+                function() {
+                    $(this).children('.comment').fadeIn('fast');
+                },
+                function() {
+                    $(this).children('.comment').fadeOut('fast');
+                });
+        });
+    </script>
 
+    <!-- フッターを呼び出し -->
+    <?php include("component/footer.php") ?>
 </body>
 
 </html>
