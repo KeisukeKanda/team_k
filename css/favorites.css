@@ -18,3 +18,27 @@ h1 {
 .user_favorite_list {
   display: flex;
 }
+
+.project_title {
+  color: #268cb6;
+  font-size: 20px;
+  font-weight: bold;
+  padding: 10px 10px 10px 30px;
+}
+
+.project_contents {
+  padding: 5px 10px 5px 30px;
+}
+
+a.btn.go {
+  height: 30px;
+  line-height: 30px;
+  color: white;
+  font-weight: bold;
+  text-align: center;
+  line-height: 30px;
+  border: none;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  background-color: #f62b5d;
+}
