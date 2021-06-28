@@ -30,6 +30,7 @@ body{
 /* リンクのアンダーラインを消す */
 a{
     text-decoration: none;
+    color: #5c5c5c;
 }
 
 /* 画像から無駄な余白を削除 */

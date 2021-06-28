@@ -87,6 +87,10 @@
     border-radius: 0.5rem;
 }
 
+.content:hover{
+    opacity: 0.6;
+}
+
 /* ＜テスト中＞hoverしたら出てくる要素 */
 /* .comment{
     position: absolute;
@@ -106,6 +110,22 @@
     padding: 0.5vw;
     margin: 0.8vw;
     overflow: hidden;
+}
+
+.host-info{
+    display: flex;
+    align-items: center;
+}
+
+.host-img{
+    width: 15%;
+    border-radius: 50%;
+}
+
+.nickname{
+    font-size: 1.8vh;
+    overflow: hidden;
+    margin: 0 0.8vw;
 }
 
 .content-text{

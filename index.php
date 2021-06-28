@@ -12,21 +12,21 @@ $username = $_SESSION["name"];
 $user_id = $_SESSION["user_id"];
 
 // projectテーブルと接続
-$sql = "SELECT * FROM project";
+$sql = "SELECT * FROM project AS p INNER JOIN users AS u ON p.user_id=u.user_id";
 $stmt = $pdo->prepare($sql);
 $status = $stmt->execute();
 
 //usersテーブルと接続
-$sql = "SELECT * FROM users WHERE user_id=:user_id";
-$res = $pdo->prepare($sql);
-$res->bindValue(':user_id', $user_id, PDO::PARAM_INT);  //Integer（数値の場合 PDO::PARAM_INT)
-$state = $res->execute();
-$val = $res->fetch();
+// $sql = "SELECT * FROM users WHERE user_id=:user_id";
+// $res = $pdo->prepare($sql);
+// $res->bindValue(':user_id', $user_id, PDO::PARAM_INT);  //Integer（数値の場合 PDO::PARAM_INT)
+// $state = $res->execute();
+// $val = $res->fetch();
 
-if ($state==false) {
-    $error = $res->errorInfo();
-    exit("SQLError:".$error[2]);
-}
+// if ($state==false) {
+//     $error = $res->errorInfo();
+//     exit("SQLError:".$error[2]);
+// }
 
 
 ?>
@@ -88,7 +88,7 @@ if ($state==false) {
                         <!-- projectの画像と文字に詳細画面へのリンクを付与
                         URLでuser_idとproject_idを遷移先ページへと引き渡す-->
                         <a
-                            href="./selected_project.php?user_id=<?= $user_id ?>&project_id=<?= $content['project_id'] ?>">
+                            href="./selected_project.php?project_id=<?= $content['project_id'] ?>">
                             <div class="content-img">
                                 <img src='project_img/<?= $content["project_img"] ?>'
                                     alt="体験できるプロジェクトの画像">
@@ -103,6 +103,16 @@ if ($state==false) {
                     <!-- <div class="content-text">
                             <?= $content["experience"] ?>
                 </div> -->
+                </a>
+                <a
+                    href="host_profile.php?user_id=<?= $content["user_id"] ?>">
+                    <div class="host-info">
+                        <img src="./user_img/<?= $content["user_img"] ?>"
+                            alt="プロジェクトホストの写真" class="host-img">
+                        <div class="nickname">
+                            made by <?= $content["nickname"] ?>
+                        </div>
+                    </div>
                 </a>
             </div>
             <?php endforeach; ?>

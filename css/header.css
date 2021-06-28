@@ -40,9 +40,12 @@ img{
     color: #5c5c5c;
 }
 
+.logo a:hover{
+    opacity: 0.6;
+}
+
 .menu{
     display: flex;
-
 }
 
 .menu-list{
@@ -51,4 +54,8 @@ img{
 
 .menu-list a{
     color: #5c5c5c;
+}
+
+.menu-list a:hover{
+    opacity: 0.6;
 }
