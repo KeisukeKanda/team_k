@@ -30,15 +30,19 @@ h1 {
   padding: 5px 10px 5px 30px;
 }
 
-a.btn.go {
-  height: 30px;
-  line-height: 30px;
+a.go {
   color: white;
   font-weight: bold;
-  text-align: center;
+}
+
+.reservation_button {
+  width: 150px;
+  height: 30px;
   line-height: 30px;
+  text-align: center;
+  background-color: #f62b5d;
+  margin: 0 auto;
   border: none;
   border-radius: 0.5rem;
   cursor: pointer;
-  background-color: #f62b5d;
 }
