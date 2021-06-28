@@ -25,14 +25,21 @@ if ($status == false) {
     while ($result = $stmt->fetch(PDO::FETCH_ASSOC)) {
         $view .= '<div class="user_favorite">';
         $view .= '<div class="user_favorite_list">';
-        $view .= '<a href="./selected_project.php?user_id=' . $user_id . '&project_id=' . $result['project_id'] . '">' .
-            '<img src="project_img/' . $result["project_img"] . '" alt="" width="200"/>';
-        $view .= '<div> Project:' . $result["project_id"] . ' </div>';
-        $view .= '<div>Title: ' . $result["title"] . '</div>';
-        $view .= '<div>Category: ' . $result["category"] . '  ' .'</div>';
-        $view .= '<div>Country:' . $result["country"] . ' Area: ' . $result["project_area"] . '  ' .'</div>';
+        // $view .= '<div><a href="./selected_project.php?user_id=' . $user_id . '&project_id=' . $result['project_id'] . '">' .
+        //     '<img src="project_img/' . $result["project_img"] . '" alt="" width="200"/></div>';
+        $view .= '<div><img src="project_img/' . $result["project_img"] . '" alt="" width="200"/></div>';
+        $view .= '<div class="favorite_contents">';
+        // $view .= '<div> Project:' . $result["project_id"] . '</div>';
+        $view .= '<div class="project_title"><i class="fas fa-globe"></i> ' . $result["title"] . '</div>';
+        $view .= '<div class="project_contents">○ カテゴリー: ' . $result["category"] . '</div>';
+        $view .= '<div class="project_contents">○ 案内する場所: ' . $result["country"] . " " . $result["project_area"] . '</div>';
+        $view .= '<div class="project_contents">○ 内容:' . $result["experience"] . '</div>';
+        $view .= '<div class="project_contents">○ ホストの思い:' . $result["thoughts"] . '</div>';
+        $view .= '<div class="project_contents">○ ツアー時間:' . $result["tour_time"] . "時間" . '</div>';
+        $view .= '<div class="project_contents">○ 料金:' . $result["price"] . "円" . '</div>';
         $view .= '</div>';
         $view .= '</div>';
+        $view .= '<a href="./selected_project.php?user_id=' . $user_id . '&project_id=' . $result['project_id'] . '" class="btn go">予約する</a>';
     }
 }
 
@@ -50,30 +57,23 @@ if ($status == false) {
     <link rel="stylesheet" href="./css/header.css">
     <link rel="stylesheet" href="./css/favorites.css">
     <link rel="stylesheet" href="./css/footer.css">
-    <title>Document</title>
+    <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
+    <title>お気に入り一覧</title>
 </head>
+
 <body>
     <header>
         <!-- componentフォルダからヘッダーを読み込み -->
         <?php include("component/header.php") ?>
     </header>
-    <div class="contents">
-        <!-- お気に入り一覧を表示 -->
-        <h1>お気に入り一覧</h1>
-        <p><?php echo $view; ?></p>
-        <!-- プラン一覧を表示終わり -->
-
-    </div>
-
-    <!-- <style>
-        .content-img {
-            width: 30%;
-        }
-
-        .content-img img {
-            width: 100%;
-        }
-    </style> -->
+    <main>
+        <div class="contents">
+            <!-- お気に入り一覧を表示 -->
+            <h1>お気に入り一覧</h1>
+            <?php echo $view; ?>
+            <!-- プラン一覧を表示終わり -->
+        </div>
+    </main>
     <footer>
         <?php include("component/footer.php") ?>
     </footer>
