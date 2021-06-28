@@ -25,11 +25,9 @@ $project_id=$_GET["project_id"];
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="../css/reset.css">
-    <link rel="stylesheet" href="../css/style.css">
-    <link rel="stylesheet" href="../_shared/style.css">
     <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script> -->
-    
+    <link rel="stylesheet" href="css/service_main.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 </head>
 
 
@@ -49,7 +47,20 @@ $project_id=$_GET["project_id"];
                         <div class="gamen_pass">
                             <input type="text" placeholder="Room Name" id="js-room-id">
                             <button id="js-join-trigger">Join</button>
-                            <button  id="js-leave-trigger">Leave</button>
+                            
+                            <button  id="show">Leave</button>
+                        <!-- テスト中 -->
+                            <!-- レイヤー -->
+                            <div id="layer"></div>
+                            <!-- ポップアップ -->
+                            <div id="popup">
+                                <div>通話を終了してもよろしいですか？</div>
+                                <input type="button" id="js-leave-trigger" value="はい">
+                            </div>
+
+
+
+                            <!-- <div><button id="js-leave-trigger">はい</button></div> -->
                         </div>
                 </div>
 
@@ -68,12 +79,30 @@ $project_id=$_GET["project_id"];
 
 
 <!-- とりあえずreview.phpに遷移させる -->
-            <p> <a href="review.php">レビュー画面に進む</a></p>
+<p id="go_review">ご利用ありがとうございました。よろしければレビューの記入にご協力ください。<br><a href="review.php">レビューにすすむ</a></p>
 
     <!-- ここからスカイウェイのスクリプト -->
     <script src="//cdn.webrtc.ecl.ntt.com/skyway-4.4.1.js"></script>
     <script src="./_shared/key.js"></script>
     <script src="./js/script.js"></script>
+
+
+    <!-- ここからモーダルテスト -->
+    <script>
+    $(function() {
+    // show popupボタンクリック時の処理
+    $('#show').click(function(e) {
+        $('#popup, #layer').show();
+    });
+
+    // レイヤー/ポップアップのcloseボタンクリック時の処理
+    $('#js-leave-trigger, #layer').click(function(e) {
+        $('#popup, #layer').hide();
+        $('#go_review').show();
+    });
+
+});
+</script>
 </div>
 
 
