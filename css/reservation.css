@@ -3,6 +3,7 @@ h1 {
   padding: 20px 20px;
 }
 
+
 .contents {
   height: 100vh;
   background-color: #f4f4f4;
@@ -78,4 +79,8 @@ footer {
   width: 100%;
   position: absolute;/*←絶対位置*/
   bottom: 0; /*下に固定*/
+}
+
+.thx_comment {
+  margin-top: 100px;
 }
