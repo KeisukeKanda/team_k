@@ -4,7 +4,7 @@ h1 {
 }
 
 .contents {
-  height: 100vh;
+  height: 95vh;
   background-color: #f4f4f4;
 }
 
@@ -45,4 +45,10 @@ a.go {
   border: none;
   border-radius: 0.5rem;
   cursor: pointer;
+}
+
+footer {
+  width: 100%;
+  position: absolute;/*←絶対位置*/
+  bottom: 0; /*下に固定*/
 }
