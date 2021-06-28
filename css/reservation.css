@@ -1,0 +1,81 @@
+h1 {
+  text-align: center;
+  padding: 20px 20px;
+}
+
+.contents {
+  height: 100vh;
+  background-color: #f4f4f4;
+}
+
+.user_reservation {
+  width: 70%;
+  margin: 0 auto;
+  background-color: white;
+  border-radius: 0.4rem;
+}
+
+.reservation_image {
+  text-align: center;
+}
+
+.reservation_img {
+  width: 400px;
+}
+
+.project_contents {
+  padding: 10px 10px 10px 30px;
+}
+
+.favo-btn01 {
+  background-color: white;
+  color: #5c5c5c;
+  border: #5c5c5c 1px solid;
+  border-radius: 0.4rem;
+}
+
+.favo_register {
+  display: flex;
+}
+
+.register_done {
+  /* line-height: 24px; */
+  padding: 10px 10px 10px 30px;
+}
+
+.reservation_time {
+  display: flex;
+  justify-content: space-around;
+  padding: 10px 10px 10px 30px;
+  border: 2px solid #f4f4f4;
+}
+
+.reservation_date {
+  line-height: 26px;
+}
+
+.go {
+  width: 13vw;
+  height: 4.5vh;
+  color: white;
+  font-weight: bold;
+  text-align: center;
+  line-height: 4.5vh;
+  border: none;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  background-color: #F62B5D;
+}
+
+.confirm_contents {
+  font-size: 24px;
+  padding-top: 20px ;
+  padding-bottom: 20px;
+  text-align: center;
+}
+
+footer {
+  width: 100%;
+  position: absolute;/*←絶対位置*/
+  bottom: 0; /*下に固定*/
+}
