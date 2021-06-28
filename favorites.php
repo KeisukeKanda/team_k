@@ -39,7 +39,7 @@ if ($status == false) {
         $view .= '<div class="project_contents">○ 料金:' . $result["price"] . "円" . '</div>';
         $view .= '</div>';
         $view .= '</div>';
-        $view .= '<a href="./selected_project.php?user_id=' . $user_id . '&project_id=' . $result['project_id'] . '" class="btn go">予約する</a>';
+        $view .= '<div class="reservation_button"><a href="./selected_project.php?user_id=' . $user_id . '&project_id=' . $result['project_id'] . '" class="go">予約する</a></div>';
     }
 }
 
