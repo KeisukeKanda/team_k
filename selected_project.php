@@ -75,6 +75,71 @@ if ($status3 == false) {
   $res3 = $stmt3->fetch(PDO::FETCH_ASSOC);
 }
 
+
+
+
+
+
+//プロジェクトナンバー1のコンテンツレビューの平均値を取得→表示
+$stmt5 = $pdo->prepare("SELECT AVG (contents_review) FROM review WHERE project_id=:project_id");
+$stmt5->bindValue(":project_id",$project_id,PDO::PARAM_INT);
+$status5 = $stmt5->execute();
+if ($status5 == false) {
+    sql_error($stmt5);
+} else {
+    while($result5 = $stmt5->fetch(PDO::FETCH_BOTH)){
+$contents_review=$result5[0];}
+}
+
+
+//プロジェクトナンバー1のホスピタリティレビューの平均値を取得→表示
+$stmt5 = $pdo->prepare("SELECT AVG (hospitality_review) FROM review WHERE project_id=:project_id");
+$stmt5->bindValue(":project_id",$project_id,PDO::PARAM_INT);
+$status5 = $stmt5->execute();
+
+if ($status5 == false) {
+    sql_error($stmt5);
+} else {
+    while($result5 = $stmt5->fetch(PDO::FETCH_BOTH)){
+$hospitality_review=$result5[0];}
+}
+
+
+//プロジェクトナンバー1のコミュニケーションレビューの平均値を取得→表示
+$stmt5 = $pdo->prepare("SELECT AVG (communication_review) FROM review WHERE project_id=:project_id");
+$stmt5->bindValue(":project_id",$project_id,PDO::PARAM_INT);
+$status5 = $stmt5->execute();
+
+if ($status5 == false) {
+    sql_error($stmt5);
+} else {
+    while($result5 = $stmt5->fetch(PDO::FETCH_BOTH)){
+$communication_review=$result5[0];}
+}
+
+
+//プロジェクトナンバー1のプライスレビューの平均値を取得→表示
+$stmt5 = $pdo->prepare("SELECT AVG (price_review) FROM review WHERE project_id=:project_id");
+$stmt5->bindValue(":project_id",$project_id,PDO::PARAM_INT);
+$status5 = $stmt5->execute();
+
+if ($status5 == false) {
+    sql_error($stmt5);
+} else {
+    while($result5 = $stmt5->fetch(PDO::FETCH_BOTH)){
+$price_review=$result5[0];}
+}
+
+
+$total_review=($price_review + $communication_review + $hospitality_review +$contents_review)/4;
+
+
+
+
+
+
+
+
 ?>
 
 
@@ -92,6 +157,9 @@ if ($status3 == false) {
   <link rel="stylesheet" href="./css/header.css">
   <link rel="stylesheet" href="./css/reservation.css">
   <link rel="stylesheet" href="./css/footer.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="./raty-3.0.0/lib/jquery.raty.js"></script>
+
 </head>
 
 <body>
@@ -114,8 +182,16 @@ if ($status3 == false) {
         <div class="project_contents"><?= $res["thoughts"] ?></div>
         <div class="project_contents">○ ツアー時間:<?= $res["tour_time"] ?>時間</div>
         <div class="project_contents">○ 価格:<?= $res["price"] ?>円</div>
-        <div class="project_contents">○ ホスト<a href="./host_profile.php?user_id=<?= $res['user_id'] ?>"><?= $res["nickname"] ?></a></div>
+        <div class="project_contents">○ ホスト:<a href="./host_profile.php?user_id=<?= $res['user_id'] ?>"><?= $res["nickname"] ?></a></div>
+        <div class="project_contents">○ レビュー:<div id="review_show"></div></div>
         <!-- <p><?= $res3 ?></p> -->
+
+
+
+  <script type="text/javascript">
+  $('#review_show').raty({ readOnly: true, score: <?=$total_review?> });
+  </script>
+
 
 
         <!-- お気に入り登録 -->

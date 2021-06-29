@@ -59,7 +59,7 @@ $price_review=$result[0];}
 }
 
 
-$total_review=($price_review + $communication_review + $hospitality_review +contents_review)/4;
+$total_review=($price_review + $communication_review + $hospitality_review + $contents_review)/4;
 
 ?>
 
@@ -76,9 +76,9 @@ $total_review=($price_review + $communication_review + $hospitality_review +cont
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="./raty-3.0.0/lib/jquery.raty.js"></script>
 
-  <div></div>
+  <div id="review_show"></div>
   <script type="text/javascript">
-  $('div').raty({ readOnly: true, score: <?=$total_review?> });
+  $('#review_show').raty({ readOnly: true, score: <?=$total_review?> });
   </script>
 
 </body>
