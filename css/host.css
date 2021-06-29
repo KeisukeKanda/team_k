@@ -75,6 +75,17 @@ h2 {
 
 }
 
+.txt_country_card1,
+.txt_time_price_card1,
+.btn_card1,
+.txt_expe_card1,
+.txt_thoughts_card1 {
+  display: flex;
+  font-size: 15px;
+  font-weight: bold;
+  padding: 10px 10px 10px 30px;
+}
+
 .txt_title_card {
   display: flex;
   color: #268cb6;
@@ -82,7 +93,14 @@ h2 {
   font-weight: bold;
   padding: 10px 10px 10px 30px;
   width: 55%;
+}
 
+.txt_title_card1 {
+  display: flex;
+  color: #268cb6;
+  font-size: 20px;
+  font-weight: bold;
+  padding: 10px 10px 10px 30px;
 }
 
 .btn {
@@ -140,4 +158,10 @@ input{
   margin: auto;
   margin-bottom: 30px;
 }
-
+.host_profile_wrap{
+  width: 70%;
+  margin: auto;
+}
+.no_border{
+  border: none;
+}
