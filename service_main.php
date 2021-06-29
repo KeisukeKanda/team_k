@@ -29,6 +29,7 @@ $project_id=$_GET["project_id"];
     <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/service_main.css">
     <link rel="stylesheet" href="css/all.css">
+    <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="css/header.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 </head>
@@ -44,7 +45,7 @@ $project_id=$_GET["project_id"];
             </p>
             <div class="room">
                 <div class="gamen_all">
-                    <p class="gamen_title">通話画面（room名を共有してください）<input type="text" placeholder="Room Name" id="js-room-id"></p>
+                    <p class="gamen_title">通話画面（room名を共有してください）<input type="text" class="search1" placeholder="Room Name" id="js-room-id"></p>
                             <div class="gamen_pass">
                                 <div class="join_btn">
                                     <button id="js-join-trigger" class="btn">Join</button>
