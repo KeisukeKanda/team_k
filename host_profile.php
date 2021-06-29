@@ -51,12 +51,17 @@ $val = $res->fetch();
 		sql_error($stmt2);
 	}else{
 			while( $result = $stmt2->fetch(PDO::FETCH_ASSOC)){
-			$view.='<img src="project_img/'.$result["project_img"].'" alt="" />'.
-			'<div> Project:'.$result["project_id"].' Title: '.$result["title"].' Category: '.$result["category"].'  '.
-			'Country:'.$result["country"].' Area: '.$result["project_area"].'  '.
-			'Experience:'.$result["experience"].' Thought: '.$result["thoughts"].' Tour time: '.$result["tour_time"].'  '.
-			'Price:'.$result["price"].'  '.
-			'</div><br>';}
+            $view .= '<div class="p_card">';
+	        $view .= '<div class="img_card">';
+	        $view .= '<img src="project_img/'.$result["project_img"].'" alt="" width="200" /></div>';
+			$view .= '<div class="txt_card">';
+			$view .= '<div class="txt_title_card1">';
+			$view .= 'Project:'.$result["project_id"].'  '.$result["title"].' Category: '.$result["category"].'</div>';
+			$view .= '<div class="txt_country_card1">'.$result["country"].'  '.$result["project_area"].'</div>';
+			$view .= '<div class="txt_expe_card1">'.$result["experience"].'</div>';
+			$view .= '<div class="txt_thoughts_card1">'.$result["thoughts"].'</div>';
+			$view .= '<div class="txt_time_price_card1">Tour time: '.$result["tour_time"].'　　　Price:'.$result["price"].'</div>';
+			$view .= '</div></div><br>';}
 	}
 
 ?>
@@ -69,74 +74,46 @@ $val = $res->fetch();
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./css/reset.css">
-    <title>Document</title>
+    <link rel="stylesheet" href="./css/all.css">
+    <link rel="stylesheet" href="./css/header.css">
+    <link rel="stylesheet" href="./css/footer.css">
+    <link rel="stylesheet" href="./css/project.css">
+    <link rel="stylesheet" href="./css/host.css">
+    <title>ISEKAI</title>
 </head>
 
 <body>
-    <div class="wrap">
         <!-- ヘッダー -->
-        <div class="header">
-            <div class="header-box">
-                <div class="logo">Team K</div>
-                <div class="nav-box">
-                    <ul>
-                        <li><a href="index.php">メインへ戻る</a></li>
-                    </ul>
-                </div>
-            </div>
-        </div>
+        <?php include("component/header.php") ?>
+
+    <div class="host_profile_wrap">
         <!-- ヘッダー終わり -->
+            <h2><?= $val["nickname"] ?>の自己紹介</h2>
 
-        <div class="main">
-            <div class="box">
-
-                <!-- プロフィール表示 -->
-                <div>プロフィール画像</div>
-                <div class="user_img">
-                    <img src="<?= $val["user_img"] ?>"
+            <!-- プロフィール表示 -->
+            <div class="p_card no_border">
+                <div class="img_card">
+                    <img src="user_img/<?= $val["user_img"] ?>" width="400"
                         alt="HOSTプロフィール画像">
                 </div>
-                <div>ニックネーム</div>
-                <div class="nickname">
-                    <?= $val["nickname"] ?>
+                <div class="txt_card">
+                    <div class="txt_title_card">
+                        <?= $val["nickname"] ?>
+                    </div>
+                    <div class="txt_title_card">
+                        <?= $val["country"] ?><?= $val["user_area"] ?>
+                    </div>
+                    <div class="txt_title_card">
+                        <?= $val["introduction"] ?>
+                    </div>
                 </div>
-                <?php foreach ($stmt as $profile): ?>
-                <div>住んでいる国</div>
-                <div class="country">
-                    <?= $profile["country"] ?>
-                </div>
-                <div>住んでいるエリア</div>
-                <div class="user_area">
-                    <?= $profile["japan_area"] ?>
-                </div>
-                <?php endforeach; ?>
-                <div>自己紹介</div>
-                <div class="introduction">
-                    <?= $val["introduction"] ?>
-                </div>
-                <!-- プロフィール表示終わり -->
-
             </div>
-
-            <div>
-                <br>
-                <h4>【<?= $val["nickname"] ?>が用意したProject一覧】</h4><br>
-                <p><?php echo $view;?></p>
-            </div>
-        </div>
+            <!-- Project表示 -->
+            <h2><?= $val["nickname"] ?>が用意したProject</h2><br>
+            <p><?php echo $view;?></p>
     </div>
 
-
-
-    <style>
-        .user_img {
-            width: 30%;
-        }
-
-        .user_img img {
-            width: 100%;
-        }
-    </style>
+    <?php include("component/footer.php") ?>
 
 </body>
 
