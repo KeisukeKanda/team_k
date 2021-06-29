@@ -2,7 +2,9 @@
     <!-- ヘッダー -->
     <div class="header-box">
         <div class="logo">
-            <a href="index.php">ISEKAI</a>
+            <a href="index.php">
+                <img src="./background_img/isekai_logo.png" alt="サービスロゴイメージ">
+            </a>
         </div>
         <div class="nav-box">
             <ul class="menu">

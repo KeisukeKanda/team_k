@@ -35,8 +35,8 @@ if ($status == false) {
 // (i)日付入力がされていない時
 if ($date=='') {
     $view1 = rtrim($view, ",");
-    $stmt2 = $pdo->prepare("SELECT*FROM project WHERE title LIKE :title 
-    AND (country LIKE :country OR project_area LIKE :project_area) ");
+    $stmt2 = $pdo->prepare("SELECT*FROM project AS p INNER JOIN users AS u ON p.user_id=u.user_id WHERE p.title LIKE :title 
+    AND (p.country LIKE :country OR p.project_area LIKE :project_area) ");
     $stmt2->bindValue(":country", "%".$search1."%", PDO::PARAM_STR);
     $stmt2->bindValue(":project_area", "%".$search2."%", PDO::PARAM_STR);
     $stmt2->bindValue(":title", "%".$search3."%", PDO::PARAM_STR);
@@ -44,8 +44,8 @@ if ($date=='') {
 // (ⅱ)日付入力がされていて該当のプロジェクトが存在する場合
 } elseif ($date!==''&& $view!=='') {
     $view1 = rtrim($view, ",");
-    $stmt2 = $pdo->prepare("SELECT*FROM project WHERE title LIKE :title 
-    AND (country LIKE :country OR project_area LIKE :project_area) AND project_id in ($view1)");
+    $stmt2 = $pdo->prepare("SELECT*FROM project AS p INNER JOIN users AS u ON p.user_id=u.user_id WHERE p.title LIKE :title 
+    AND (p.country LIKE :country OR p.project_area LIKE :project_area) AND p.project_id in ($view1)");
     $stmt2->bindValue(":country", "%".$search1."%", PDO::PARAM_STR);
     $stmt2->bindValue(":project_area", "%".$search2."%", PDO::PARAM_STR);
     $stmt2->bindValue(":title", "%".$search3."%", PDO::PARAM_STR);
@@ -104,6 +104,17 @@ if ($status2 == false) {
         $view2 .= '</div>';
         $view2 .= '</a>';
         $view2 .= '</div>';
+        $view2 .= '<a href="host_profile.php?user_id='.$result2["user_id"]. '">';
+        $view2 .= '<div class="host-info">';
+        $view2 .= '<div class="host-img-box">';
+        $view2 .= '<img src="./user_img/'.$result2["user_img"].'" class="host-img">';
+        $view2 .= '</div>';
+        $view2 .= '<div class="nickname">';
+        $view2 .= '<span>made by </span>'.$result2["nickname"];
+        $view2 .= '</div>';
+        $view2 .= '</div>';
+        $view2 .= '</a>';
+
         $view2 .= '</div>';
     }
 }

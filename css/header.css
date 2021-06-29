@@ -33,7 +33,15 @@ img{
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin: 2vh 5vw;
+    margin: 2vh 4vw;
+}
+
+.logo{
+    width: 11%;
+}
+
+.logo img{
+    width: 100%;
 }
 
 .logo a{
@@ -49,7 +57,9 @@ img{
 }
 
 .menu-list{
-    margin: 2vh;
+    margin: 2vh 3.5vh;
+    font-size: 1vw;
+    font-weight: bold;
 }
 
 .menu-list a{
