@@ -25,47 +25,38 @@ $_SESSION['csrfToken'] = $csrfToken;
 </head>
 
 <body>
-    <!-- <div class="wrap">
-        <div class="box">
-            <form action="login_act.php" method="post">
-                <div>ユーザーID（emailアドレス）</div>
-                <input type="text" name="login_id" required>
-                <div>パスワード（6文字以上）</div>
-                <input type="password" name="password" required pattern="(?=.*\d).{6,}" title="6文字以上のパスワードを入力してください。">
-                <input type='hidden' name='csrfToken'
-                    value='<?= $csrfToken ?>'><br>
-    <input type="submit" value="ログイン">
-    </form>
-    <div>
-        まだサインインがお済みでない方は
-        <a href="signup.php">こちら</a>
-    </div>
-    <a href="../index.php">戻る</a>
-    </div>
-    </div> -->
 
     <div class="wrap">
         <h1>おかえりなさい</h1>
         <h3>新たな価値観を交換する旅に出かけましょう！</h3>
+
+        <!-- ログインフォーム -->
         <form action="login_act.php" method="post">
             <div class="input-box">
+
+                <!-- ユーザーIDフォーム -->
                 <div class="input-box">
                     <label for="lname">ユーザーID（emailアドレス）</label>
                     <input type="text" name="login_id" required>
                 </div>
 
+                <!-- パスワードフォーム -->
                 <div class="input-box">
                     <label for="email">パスワード（6文字以上）</label>
                     <input type="password" name="password" required pattern="(?=.*\d).{6,}">
                 </div>
+
+                <!-- ログインボタン（Tokenつき） -->
                 <input type='hidden' name='csrfToken'
                     value='<?= $csrfToken ?>'>
                 <input class="submit-btn" type="submit" value="ログイン">
             </div>
         </form>
+        <!-- ログインフォームここまで -->
+
+
         <div>アカウントをお持ちでない方はこちら</div>
         <div class="new-register"><a href="signup.php">新規会員登録</a></div>
-        <!-- <a href="../index.php">戻る</a> -->
     </div>
 
     <!-- jQueryの読み込み -->
