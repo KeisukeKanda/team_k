@@ -53,7 +53,7 @@ if ($state==false) {
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 
-    <title>Document</title>
+    <title>ISEKAI</title>
 </head>
 
 <body>
@@ -116,10 +116,12 @@ if ($state==false) {
                         <a
                             href="host_profile.php?user_id=<?= $content["user_id"] ?>">
                             <div class="host-info">
-                                <img src="./user_img/<?= $content["user_img"] ?>"
-                                    alt="プロジェクトホストの写真" class="host-img">
+                                <div class="host-img-box">
+                                    <img src="./user_img/<?= $content["user_img"] ?>"
+                                        alt="プロジェクトホストの写真" class="host-img">
+                                </div>
                                 <div class="nickname">
-                                    <span>made by</span><?= $content["nickname"] ?>
+                                    <span>made by </span><?= $content["nickname"] ?>
                                 </div>
                             </div>
                         </a>

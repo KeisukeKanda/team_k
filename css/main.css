@@ -67,19 +67,24 @@
 
 
 #search1{
-    padding: 0.5vw;
+    padding: 0.8vw;
     border-radius: 2vh;
+    border: none;
 }
 
 #search3{
-    padding: 0.5vw;
+    padding: 0.8vw;
     border-radius: 2vh;
+    border: none;
 }
 
 #search5{
     display: none;
 }
 
+.btn:hover{
+    background-color: #19576c;
+}
 /*------------------------------------------
 
 検索結果表示
@@ -91,6 +96,8 @@
     margin-top: 5vh;
     display: flex;
     flex-wrap: wrap;
+    background-color: #eeeeee;
+    border-radius: 0.5rem;
 }
 
 /*------------------------------------------
@@ -140,7 +147,6 @@
 }
 
 .content-title{
-    color: #000;
     font-size: 1.3vw;
     padding: 0.5vw;
     margin: 0.8vw;
@@ -153,11 +159,16 @@
 }
 
 .host-info:hover{
+    color: #298BAD;
     opacity: 0.6;
 }
 
-.host-img{
+.host-img-box{
     width: 15%;
+}
+
+.host-img{
+    width: 100%;
     border-radius: 50%;
 }
 
