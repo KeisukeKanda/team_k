@@ -36,3 +36,73 @@
     border-radius: 5px;
     text-align: center;
 }
+
+
+.yoko{
+position: relative;
+}
+
+
+.zibun{
+width: 800px;
+border-radius: 15px;
+padding-top: 10px;
+}
+.zibun2{
+width: 100px;
+position: absolute;
+left: 450px;
+top: 390px;
+border: solid ;
+
+}
+
+
+
+.aite{
+width:600px;
+padding-top: 10px;
+}
+
+
+
+#popup {
+display: none;  /* 初期表示は非表示 */
+position: fixed;
+}
+
+
+#leave_button{
+    display: none;
+}
+
+.gamen_title{
+text-align: center;
+padding-top: 10px;
+}
+
+.join_btn{
+    text-align: center;
+    padding-top: 10px;
+}
+
+.gamen{
+    display: flex;
+    margin: 0 auto;
+}
+
+.remote-streams{
+display: flex;
+margin: 0 auto;
+}
+
+
+.messages{
+text-align: center;
+}
+
+
+.btn1{
+    padding-top: 10px;
+}
+
