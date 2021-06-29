@@ -3,9 +3,7 @@ h1 {
   padding: 20px 20px;
 }
 
-
 .contents {
-  height: 100vh;
   background-color: #f4f4f4;
 }
 
@@ -65,20 +63,14 @@ h1 {
   border: none;
   border-radius: 0.5rem;
   cursor: pointer;
-  background-color: #F62B5D;
+  background-color: #f62b5d;
 }
 
 .confirm_contents {
   font-size: 24px;
-  padding-top: 20px ;
+  padding-top: 20px;
   padding-bottom: 20px;
   text-align: center;
-}
-
-footer {
-  width: 100%;
-  position: absolute;/*←絶対位置*/
-  bottom: 0; /*下に固定*/
 }
 
 .thx_comment {

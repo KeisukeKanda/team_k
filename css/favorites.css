@@ -4,7 +4,7 @@ h1 {
 }
 
 .contents {
-  height: 95vh;
+  height: 100vh;
   background-color: #f4f4f4;
 }
 
@@ -13,6 +13,8 @@ h1 {
   margin: 0 auto;
   background-color: white;
   border-radius: 0.4rem;
+  margin-bottom: 20px;
+  padding-bottom: 10px;
 }
 
 .user_favorite_list {
@@ -41,14 +43,8 @@ a.go {
   line-height: 30px;
   text-align: center;
   background-color: #f62b5d;
-  margin: 0 auto;
+  margin: 10px auto;
   border: none;
   border-radius: 0.5rem;
   cursor: pointer;
-}
-
-footer {
-  width: 100%;
-  position: absolute;/*←絶対位置*/
-  bottom: 0; /*下に固定*/
 }

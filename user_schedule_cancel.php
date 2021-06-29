@@ -97,7 +97,7 @@ if ($status == false) {
             <input type="hidden" name="date" value="<?= $row["date"] ?>">
             <input type="hidden" name="reservation_time" value="<?= $row["reservation_time"] ?>">
             <input type="hidden" name="reserve_flag" value="0">
-            <input type="submit" value="キャンセルする" class="yes">
+            <input type="submit" value="× キャンセルする" class="yes">
           </form>
         </div>
       </div>

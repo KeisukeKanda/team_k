@@ -129,20 +129,22 @@ if ($status3 == false) {
             <?php else : ?>
               <input type="submit" name="favo" class="favo-btn02" value="お気に入り登録">
             <?php endif; ?>
-          </div>
+            </div>
         </form>
 
         <!-- <a href="index.php">メインへ戻る</a> -->
 
         <!-- 予約可能日時が一覧で表示された方が良いかも（従来別ページを想定していた） -->
-        <h1 class="">予約可能日時一覧</h1>
-        <p><?= $view; ?></p>
+        <div>
+          <h1 class="">予約可能日時一覧</h1>
+          <div><?= $view; ?></div>
+        </div>
       </div>
+      <?php include("component/footer.php") ?>
     </div>
   </main>
-  <footer>
-    <?php include("component/footer.php") ?>
-  </footer>
+
+
 </body>
 
 </html>
