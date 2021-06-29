@@ -112,20 +112,18 @@ $val = $res->fetch();
                         <?= $val["sex"] ?>
                         <?php endif; ?>
                     </div>
-                    <?php foreach ($stmt as $profile): ?>
                     <div class="title">住んでいる国</div>
                     <div class="text country">
-                        <?php if ($profile["country"] !== "NULL"): ?>
-                        <?= $profile["country"] ?>
+                        <?php if ($val["country"] !== "NULL"): ?>
+                        <?= $val["country"] ?>
                         <?php endif; ?>
                     </div>
                     <div class="title">住んでいるエリア</div>
                     <div class="text user_area">
-                        <?php if ($profile["japan_area"] !== "NULL"): ?>
-                        <?= $profile["japan_area"] ?>
+                        <?php if ($val["japan_area"] !== "NULL"): ?>
+                        <?= $val["user_area"] ?>
                         <?php endif; ?>
                     </div>
-                    <?php endforeach; ?>
                     <div class="title">自己紹介</div>
                     <div class="text introduction">
                         <?= $val["introduction"] ?>
