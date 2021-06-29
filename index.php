@@ -17,16 +17,16 @@ $stmt = $pdo->prepare($sql);
 $status = $stmt->execute();
 
 //usersテーブルと接続
-// $sql = "SELECT * FROM users WHERE user_id=:user_id";
-// $res = $pdo->prepare($sql);
-// $res->bindValue(':user_id', $user_id, PDO::PARAM_INT);  //Integer（数値の場合 PDO::PARAM_INT)
-// $state = $res->execute();
-// $val = $res->fetch();
+$sql = "SELECT * FROM users WHERE user_id=:user_id";
+$res = $pdo->prepare($sql);
+$res->bindValue(':user_id', $user_id, PDO::PARAM_INT);  //Integer（数値の場合 PDO::PARAM_INT)
+$state = $res->execute();
+$val = $res->fetch();
 
-// if ($state==false) {
-//     $error = $res->errorInfo();
-//     exit("SQLError:".$error[2]);
-// }
+if ($state==false) {
+    $error = $res->errorInfo();
+    exit("SQLError:".$error[2]);
+}
 
 
 ?>
@@ -52,7 +52,7 @@ $status = $stmt->execute();
     <script type="text/javascript" src="http://code.jquery.com/jquery-3.1.0.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-    
+
     <title>Document</title>
 </head>
 
@@ -66,26 +66,29 @@ $status = $stmt->execute();
             <div class="firstview-text">
                 <p>知らない場所には</p>
                 <p>知らない人がいる</p>
-                <!-- 検索機能作成中 -->
-                <input type="text" id="search1" placeholder="国名、地域">
-                <input type="text" id="search3" placeholder="キーワード">
-
-<!-- ここからカレンダー結合部分 -->
-            <div class="contents">
-                <div class="calendar">
-                    <input type="text" id="search5" name="datepicker" style="display:none" class="datepicker" value="">
-                    <div class="calendar__modal"></div>
-                    <button id="send">検索</button>
-                </div>
             </div>
-                <div class="container jumbotron"></div>
-            </div>
-                <div class="back-color"></div>
-            </div>
+        </div>
         <!-- メインビュー終わり -->
 
+        <!-- 検索機能 -->
+        <div class="search">
+            <div class="seach-select">
+                <div class="input-content">
+                    <input type="text" id="search1" placeholder="国名、地域">
+                    <input type="text" id="search3" placeholder="キーワード">
+
+                    <!-- ここからカレンダー結合部分 -->
+                    <input type="text" id="search5" name="datepicker" class="datepicker" value="">
+                    <div class="calendar__modal"></div>
+                </div>
+            </div>
+            <button id="send" class="btn">検索</button>
+            <div class="jumbotron"></div>
+            <div class="back-color"></div>
+        </div>
+
         <!-- 検索結果の割り込み表示 -->
-        <div class="container jumbotron" id="view">
+        <div class="search-box container jumbotron" id="view">
             <?php echo $view2;?>
         </div>
 
@@ -103,43 +106,38 @@ $status = $stmt->execute();
                                 href="./selected_project.php?project_id=<?= $content['project_id'] ?>">
                                 <div class="content-img">
                                     <img src='project_img/<?= $content["project_img"] ?>'
-                                        alt="体験できるプロジェクトの画像">
-                                    <!-- ＜テスト中＞hoverしたら出てくる要素 -->
-                                    <!-- <div class="comment">
+                                        alt="">
+                                </div>
+                                <div class="content-title">
                                     <?= $content["title"] ?>
-                                </div> -->
+                                </div>
                         </div>
-                        <div class="content-title">
-                            <?= $content["title"] ?>
-                        </div>
-                        <!-- <div class="content-text">
-                                    <?= $content["experience"] ?>
-                    </div> -->
-                </div>
-                </a>
-                <a
-                    href="host_profile.php?user_id=<?= $content["user_id"] ?>">
-                    <div class="host-info">
-                        <img src="./user_img/<?= $content["user_img"] ?>"
-                            alt="プロジェクトホストの写真" class="host-img">
-                        <div class="nickname">
-                            made by <?= $content["nickname"] ?>
-                        </div>
+                        </a>
+                        <a
+                            href="host_profile.php?user_id=<?= $content["user_id"] ?>">
+                            <div class="host-info">
+                                <img src="./user_img/<?= $content["user_img"] ?>"
+                                    alt="プロジェクトホストの写真" class="host-img">
+                                <div class="nickname">
+                                    <span>made by</span><?= $content["nickname"] ?>
+                                </div>
+                            </div>
+                        </a>
                     </div>
-                </a>
+                    <?php endforeach; ?>
+                </div>
             </div>
-            <?php endforeach; ?>
         </div>
-    </div>
-    </div>
     </div>
     <!-- プラン一覧を表示終わり -->
 
     </div>
 
-    <!-- 検索結果 -->
-    <div class="container jumbotron" id="view"><?php echo $view; ?>
-    </div>
+    <!-- 検索結果
+    <div class="container jumbotron" id="view">
+        <?php echo $view; ?>
+    </div> -->
+
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 
@@ -147,26 +145,29 @@ $status = $stmt->execute();
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1/i18n/jquery.ui.datepicker-ja.min.js"></script>
-    
 
 
-<!-- // カレンダー最終結合テスト -->
-        <script>
-            $(function() {
+
+    <!-- // カレンダー最終結合テスト -->
+    <script>
+        $(function() {
             $('.datepicker').datepicker({
-                buttonImage: "./background_img/calendar.jpg",  // カレンダーアイコン画像
-                buttonText: "",  // アイコンホバー時の表示文言
+                buttonImage: "./background_img/calendar.jpg", // カレンダーアイコン画像
+                buttonText: "", // アイコンホバー時の表示文言
                 buttonImageOnly: true, // ボタンとして表示
-                showOn: "both",  // アイコン、テキストボックスどちらをクリックでもカレンダー表示
-                beforeShow: function(input, inst){
-                inst.dpDiv.css({top: 50 + '%', left: 50 + '%'});
+                showOn: "both", // アイコン、テキストボックスどちらをクリックでもカレンダー表示
+                beforeShow: function(input, inst) {
+                    inst.dpDiv.css({
+                        top: 50 + '%',
+                        left: 50 + '%'
+                    });
                 }
             });
-            });
-        </script>
+        });
+    </script>
 
 
-<script>
+    <script>
         $("#send").on("click", function() {
             //Ajax（非同期通信）
             //1．パラメータの変更
@@ -176,7 +177,7 @@ $status = $stmt->execute();
             params.append('search1', $("#search1").val());
             params.append('search3', $("#search3").val());
             params.append('search4', $("#search4").val());
-            params.append('search5', $("#search5").val());  
+            params.append('search5', $("#search5").val());
             //axiosでAjax送信
             axios.post('index_search2.php', params).then(function(response) {
                 console.log(response.data); //通信OK
@@ -186,20 +187,6 @@ $status = $stmt->execute();
             }).then(function() {
                 console.log("Last"); //通信OK/Error後に処理を必ずさせたい場合
             });
-        });
-    </script>
-
-    <script>
-        // プロジェクトをhoverした際、右側にポップアップを表示させる
-        $(function() {
-            $('.comment').hide();
-            $('.content-img').hover(
-                function() {
-                    $(this).children('.comment').fadeIn('fast');
-                },
-                function() {
-                    $(this).children('.comment').fadeOut('fast');
-                });
         });
     </script>
 
