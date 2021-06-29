@@ -36,6 +36,7 @@ if ($status == false) {
   // $project_id = $res["project_id"];
   //Selectデータの数だけ自動でループしてくれる
   while ($res = $stmt->fetch(PDO::FETCH_ASSOC)) {
+    // $view .= '<div class=reservation_box>';
     $view .= '<div class="user_reservation">';
     $view .= '<div class="user_reservation_list">';
     $view .= '<div class="reservation_img"><img src="project_img/' . $res["project_img"] . '" alt="" width="200"></div>';
@@ -50,9 +51,11 @@ if ($status == false) {
     // $view .= '<p>' ."ツアー時間:". $res["tour_time"] . "時間".'</p>';
     // $view .= '<p>' ."料金". $res["price"] . "円".'</p>';
     $view .= '</div>';
-    // $view .= '<div class="project_button">';
-    $view .= '<a href="user_schedule_cancel.php?reservation_id=' . $res["reservation_id"] . '" class="btn cancel">× 予約のキャンセル</a>';
+    $view .= '</div>';
+    $view .= '<div class="project_button">';
+    $view .= '<a href="user_schedule_cancel.php?reservation_id=' . $res["reservation_id"] . '" class="cancel">× 予約キャンセル</a>';
     $view .= '<a href="user_schedule_detail.php?reservation_id=' . $res["reservation_id"] . '" class="btn detail">詳細</a>';
+    $view .= '</div>';
     $view .= '</div>';
   }
 }
@@ -81,7 +84,7 @@ if ($status == false) {
   <main>
     <div class="contents">
       <h1>予約一覧</h1>
-      <div><?= $view ?></div>
+      <?= $view ?>
     </div>
     <!-- フッターを呼び出し -->
   </main>

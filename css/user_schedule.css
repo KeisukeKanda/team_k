@@ -4,7 +4,7 @@ h1 {
 }
 
 .contents {
-
+  height: 100vh;
   background-color: #f4f4f4;
 }
 
@@ -28,24 +28,37 @@ h1 {
   line-height: 30px;
 }
 
-.cancel {
+/* a.cancel {
   margin-left: 100px;
   margin-top: 100px;
   background-color: white;
   color: #5c5c5c;
   border: #5c5c5c 1px solid;
+} */
+
+.cancel {
+  width: 13vw;
+  height: 4.5vh;
+  background-color: white;
+  color: #5c5c5c;
+  font-weight: bold;
+  text-align: center;
+  line-height: 4.5vh;
+  border: #5c5c5c 1px solid;
+  border-radius: 0.5rem;
+  margin-left: 10px;
 }
 
 .detail {
-  background-color: #F62B5D;
+  background-color: #f62b5d;
   margin-left: 10px;
-  margin-top: 100px;
+  /* margin-top: 100px; */
 }
 
 .btn .back {
   width: 13vw;
   height: 4.5vh;
-  background-color: #298BAD;
+  background-color: #298bad;
   color: white;
   font-weight: bold;
   text-align: center;
@@ -54,7 +67,7 @@ h1 {
 }
 
 .go {
-  background-color: #F62B5D;
+  background-color: #f62b5d;
   margin-left: 10px;
 }
 
@@ -63,12 +76,13 @@ h1 {
   margin: 0 auto;
   background-color: white;
   border-radius: 0.4rem;
+  margin-bottom: 20px;
 }
 
 .project_button {
   display: flex;
   justify-content: center;
-  padding: 20px 20px;
+  padding: 10px;
 }
 
 .yes {
@@ -82,4 +96,3 @@ h1 {
   border-radius: 0.5rem;
   margin-left: 10px;
 }
-

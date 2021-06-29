@@ -40,6 +40,7 @@ if ($status == false) {
         $view .= '</div>';
         $view .= '</div>';
         $view .= '<div class="reservation_button"><a href="./selected_project.php?user_id=' . $user_id . '&project_id=' . $result['project_id'] . '" class="go">予約する</a></div>';
+        $view .= '</div>';
     }
 }
 
