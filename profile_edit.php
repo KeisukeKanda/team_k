@@ -107,7 +107,7 @@ $val = $res->fetch();
                         <div class="title">ニックネーム</div>
                         <input class="nickname" type="text" name="nickname"
                             value="<?= $val['nickname'] ?>"
-                            required>
+                            placeholder="例：旅行 好太郎" required>
 
                         <div class="title">生年月日</div>
                         <select name="year" class="selected"
@@ -122,21 +122,18 @@ $val = $res->fetch();
                         <input type="radio" name="sex" value="women" />women
 
                         <div class="title">住んでいる国</div>
-                        <select name="country" class="selected" required>
-                            <option value="">選択してください</option>
-                            <option value="1">日本</option>
-                            <option value="2">中国</option>
-                        </select>
+                        <input class="country" type="text" name="country"
+                            value="<?= $val['country'] ?>"
+                            placeholder="例：日本">
 
                         <div class="title">住んでいるエリア</div>
-                        <select name="user_area" class="selected" required>
-                            <option value="">選択してください</option>
-                            <option value="1">東京</option>
-                            <option value="2">大阪</option>
-                        </select>
+                        <input class="user_area" type="text" name="user_area"
+                            value="<?= $val['user_area'] ?>"
+                            placeholder="例：東京">
 
                         <div class="title">自己紹介</div>
                         <textarea name="introduction" class="introduction"
+                            placeholder="はじめまして、旅行好太郎です！世界の多様な価値観に触れてみたいと思い登録しました。どうぞよろしくお願いします！"
                             required><?= $val['introduction'] ?></textarea><br>
                         <input type="submit" class="edit-comp" value="プロフィールを更新">
             </form>

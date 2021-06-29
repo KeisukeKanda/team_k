@@ -93,7 +93,9 @@ $val = $res->fetch();
                 <div class="user-info">
                     <div class="title">ニックネーム</div>
                     <div class="text nickname">
+                        <?php if ($val["nickname"] !== "NULL"): ?>
                         <?= $val["nickname"] ?>
+                        <?php endif; ?>
                     </div>
                     <div class="title">生年月日</div>
                     <div class="text birthdate">
@@ -106,16 +108,22 @@ $val = $res->fetch();
                     </div>
                     <div class="title">性別</div>
                     <div class="text sex">
+                        <?php if ($val["sex"] !== "NULL"): ?>
                         <?= $val["sex"] ?>
+                        <?php endif; ?>
                     </div>
                     <?php foreach ($stmt as $profile): ?>
                     <div class="title">住んでいる国</div>
                     <div class="text country">
+                        <?php if ($profile["country"] !== "NULL"): ?>
                         <?= $profile["country"] ?>
+                        <?php endif; ?>
                     </div>
                     <div class="title">住んでいるエリア</div>
                     <div class="text user_area">
+                        <?php if ($profile["japan_area"] !== "NULL"): ?>
                         <?= $profile["japan_area"] ?>
+                        <?php endif; ?>
                     </div>
                     <?php endforeach; ?>
                     <div class="title">自己紹介</div>
