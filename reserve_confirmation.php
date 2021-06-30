@@ -20,6 +20,14 @@ if ($status == false) {
 } else {
     $res = $stmt->fetch(PDO::FETCH_ASSOC);
 }
+
+
+if($user_id==0){
+$button='./auth/please_login.php';
+}else{
+$button="reserve_com.php";
+}
+
 ?>
 
 
@@ -51,7 +59,7 @@ if ($status == false) {
                 <p class="confirm_contents"><?= $res["date"] ?>　<?= $res["reservation_time"] ?>
                 </p>
                 <p class="confirm_contents">予約してもよろしいですか？？</p>
-                <form action="reserve_com.php" method="post">
+                <form action="<?=$button?>" method="post">
                     <input type="hidden" name="reservation_id"
                         value="<?= $res["reservation_id"] ?>">
                     <input type="hidden" name="user_id"

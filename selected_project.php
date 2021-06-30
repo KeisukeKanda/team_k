@@ -49,16 +49,13 @@ $status2 = $stmt2->execute();
 $view = "";
 if ($status2 == false) {
     sql_error($stmt2);
-}elseif($user_id==0){
-  redirect('./auth/please_login.php');
-}
-else {
+} else {
     while ($res2 = $stmt2->fetch(PDO::FETCH_ASSOC)) {
         $view .= '<form action="reserve_confirmation.php" method="post">';
         $view .= '<div class="reservation_time">';
         $view .= '<div class="reservation_date">' . $res2["date"] . '  ' . $res2["reservation_time"] . "時" . '</div>';
         $view .= '<div class="reservation_button"><input type="hidden" name="reservation_id" value="' . $res2["reservation_id"] . '">';
-        $view .= '<input type="submit" value="申込み" id="login_check" class="go"></div>';
+        $view .= '<input type="submit" value="申込み" class="go"></div>';
         $view .= '</div>';
         $view .= '</form><br>';
     }
@@ -174,11 +171,6 @@ $total_review=($price_review + $communication_review + $hospitality_review +$con
     <!-- componentフォルダからヘッダーを読み込み -->
     <?php include("component/header.php") ?>
   </header>
-
-
-
-
-
   <main>
     <div class="contents">
       <!-- プロジェクト詳細表示画面 -->
