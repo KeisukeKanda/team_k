@@ -10,11 +10,6 @@ $project_id=$_GET["project_id"];
 
 
 
-
-
-
-
-
 ?>
 
 
@@ -52,7 +47,7 @@ $project_id=$_GET["project_id"];
                                     <button  id="leave_button" class="btn">Leave</button>
                                 </div>
                             <div id="layer">
-                                
+
                             </div>
                             <div class="yoko">
                                 <video id="js-local-stream" class="gamen zibun"></video>
@@ -69,7 +64,7 @@ $project_id=$_GET["project_id"];
                         </div>
                 </div>
 
-                
+
 
                 <div>
                     <pre class="messages" id="js-messages"></pre>
@@ -127,7 +122,7 @@ $project_id=$_GET["project_id"];
     });
 
 
-    
+
 });
 </script>
 </div>
