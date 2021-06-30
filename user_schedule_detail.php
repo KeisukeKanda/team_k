@@ -75,23 +75,23 @@ if ($status == false) {
           <div>
             <div class="project_title"><i class="fas fa-globe"></i> <?= $row["title"] ?>
             </div>
-            <div class="project_contents"><i class="fas fa-table"></i> <?= $row["date"] . " " . $row["reservation_time"] ?>
+            <div class="project_date"><i class="fas fa-table"></i> <?= $row["date"] . " " . $row["reservation_time"] ?>
             </div>
-            <div class="project_contents">○ カテゴリー</div>
+            <div class="project_contents-title">○ カテゴリー</div>
             <div class="project_contents">　<?= $row["category"] ?>
             </div>
-            <div class="project_contents">○ 案内する場所</div>
+            <div class="project_contents-title">○ 案内する場所</div>
             <div class="project_contents">　<?= $row["country"] . " " . $row["project_area"] ?>
             </div>
-            <div class="project_contents">○ 内容</div>
+            <div class="project_contents-title">○ 内容</div>
             <div class="project_contents">　<?= $row["experience"] ?>
             </div>
-            <div class="project_contents">○ ホストの思い</div>
+            <div class="project_contents-title">○ ホストの思い</div>
             <div class="project_contents">　<?= $row["thoughts"] ?>
             </div>
-            <div class="project_contents">○ ツアー時間</div>
+            <div class="project_contents-title">○ ツアー時間</div>
             <div class="project_contents">　<?= $row["tour_time"] ?>時間</div>
-            <div class="project_contents">○ 価格</div>
+            <div class="project_contents-title">○ 価格</div>
             <div class="project_contents">　<?= $row["price"] ?>円</div>
             <!--遷移ボタン-->
           </div>

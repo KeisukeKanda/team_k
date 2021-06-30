@@ -34,61 +34,58 @@ if ($status == false) {
     <link rel="stylesheet" href="./css/reset.css">
     <link rel="stylesheet" href="./css/all.css">
     <link rel="stylesheet" href="./css/header.css">
-    <link rel="stylesheet" href="./css/reservation.css">
+    <link rel="stylesheet" href="./css/payment.css">
     <link rel="stylesheet" href="./css/footer.css">
-     <!-- 購入ボタンのCSS -->
+    <!-- 購入ボタンのCSS -->
     <style type="text/css">
-    .stripe-button-el {
-        width: 200px;
-        max-width: 100%;
-    }
-    .stripe-button-el span {
-        font-size: 18px;
-        padding-top: 15px;
-    }
-    .pay{
-        display: flex;
-        margin:auto;
-        justify-content: center;
-    }
+        .stripe-button-el {
+            width: 200px;
+            max-width: 100%;
+        }
+
+        .stripe-button-el span {
+            font-size: 18px;
+            padding-top: 15px;
+        }
+
+        .pay {
+            display: flex;
+            margin: auto;
+            justify-content: center;
+        }
     </style>
 
 </head>
 
 <body>
-    <header>
-        <!-- componentフォルダからヘッダーを読み込み -->
-        <?php include("component/header.php") ?>
-    </header>
-    <main>
-        <div class="contents">
-            <h1>支払</h1>
-            <div class="user_reservation">
-                <p class="confirm_contents"><?= $res["title"] ?></p>
-                <p class="confirm_contents"><?= $res["date"] ?>　<?= $res["reservation_time"] ?></p>
-                <p class="confirm_contents">ご予約ありがとうございます。支払に進めてください。</p>
+    <!-- componentフォルダからヘッダーを読み込み -->
+    <?php include("component/header.php") ?>
+
+    <div class="contents">
+        <h1>支払</h1>
+        <div class="user_reservation">
+            <p class="confirm_contents"><?= $res["title"] ?>
+            </p>
+            <p class="confirm_contents"><?= $res["date"] ?>　<?= $res["reservation_time"] ?>
+            </p>
+            <p class="confirm_contents">ご予約ありがとうございます！支払に進んでください。</p>
+            <h1></h1>
+            <form action="mail_input1.php" method="post">
+                <div class="pay">
+                    <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+                        data-key="pk_test_51J7aRMADniaDh1o9fjnOTyeDYeYNVmqC1rjbP5e0PqVx4kbBepEMbQG8I0QivqgAYGC2TYjnLmJT8BsqIK9XZUNK00U3rO2Wlc"
+                        data-amount="<?= $res["price"] ?>"
+                        data-name="この商品の料金は<?= $res["price"] ?>円です"
+                        data-locale="auto" data-allow-remember-me="false" data-label="支払に進む" data-currency="jpy">
+                    </script>
+                </div>
+                <input type="hidden" name="reservation_id"
+                    value="<?= $res["reservation_id"] ?>">
                 <h1></h1>
-                <form action="mail_input1.php" method="post">
-                    <div class="pay">
-                        <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
-                            data-key="pk_test_51J7aRMADniaDh1o9fjnOTyeDYeYNVmqC1rjbP5e0PqVx4kbBepEMbQG8I0QivqgAYGC2TYjnLmJT8BsqIK9XZUNK00U3rO2Wlc"
-                            data-amount="<?= $res["price"] ?>"
-                            data-name="この商品の料金は<?= $res["price"] ?>円です"
-                            data-locale="auto"
-                            data-allow-remember-me="false"
-                            data-label="支払に進む"
-                            data-currency="jpy">
-                        </script>
-                    </div>
-                    <input type="hidden" name="reservation_id" value="<?= $res["reservation_id"] ?>">
-                    <h1></h1>
-                </form>
-            </div>
+            </form>
         </div>
-    </main>
-    <footer>
-        <?php include("component/footer.php") ?>
-    </footer>
+    </div>
+    <?php include("component/footer.php") ?>
 </body>
 
 </html>
