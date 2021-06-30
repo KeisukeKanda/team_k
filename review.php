@@ -4,7 +4,7 @@ session_start();
 
 //DB接続します
 require("funcs.php");
-require("db_set/db.php");
+require("./dbset/dbset.php");
 
 //ユーザー名を取得
 $username = $_SESSION["name"];

@@ -2,7 +2,7 @@
 
 session_start();
 
-require("./db_set/db.php");
+require("./dbset/dbset.php");
 require("funcs.php");
 
 //セッションハイジャック対策
@@ -20,9 +20,9 @@ $user_id = $_SESSION["user_id"];
 
 //usersテーブルと国と地域のテーブルを接続
 // 国コードと地域コードから国名・地域名をプロフィールに表示させるため
-$sql = "SELECT * FROM users AS u 
-INNER JOIN country AS c ON u.country=c.country_id 
-INNER JOIN japan AS j ON u.user_area=j.japan_id 
+$sql = "SELECT * FROM users AS u
+INNER JOIN country AS c ON u.country=c.country_id
+INNER JOIN japan AS j ON u.user_area=j.japan_id
 WHERE user_id=:user_id";
 $stmt = $pdo->prepare($sql);
 $stmt->bindValue(':user_id', $user_id, PDO::PARAM_INT);  //Integer（数値の場合 PDO::PARAM_INT)

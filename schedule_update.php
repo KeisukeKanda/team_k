@@ -9,7 +9,7 @@ $reserve_flag = $_POST["reserve_flag"];
 $reservation_id = $_POST["reservation_id"];
 
 //2. DB接続します
-require("db_set/db.php");
+require("./dbset/dbset.php");
 
   $sql = 'SELECT * FROM reservation WHERE reservation_id = :reservation_id LIMIT 1';
   $stmt = $pdo->prepare($sql);

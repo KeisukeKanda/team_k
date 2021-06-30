@@ -1,6 +1,6 @@
 <?php
 
-require("db_set/db.php");
+require("./dbset/dbset.php");
 require_once 'funcs.php';
 session_start();
 
@@ -105,11 +105,6 @@ $name= $_SESSION["name"];
     <link rel="stylesheet" href="./css/header.css">
     <link rel="stylesheet" href="./css/footer.css">
     <link rel="stylesheet" href="./css/host.css">
-		<style>
-			h1{
-				;
-			}
-		</style>
 	</head>
 	<body>
     <div class="wrap">

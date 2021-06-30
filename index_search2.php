@@ -1,6 +1,6 @@
 <?php
 session_start();
-require("./db_set/db.php");
+require("./dbset/dbset.php");
 require("funcs.php");
 
 
@@ -35,7 +35,7 @@ if ($status == false) {
 // (i)日付入力がされていない時
 if ($date=='') {
     $view1 = rtrim($view, ",");
-    $stmt2 = $pdo->prepare("SELECT*FROM project AS p INNER JOIN users AS u ON p.user_id=u.user_id WHERE p.title LIKE :title 
+    $stmt2 = $pdo->prepare("SELECT*FROM project AS p INNER JOIN users AS u ON p.user_id=u.user_id WHERE p.title LIKE :title
     AND (p.country LIKE :country OR p.project_area LIKE :project_area) ");
     $stmt2->bindValue(":country", "%".$search1."%", PDO::PARAM_STR);
     $stmt2->bindValue(":project_area", "%".$search2."%", PDO::PARAM_STR);
@@ -44,7 +44,7 @@ if ($date=='') {
 // (ⅱ)日付入力がされていて該当のプロジェクトが存在する場合
 } elseif ($date!==''&& $view!=='') {
     $view1 = rtrim($view, ",");
-    $stmt2 = $pdo->prepare("SELECT*FROM project AS p INNER JOIN users AS u ON p.user_id=u.user_id WHERE p.title LIKE :title 
+    $stmt2 = $pdo->prepare("SELECT*FROM project AS p INNER JOIN users AS u ON p.user_id=u.user_id WHERE p.title LIKE :title
     AND (p.country LIKE :country OR p.project_area LIKE :project_area) AND p.project_id in ($view1)");
     $stmt2->bindValue(":country", "%".$search1."%", PDO::PARAM_STR);
     $stmt2->bindValue(":project_area", "%".$search2."%", PDO::PARAM_STR);

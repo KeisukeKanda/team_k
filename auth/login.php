@@ -2,7 +2,7 @@
 session_start();
 
 // DB接続とfancs.phpを読み込
-require("../db_set/db.php");
+require("../dbset/dbset.php");
 require("../funcs.php");
 
 //CSRF対策

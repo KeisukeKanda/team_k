@@ -3,7 +3,7 @@
 session_start();
 
 // 検索機能作成中
-require("./db_set/db.php");
+require("./dbset/dbset.php");
 require("funcs.php");
 $view = "";
 

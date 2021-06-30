@@ -1,7 +1,7 @@
 <?php
 // user_schedule.phpから飛んでくることを想定
 
-require("db_set/db.php");
+require("./dbset/dbset.php");
 require("./funcs.php");
 session_start();
 

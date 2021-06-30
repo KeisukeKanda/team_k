@@ -14,7 +14,7 @@ $price = $_POST["price"];
 
 
 //2. DB接続します
-require("db_set/db.php");
+require("./dbset/dbset.php");
 
   $sql = 'SELECT * FROM project WHERE project_id = :project_id LIMIT 1';
   $stmt = $pdo->prepare($sql);

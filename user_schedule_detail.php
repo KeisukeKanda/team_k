@@ -4,7 +4,7 @@ session_start();
 
 //DB接続します
 require("funcs.php");
-require("db_set/db.php");
+require("./dbset/dbset.php");
 
 //セッションハイジャック対策
 if (!isset($_SESSION["chk_ssid"]) || $_SESSION["chk_ssid"] != session_id()) {

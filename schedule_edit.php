@@ -1,7 +1,7 @@
 <?php
 // session_start();
 
-require("db_set/db.php");
+require("./dbset/dbset.php");
 require_once 'funcs.php';
 session_start();
 
