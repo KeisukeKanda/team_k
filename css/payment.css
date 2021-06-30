@@ -4,6 +4,7 @@ h1 {
 }
 
 .contents {
+  height: 100vh;
   background-color: #f4f4f4;
 }
 
