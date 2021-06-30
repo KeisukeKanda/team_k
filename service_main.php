@@ -41,7 +41,7 @@ $project_id=$_GET["project_id"];
     </p>
     <div class="room">
         <div class="gamen_all">
-            <p class="gamen_title">通話画面（room名を共有してください）<input type="text" class="search1" placeholder="Room Name"
+            <p class="gamen_title">通話画面（room名を共有してください）<input type="text" class="search1 room_name" placeholder="Room Name"
                     id="js-room-id"></p>
             <div class="gamen_pass">
                 <div class="join_btn">
@@ -83,10 +83,11 @@ $project_id=$_GET["project_id"];
 
 
     <!-- とりあえずreview.phpに遷移させる -->
-    <p id="go_review">ご利用ありがとうございました。よろしければレビュー記入にご協力ください。<br>
+    <div id="go_review">ご利用ありがとうございました。よろしければレビュー記入にご協力ください。
+        <p class="top_yohaku"></p>
         <button type="button" id="go_to_review" class="btn"
             value="<?= $project_id ?>">レビューにすすむ</button>
-    </p>
+    </div>
 
     <!-- ここからスカイウェイのスクリプト -->
     <script src="//cdn.webrtc.ecl.ntt.com/skyway-4.4.1.js"></script>

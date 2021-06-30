@@ -15,8 +15,11 @@
 </head>
 
 <body>
-  <div class="title">ご登録ありがとうございました！</div>
+  <div class="title">
+    <h1>ご登録ありがとうございました！</h1></div>
+  <div class="center">
   <button class="btn"><a href="index.php">メインへ戻る</a></button>
+  </div>
 </body>
 
 </html>

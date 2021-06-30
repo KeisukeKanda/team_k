@@ -1,5 +1,7 @@
 .title{
     margin: 2vw;
+    text-align: center;
+    padding-top: 180px;
 }
 
 .btn{
@@ -9,4 +11,10 @@
 .btn a{
     margin: 0 2vw;
     color:#fff;
+}
+
+
+.center{
+    text-align: center;
+    padding-top: 60px;
 }
