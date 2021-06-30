@@ -13,6 +13,10 @@
     font-size: 1.5vw;
 }
 
+.mail-title{
+    margin: 3vh 0;
+}
+
 .mail-inputform{
     width: 30%;
     padding: 0.5vw;

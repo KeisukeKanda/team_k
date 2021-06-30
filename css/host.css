@@ -1,18 +1,25 @@
-h1 {
-  margin-top: 60px;
-  text-align: center;
-  padding: 20px 20px;
-}
-h2 {
-  margin-top: 60px;
-  margin-bottom: 50px;
-  text-align: center;
+.box{
+  width: 80%;
+  margin: 0 auto;
+  line-height: 3.5vh;
 }
 
-.nav_btn{
-  display: flex;
-  justify-content: center;
+.project-make{
+  margin-top: 5vh;
 }
+
+.take-tour{
+    background-color: #F62B5D;
+}
+
+.mail-send-btn{
+  background-color: #5c5c5c;
+}
+
+.reservation-info{
+  margin: 8vh 0 4vh;
+}
+
 .contents {
   height: 100vh;
   background-color: #f4f4f4;
@@ -23,12 +30,17 @@ h2 {
   width: 80%;
   margin: auto;
 }
+
+.non-reserve-text{
+  padding-bottom: 10vh;
+}
+
 .wrap1{
   padding-right: 20px;
-  width: 60%;
+  width: 80%;
 }
 .wrap2{
-  width: 40%;
+  width: 80%;
 }
 .align_left{
   text-align: left;
@@ -37,20 +49,18 @@ h2 {
 .r_card{
   display: flex;
   width: 80%;
-  margin: auto;
   border: 1px solid grey;
-  border-radius: 20px;
+  border-radius: 0.5rem;
 }
 
 .p_card{
   display: flex;
   margin: auto;
   border: 1px solid grey;
-  border-radius: 20px;
+  border-radius: 0.5rem;
 }
 .s_card{
   display: flex;
-  margin: auto;
   border: 1px solid grey;
   border-radius: 20px;
 }
@@ -69,9 +79,8 @@ h2 {
 .txt_thoughts_card {
   display: flex;
   font-size: 15px;
-  font-weight: bold;
   padding: 10px 10px 10px 30px;
-  width: 55%;
+  width: 80%;
 
 }
 
@@ -92,7 +101,7 @@ h2 {
   font-size: 20px;
   font-weight: bold;
   padding: 10px 10px 10px 30px;
-  width: 55%;
+  width: 80%;
 }
 
 .txt_title_card1 {
@@ -103,16 +112,24 @@ h2 {
   padding: 10px 10px 10px 30px;
 }
 
+.actions{
+  height: 10vh;
+}
+
 .btn {
-  height: 30px;
-  line-height: 30px;
-  margin: 10px;
+  margin: 20px 0;
+  margin-right: 10px;
   font-size: 15px;
 }
+
+.delete-btn{
+  background-color: #fff;
+  color: #5c5c5c;
+  border: 1px solid #5c5c5c;
+}
+
 .main {
-  margin: 30px;
   height:50px;
-  background-color: grey;
 }
 
 .cancel {

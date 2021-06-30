@@ -21,6 +21,7 @@
     <div class="mail-form">
       <div class="box">
 
+        <h1 class="mail-title">メール送信フォーム</h1>
         <form action="mail.php" method="post">
           <div class="form-title">送り先</div>
           <input type="text" class="mail-inputform" name="to">
