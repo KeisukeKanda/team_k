@@ -1,21 +1,28 @@
 h1 {
   text-align: center;
-  padding: 20px 20px;
+  padding: 5vh;
 }
 
 .contents {
+  height: 100vh;
   background-color: #f4f4f4;
 }
 
 .user_reservation {
   width: 70%;
   margin: 0 auto;
+  padding: 3vh;
   background-color: white;
   border-radius: 0.4rem;
 }
 
 .reservation_image {
   text-align: center;
+  padding: 5vh;
+}
+
+.reservation_image img{
+border-radius: 0.5rem;
 }
 
 .reservation_img {
@@ -26,15 +33,23 @@ h1 {
   padding: 10px 10px 10px 30px;
 }
 
+#review_show{
+  padding: 2vw 0;
+}
+
+.favo-btn{
+  margin: 1vw 4vw;
+}
+
+.favo-register-btn{
+  margin: 0 2vw;
+}
+
 .favo-btn01 {
   background-color: white;
   color: #5c5c5c;
   border: #5c5c5c 1px solid;
   border-radius: 0.4rem;
-}
-
-.favo_register {
-  display: flex;
 }
 
 .register_done {
@@ -44,6 +59,9 @@ h1 {
 
 .reservation_time {
   display: flex;
+  width: 70%;
+  margin: 0 auto;
+  background-color: #fff;
   justify-content: space-around;
   padding: 10px 10px 10px 30px;
   border: 2px solid #f4f4f4;
@@ -75,4 +93,12 @@ h1 {
 
 .thx_comment {
   margin-top: 100px;
+}
+
+.reservation-possible{
+  height: 50vh;
+}
+
+.reservation-empty-text{
+  text-align: center;
 }

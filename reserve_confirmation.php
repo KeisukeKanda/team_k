@@ -39,29 +39,30 @@ if ($status == false) {
 </head>
 
 <body>
-    <header>
-        <!-- componentフォルダからヘッダーを読み込み -->
-        <?php include("component/header.php") ?>
-    </header>
+
+    <!-- componentフォルダからヘッダーを読み込み -->
+    <?php include("component/header.php") ?>
     <main>
         <div class="contents">
             <h1>予約確認</h1>
             <div class="user_reservation">
-                <p class="confirm_contents"><?= $res["title"] ?></p>
-                <p class="confirm_contents"><?= $res["date"] ?>　<?= $res["reservation_time"] ?></p>
+                <p class="confirm_contents"><?= $res["title"] ?>
+                </p>
+                <p class="confirm_contents"><?= $res["date"] ?>　<?= $res["reservation_time"] ?>
+                </p>
                 <p class="confirm_contents">予約してもよろしいですか？？</p>
                 <form action="reserve_com.php" method="post">
-                    <input type="hidden" name="reservation_id" value="<?= $res["reservation_id"] ?>">
-                    <input type="hidden" name="user_id" value="<?= $user_id; ?>">
+                    <input type="hidden" name="reservation_id"
+                        value="<?= $res["reservation_id"] ?>">
+                    <input type="hidden" name="user_id"
+                        value="<?= $user_id; ?>">
                     <input type="hidden" name="reserve_flag" value="1">
                     <div class="confirm_contents"><input type="submit" value="はい" class="go"></div>
                 </form>
             </div>
         </div>
     </main>
-    <footer>
-        <?php include("component/footer.php") ?>
-    </footer>
+    <?php include("component/footer.php") ?>
 </body>
 
 </html>
