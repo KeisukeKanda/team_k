@@ -4,7 +4,6 @@ h1 {
 }
 
 .contents {
-  height: 100vh;
   background-color: #f4f4f4;
 }
 
@@ -19,6 +18,11 @@ h1 {
 
 .user_favorite_list {
   display: flex;
+  padding: 3vh;
+}
+
+.user_favorite_list img{
+  border-radius: 0.5rem;  
 }
 
 .project_title {
@@ -29,7 +33,7 @@ h1 {
 }
 
 .project_contents {
-  padding: 5px 10px 5px 30px;
+  padding: 10px 10px 5px 30px;
 }
 
 a.go {
