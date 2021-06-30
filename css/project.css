@@ -1,22 +1,20 @@
 h1 {
+  width: 50%;
+  margin: 0 auto;
   margin-top: 60px;
-  /* margin-bottom: 50px; */
-  text-align: center;
   padding: 20px 20px;
 }
+
 .form{
-    width: 70%;
-    margin: auto;
-    display: flex;
+    width: 50%;
+    margin: 0 auto;
 }
 
 .form_half{
-    display: flex;
-    justify-content:space-around;
-    margin: auto;
+    
 }
 
-.nav_btn{
+/* .nav_btn{
   display: flex;
   justify-content: center;
 }
@@ -26,16 +24,32 @@ input.btn {
   line-height: 30px;
   margin: 30px;
   font-size: 30px;
-}
+} */
 /*------------------------------------------------
 
 inputタグを装飾する
 
 ------------------------------------------------*/
 input{
-    font-size: 1.2vw;
+    font-size: 1vw;
     border-radius: 0.5rem;
     padding: 0.5vw;
+}
+
+#experience{
+    width: 100%;
+}
+
+#thoughts{
+    width: 100%;
+}
+
+.nav_btn{
+    width: 50%;
+    height: 50px;
+    margin: 0 auto;
+    margin-top: 5vh;
+    margin-bottom: 3vh;
 }
 
 /*------------------------------------------------
@@ -58,13 +72,13 @@ input{
 ------------------------------------------------*/
 .project-info{
     width: 60%;
-    margin: 2vw;
+
 }
 
 .title{
-    margin: 1.5vw 0;
+    margin: 1vw 0;
     padding: 1vw;
-    font-size: 1.5vw;
+    font-size: 1vw;
     background-color: #298BAD;
     color: #fff;
     border-radius: 0.5rem;
@@ -119,4 +133,14 @@ input{
 }
 #previewImage{
         width: 300px;
+}
+
+.make-project{
+    background-color: #F62B5D;
+}
+
+.clear{
+    background-color: #fff;
+    color: #5c5c5c;
+    border: 1px solid #5c5c5c;
 }
