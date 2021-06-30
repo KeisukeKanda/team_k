@@ -32,6 +32,13 @@ if ($status == false) {
     $res = $stmt->fetch(PDO::FETCH_ASSOC);
 }
 
+if($user_id==0){
+$zyoken='./auth/please_login.php';
+}elseif($user_id==$res["user_id"]){
+$zyoken='cannot_reserve.php';
+}else{
+$zyoken='reserve_confirmation.php';  
+}
 
 
 
@@ -51,11 +58,11 @@ if ($status2 == false) {
     sql_error($stmt2);
 } else {
     while ($res2 = $stmt2->fetch(PDO::FETCH_ASSOC)) {
-        $view .= '<form action="reserve_confirmation.php" method="post">';
+        $view .= '<form action="'.$zyoken.'" method="post">';
         $view .= '<div class="reservation_time">';
         $view .= '<div class="reservation_date">' . $res2["date"] . '  ' . $res2["reservation_time"] . "時" . '</div>';
         $view .= '<div class="reservation_button"><input type="hidden" name="reservation_id" value="' . $res2["reservation_id"] . '">';
-        $view .= '<input type="submit" value="申込み" class="go"></div>';
+        $view .= '<input type="submit" value="申込み" id="check" class="go"></div>';
         $view .= '</div>';
         $view .= '</form><br>';
     }
@@ -249,7 +256,13 @@ $total_review=($price_review + $communication_review + $hospitality_review +$con
       <?php include("component/footer.php") ?>
     </div>
   </main>
-
+<script>
+  $("#check").on('click',function(){
+      <?php if($res["user_id"]==$user_id):?>
+      link(){href='cannot_reserve.php';}
+  )}
+  <?php endif; ?>
+</script>
 
 </body>
 
