@@ -18,7 +18,7 @@ if (!empty($_FILES['project_img']['name'])) {
 }
 
 //2. DB接続します
-require("db_set/db.php");
+require("./dbset/dbset.php");
 
 
 //３．データ登録SQL作成

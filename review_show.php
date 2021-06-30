@@ -1,6 +1,6 @@
 <?php
 session_start();
-require("./db_set/db.php");
+require("./dbset/dbset.php");
 require("funcs.php");
 
 $project_id=1;
@@ -59,7 +59,7 @@ $price_review=$result[0];}
 }
 
 
-$total_review=($price_review + $communication_review + $hospitality_review +contents_review)/4;
+$total_review=($price_review + $communication_review + $hospitality_review +$contents_review)/4;
 
 ?>
 

@@ -2,7 +2,7 @@
 
 session_start();
 
-require("./db_set/db.php");
+require("./dbset/dbset.php");
 require("funcs.php");
 
 //セッションハイジャック対策

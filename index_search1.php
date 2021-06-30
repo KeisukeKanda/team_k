@@ -3,7 +3,7 @@
 session_start();
 
 // 検索機能作成中
-require("./db_set/db.php");
+require("./dbset/dbset.php");
 require("funcs.php");
 $view = "";
 
@@ -66,7 +66,7 @@ if ($state==false) {
                     <option value="2">2,000円〜4,999円</option>
                     <option value="3">5,000円以上</option>
                 </select>
-                <button id="send">検索</button> 
+                <button id="send">検索</button>
             </div>
             <div class="back-color"></div>
         </div>

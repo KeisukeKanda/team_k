@@ -1,6 +1,6 @@
 <?php
 require("funcs.php");
-require("db_set/db.php");
+require("./dbset/dbset.php");
 
 $reserve_flag = h($_POST["reserve_flag"]);
 $reservation_id = h($_POST["reservation_id"]);

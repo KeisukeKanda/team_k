@@ -3,7 +3,7 @@
 session_start();
 
 // DB接続とfancs.phpを読み込み
-require("../db_set/db.php");
+require("../dbset/dbset.php");
 require("../funcs.php");
 
 // signin.phpのフォーム値を受け取り
@@ -20,13 +20,13 @@ $hash = password_hash($password, PASSWORD_DEFAULT);
 //
 //空白不可
 if (!empty($_POST["name"] && $_POST["email"] && $_POST["password"]) && mb_strlen($_POST["password"]) >= 6) {
-    
+
     // トークンで不正ログインを判定
     if ($_POST['csrfToken'] === $_SESSION['csrfToken']) {
-        
+
         //メールアドレス以外が入力された場合はエラーにする
         if (filter_var($_POST["email"], FILTER_VALIDATE_EMAIL)) {
-           
+
             //emailが重複した場合にエラーにする
             $sql = "SELECT COUNT(*) AS cnt FROM users WHERE email=?";
             $stmt = $pdo->prepare($sql);

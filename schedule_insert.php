@@ -10,7 +10,7 @@ $reservation_time = $_POST["reservation_time"];
 $reserve_flag = $_POST["reserve_flag"];
 
 //2. DB接続します
-require("db_set/db.php");
+require("./dbset/dbset.php");
 
 
 

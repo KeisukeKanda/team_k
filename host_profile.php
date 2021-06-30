@@ -2,7 +2,7 @@
 
 session_start();
 
-require("./db_set/db.php");
+require("./dbset/dbset.php");
 require("funcs.php");
 
 //IndexのProject一覧からhost idを取得
