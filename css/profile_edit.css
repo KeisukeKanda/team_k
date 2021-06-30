@@ -4,20 +4,20 @@ inputタグを装飾する
 
 ------------------------------------------------*/
 input{
-    font-size: 1.2vw;
+    font-size: 1vw;
     border-radius: 0.5rem;
     padding: 0.5vw;
 }
 
 .nickname{
     width: 90%;
-    font-size: 1.2vw;
+    font-size: 1vw;
     border-radius: 0.5rem;
     padding: 0.5vw;
 }
 
 .selected{
-    font-size: 1.2vw;
+    font-size: 1vw;
     border-radius: 0.5rem;
     padding: 0.5vw;
 }
@@ -25,7 +25,7 @@ input{
 .introduction{
     width: 95%;
     height: 30vh;
-    font-size: 1.2vw;
+    font-size: 1vw;
     border-radius: 0.5rem;
     padding: 0.5vw;
 }
@@ -45,7 +45,7 @@ input{
 
 ------------------------------------------------*/
 .box{
-    width: 70%;
+    width: 50%;
     display: flex;
     margin: 0 auto;
     margin-top: 5vh;
@@ -58,7 +58,7 @@ input{
 ------------------------------------------------*/
 .user-img{
     width: 40%;
-    margin: 6vw 2vw;
+    margin: 3vw 1vw;
 }
 
 .img-review{
@@ -98,14 +98,14 @@ input{
 
 ------------------------------------------------*/
 .user-info{
-    width: 60%;
+    width: 50%;
     margin: 2vw;
 }
 
 .title{
     margin: 1.5vw 0;
-    padding: 1vw;
-    font-size: 1.5vw;
+    padding: 0.8vw;
+    font-size: 1.2vw;
     background-color: #298BAD;
     color: #fff;
     border-radius: 0.5rem;
