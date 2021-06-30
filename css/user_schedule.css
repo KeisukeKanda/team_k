@@ -3,13 +3,21 @@ h1 {
   padding: 20px 20px;
 }
 
+.main{
+  height: 100%;
+}
+
 .contents {
-  height: 100vh;
   background-color: #f4f4f4;
 }
 
 .user_reservation_list {
   display: flex;
+  padding: 3vh;
+}
+
+.user_reservation_list img{
+  border-radius: 0.5rem;
 }
 
 .project_title {
@@ -19,8 +27,17 @@ h1 {
   padding: 10px 10px 10px 30px;
 }
 
+.project_date {
+    padding: 10px 10px 30px 30px;
+}
+
+.project_contents-title {
+  padding: 0.5vw 3vw;
+  font-weight: bold;
+}
+
 .project_contents {
-  padding: 5px 10px 5px 30px;
+  padding: 0.5vw 3vw;
 }
 
 .btn {
@@ -37,33 +54,18 @@ h1 {
 } */
 
 .cancel {
-  width: 13vw;
-  height: 4.5vh;
   background-color: white;
   color: #5c5c5c;
   font-weight: bold;
   text-align: center;
   line-height: 4.5vh;
   border: #5c5c5c 1px solid;
-  border-radius: 0.5rem;
   margin-left: 10px;
 }
 
 .detail {
   background-color: #f62b5d;
   margin-left: 10px;
-  /* margin-top: 100px; */
-}
-
-.btn .back {
-  width: 13vw;
-  height: 4.5vh;
-  background-color: #298bad;
-  color: white;
-  font-weight: bold;
-  text-align: center;
-  line-height: 4.5vh;
-  border-radius: 0.5rem;
 }
 
 .go {
