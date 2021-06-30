@@ -4,10 +4,10 @@
 
 ------------------------------------------------*/
 .box{
-    width: 70%;
+    width: 50%;
     display: flex;
     margin: 0 auto;
-    margin-top: 5vh;
+    margin-top: 3vh;
 }
 
 /*------------------------------------------------ 
@@ -17,13 +17,13 @@
 ------------------------------------------------*/
 .user-img{
     width: 40%;
-    margin: 6vw 2vw;
+    margin: 3vw 1vw;
 }
 
 .img-box {
     border: 1px solid rgb(172, 172, 172);
     border-radius: 0.5rem;
-    height: 70vh;
+    height: 55vh;
 }
 
 .img-box img {
