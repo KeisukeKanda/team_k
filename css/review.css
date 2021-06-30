@@ -1,0 +1,33 @@
+.box{
+    width: 50%;
+    margin: 0 auto;
+    margin-top: 8vh;
+    margin-bottom: 5vh;
+}
+
+h1{
+    margin: 4vh 0;
+}
+
+p{
+    margin: 6vh 0;
+}
+
+.title{
+    margin: 2vh 0;
+    font-size: 1.2vw;
+}
+
+.star{
+    width: 20%;
+    padding: 0.2vw;
+}
+
+.comment{
+    width: 40%;
+    height: 20vh;
+}
+
+.btn{
+    margin: 3vh 0;
+}
