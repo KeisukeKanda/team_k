@@ -1,8 +1,10 @@
 <?php
-//1. POSTデータ取得
 
+session_start();
+
+//1. POSTデータ取得
 $project_id = $_POST["project_id"];
-$user_id = $_POST["user_id"];
+$user_id = $_SESSION["user_id"];
 $date = $_POST["date"];
 $reservation_time = $_POST["reservation_time"];
 $reserve_flag = $_POST["reserve_flag"];
@@ -24,11 +26,10 @@ $stmt->bindValue(':reserve_flag', $reserve_flag, PDO::PARAM_INT);
 $status = $stmt->execute();
 
 //４．データ登録処理後
-if($status==false){
-  $error = $stmt->errorInfo();
-  exit("SQLError:".$error[2]);
-}else{
-  header("Location: host_index.php");//半角スペースが必須
-  exit();
+if ($status==false) {
+    $error = $stmt->errorInfo();
+    exit("SQLError:".$error[2]);
+} else {
+    header("Location: host_index.php");//半角スペースが必須
+    exit();
 }
-?>
