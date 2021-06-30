@@ -80,8 +80,8 @@ if ($status == false) {
         <body onload="auto_send()">
         <form name="auto" action="mail1.php" method="post">
           <!-- 予約者へ送信 -->
-          <input type="hidden" class="mail-inputform" name="to1" value="kmorningjp@yahoo.co.jp">
-          <input type="hidden" class="mail-inputform" name="title1" value="Project <?=$res1["title"]?>のご予約">
+          <input type="hidden" class="mail-inputform" name="to1" value="keisukekanda@gmail.com">
+          <input type="hidden" class="mail-inputform" name="title1" value="【ISEKAI】Project <?=$res1["title"]?>のご予約">
           <div style="display:none">
           <textarea type="hidden" name="content1">
 
@@ -98,7 +98,9 @@ if ($status == false) {
           Project<?=$res1["title"]?> on <?=$res1["date"]?> at <?=$res1["reservation_time"]?>のご予約ありがとうございました。
           当日は以下のリンクにご参加ください。
 
-          http://localhost/team_k/host_index.php
+          https://us02web.zoom.us/j/84232023995?pwd=UjNpWTRZSmZmVU42U0dsM0h0QkltQT10
+          ミーティングID: 843 3203 3996
+          パスコード: iseki
 
           質問あれば、HOSTのemailにご連絡ください。
           <?=$res3["email"]  ?>
@@ -115,8 +117,8 @@ if ($status == false) {
           </textarea></div>
 
           <!-- HOSTへ送信 -->
-          <input type="hidden" name="to2" value="kmorningjp@yahoo.co.jp">
-          <input type="hidden" name="title2" value="Project <?=$res1["title"]?>は予約されました">
+          <input type="hidden" name="to2" value="keisukekanda@gmail.com">
+          <input type="hidden" name="title2" value="【ISEKAI】Project <?=$res1["title"]?>は予約されました">
           <div style="display:none">
           <textarea type="hidden" name="content2">
 
