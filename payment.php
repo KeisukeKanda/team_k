@@ -68,7 +68,7 @@ if ($status == false) {
                 <p class="confirm_contents"><?= $res["date"] ?>　<?= $res["reservation_time"] ?></p>
                 <p class="confirm_contents">ご予約ありがとうございます。支払に進めてください。</p>
                 <h1></h1>
-                <form action="thx.php" method="post">
+                <form action="mail_input1.php" method="post">
                     <div class="pay">
                         <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
                             data-key="pk_test_51J7aRMADniaDh1o9fjnOTyeDYeYNVmqC1rjbP5e0PqVx4kbBepEMbQG8I0QivqgAYGC2TYjnLmJT8BsqIK9XZUNK00U3rO2Wlc"
