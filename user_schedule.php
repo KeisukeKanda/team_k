@@ -39,7 +39,7 @@ if ($status == false) {
         // $view .= '<div class=reservation_box>';
         $view .= '<div class="user_reservation">';
         $view .= '<div class="user_reservation_list">';
-        $view .= '<div class="reservation_img"><img src="project_img/' . $res["project_img"] . '" alt="" width="200"></div>';
+        $view .= '<div class="reservation_img"><img src="project_img/' . $res["project_img"] . '" alt="""></div>';
         $view .= '<div class="reservation_contents">';
         $view .= '<div class="project_title"><i class="fas fa-globe"></i> ' . $res["title"] . '</div>';
         $view .= '<div class="project_contents"><i class="fas fa-table"></i> ' . $res["date"] . " " . $res["reservation_time"] . '</div>';
@@ -50,11 +50,12 @@ if ($status == false) {
         // $view .= '<p>' . $res["thoughts"] . '</p>';
         // $view .= '<p>' ."ツアー時間:". $res["tour_time"] . "時間".'</p>';
         // $view .= '<p>' ."料金". $res["price"] . "円".'</p>';
-        $view .= '</div>';
-        $view .= '</div>';
         $view .= '<div class="project_button">';
         $view .= '<a href="user_schedule_cancel.php?reservation_id=' . $res["reservation_id"] . '" class="btn cancel">× 予約キャンセル</a>';
         $view .= '<a href="user_schedule_detail.php?reservation_id=' . $res["reservation_id"] . '" class="btn detail">詳細</a>';
+        $view .= '</div>';
+
+        $view .= '</div>';
         $view .= '</div>';
         $view .= '</div>';
     }
@@ -85,9 +86,8 @@ if ($status == false) {
       <h1>予約一覧</h1>
       <?= $view ?>
     </div>
-    <!-- フッターを呼び出し -->
   </div>
-
+  <!-- フッターを呼び出し -->
   <?php include("component/footer.php") ?>
 </body>
 
