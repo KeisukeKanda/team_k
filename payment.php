@@ -80,6 +80,7 @@ if ($status == false) {
                             data-currency="jpy">
                         </script>
                     </div>
+                    <input type="hidden" name="reservation_id" value="<?= $res["reservation_id"] ?>">
                     <h1></h1>
                 </form>
             </div>
