@@ -125,7 +125,6 @@ $name= $_SESSION["name"];
 										<input type="submit" value="プロジェクト作成" class="btn main"/>
 									</div>
 								</form>
-        		  <a href="index.php" class="btn main">メインへ戻る</a>
 						</div>
 
 <!-- ****************************************** -->
