@@ -1,0 +1,214 @@
+.box{
+  width: 80%;
+  margin: 0 auto;
+  line-height: 3.5vh;
+}
+
+.project-make{
+  margin-top: 5vh;
+}
+
+.take-tour{
+    background-color: #F62B5D;
+}
+
+.mail-send-btn{
+  background-color: #5c5c5c;
+}
+
+.reservation-info{
+  margin: 8vh 0 4vh;
+}
+
+.contents {
+  height: 100vh;
+  background-color: #f4f4f4;
+}
+
+.view_wrap{
+  display: flex;
+  width: 80%;
+  margin: auto;
+}
+
+.non-reserve-text{
+  padding-bottom: 10vh;
+}
+
+.wrap1{
+  padding-right: 20px;
+  width: 80%;
+}
+.wrap2{
+  width: 80%;
+}
+.align_left{
+  text-align: left;
+}
+
+.r_card{
+  display: flex;
+  width: 80%;
+  border: 1px solid grey;
+  border-radius: 0.5rem;
+}
+
+.p_card{
+  display: flex;
+  margin: auto;
+  border: 1px solid grey;
+  border-radius: 0.5rem;
+}
+.s_card{
+  display: flex;
+  border: 1px solid grey;
+  border-radius: 20px;
+}
+
+.txt_card{
+  /* padding-left: 30px; */
+  width: 100%;
+}
+
+.txt_country_card,
+.txt_time_price_card,
+.btn_card,
+.txt_expe_card,
+.txt_thoughts_card {
+  display: flex;
+  font-size: 15px;
+  padding: 10px 10px 10px 30px;
+  width: 80%;
+
+}
+
+.txt_country_card1,
+.txt_time_price_card1,
+.btn_card1,
+.txt_expe_card1,
+.txt_thoughts_card1 {
+  display: flex;
+  font-size: 15px;
+  font-weight: bold;
+  padding: 10px 10px 10px 30px;
+}
+
+.txt_title_card {
+  display: flex;
+  /* color: #268cb6; */
+  font-size: 18px;
+  /* font-weight: bold; */
+  padding: 10px 10px 10px 30px;
+  width: 80%;
+}
+
+.name{
+    font-size: 3vh;
+    font-weight: bold;
+}
+
+.txt_title_card1 {
+  display: flex;
+  color: #268cb6;
+  font-size: 20px;
+  font-weight: bold;
+  padding: 10px 10px 10px 30px;
+}
+
+.actions{
+  height: 10vh;
+}
+
+.btn {
+  margin: 20px 0;
+  margin-right: 10px;
+  font-size: 15px;
+}
+
+.delete-btn{
+  background-color: #fff;
+  color: #5c5c5c;
+  border: 1px solid #5c5c5c;
+}
+
+.main {
+  height:50px;
+}
+
+.cancel {
+  margin-left: 100px;
+  margin-top: 100px;
+  background-color: white;
+  color: #5c5c5c;
+  border: #5c5c5c 1px solid;
+}
+
+.detail {
+  background-color: #F62B5D;
+  margin-left: 10px;
+  margin-top: 100px;
+}
+
+.btn .back {
+  width: 13vw;
+  height: 4.5vh;
+  background-color: #298BAD;
+  color: white;
+  font-weight: bold;
+  text-align: center;
+  line-height: 4.5vh;
+  border-radius: 0.5rem;
+}
+.title{
+    margin: 1.5vw 0;
+    padding: 1vw;
+    font-size: 1.5vw;
+    background-color: #298BAD;
+    color: #fff;
+    border-radius: 0.5rem;
+}
+input{
+    width: 50%;
+    font-size: 1.2vw;
+    border-radius: 0.5rem;
+    padding: 0.5vw;
+}
+.form_box{
+  width: 30%;
+  margin: auto;
+  margin-bottom: 30px;
+}
+
+.host_profile_wrap{
+  width: 70%;
+  margin: 0 auto;
+}
+
+.profile-title{
+    margin: 5vh 0;
+}
+
+.profile-img{
+    width: 80%;
+}
+
+.img_card{
+  margin: 10px 0 0 10px;
+  width: 60%;
+}
+
+.img_card img{
+    /* width: 100%; */
+}
+
+.project-title{
+    margin: 5vh 0;
+}
+
+.no_border{
+  border: none;
+}
+
+.profile-title{
+
+}
