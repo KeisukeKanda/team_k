@@ -15,13 +15,13 @@
   </head>
 
   <body>
-    <div>
+    <div class="gamen_all">
       <!-- componentフォルダからヘッダーを読み込み -->
       <?php include("component/header.php") ?>
 
       <div class="message">
 
-      <h2 class="thx_comment">支払は成功しました</h2>
+      <h2 class="thx_comment">お支払は成功しました</h2>
       <h2 class="thx_comment">ご予約ありがとうございました</h2>
       <h2 class="thx_comment">予約の詳細は登録したメールにご確認ください</h2>
       <h1></h1>
