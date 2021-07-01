@@ -6,7 +6,7 @@ require("./dbset/dbset.php");
 require("funcs.php");
 
 //IndexのProject一覧からhost idを取得
-$user_id = filter_input( INPUT_GET, "user_id" );
+$user_id = filter_input(INPUT_GET, "user_id");
 // $user_id = 1;
 
 //usersテーブルと国と地域のテーブルを接続
@@ -40,29 +40,30 @@ $val = $res->fetch();
 //               Project一覧表示
 //******************************************* */
 
-	$sql2="SELECT*FROM project WHERE user_id=$user_id";
-	$stmt2=$pdo->prepare($sql2);
-	$status2=$stmt2->execute();
-	$view="";
+    $sql2="SELECT*FROM project WHERE user_id=$user_id";
+    $stmt2=$pdo->prepare($sql2);
+    $status2=$stmt2->execute();
+    $view="";
     // $result = $stmt->fetch(PDO::FETCH_ASSOC)
     // echo "result:".$result;
 
-	if($status2==false){
-		sql_error($stmt2);
-	}else{
-			while( $result = $stmt2->fetch(PDO::FETCH_ASSOC)){
+    if ($status2==false) {
+        sql_error($stmt2);
+    } else {
+        while ($result = $stmt2->fetch(PDO::FETCH_ASSOC)) {
             $view .= '<div class="p_card">';
-	        $view .= '<div class="img_card">';
-	        $view .= '<img src="project_img/'.$result["project_img"].'" alt="" width="200" /></div>';
-			$view .= '<div class="txt_card">';
-			$view .= '<div class="txt_title_card1">';
-			$view .= 'Project:'.$result["project_id"].'  '.$result["title"].' Category: '.$result["category"].'</div>';
-			$view .= '<div class="txt_country_card1">'.$result["country"].'  '.$result["project_area"].'</div>';
-			$view .= '<div class="txt_expe_card1">'.$result["experience"].'</div>';
-			$view .= '<div class="txt_thoughts_card1">'.$result["thoughts"].'</div>';
-			$view .= '<div class="txt_time_price_card1">Tour time: '.$result["tour_time"].'　　　Price:'.$result["price"].'</div>';
-			$view .= '</div></div><br>';}
-	}
+            $view .= '<div class="img_card">';
+            $view .= '<img src="project_img/'.$result["project_img"].'" alt="" width="200" /></div>';
+            $view .= '<div class="txt_card">';
+            $view .= '<div class="txt_title_card1">';
+            $view .= 'Project:'.$result["project_id"].'  '.$result["title"].' Category: '.$result["category"].'</div>';
+            $view .= '<div class="txt_country_card1">'.$result["country"].'  '.$result["project_area"].'</div>';
+            $view .= '<div class="txt_expe_card1">'.$result["experience"].'</div>';
+            $view .= '<div class="txt_thoughts_card1">'.$result["thoughts"].'</div>';
+            $view .= '<div class="txt_time_price_card1">Tour time: '.$result["tour_time"].'　　　Price:'.$result["price"].'</div>';
+            $view .= '</div></div><br>';
+        }
+    }
 
 ?>
 
@@ -77,40 +78,44 @@ $val = $res->fetch();
     <link rel="stylesheet" href="./css/all.css">
     <link rel="stylesheet" href="./css/header.css">
     <link rel="stylesheet" href="./css/footer.css">
-    <link rel="stylesheet" href="./css/project.css">
-    <link rel="stylesheet" href="./css/host.css">
+    <!-- <link rel="stylesheet" href="./css/project.css"> -->
+    <!-- <link rel="stylesheet" href="./css/host.css"> -->
+    <link rel="stylesheet" href="./css/host_profile.css">
     <title>ISEKAI</title>
 </head>
 
 <body>
-        <!-- ヘッダー -->
-        <?php include("component/header.php") ?>
+    <!-- ヘッダー -->
+    <?php include("component/header.php") ?>
 
     <div class="host_profile_wrap">
         <!-- ヘッダー終わり -->
-            <h2><?= $val["nickname"] ?>の自己紹介</h2>
+        <h1 class="profile-title"><?= $val["nickname"] ?>の自己紹介</h1>
 
-            <!-- プロフィール表示 -->
-            <div class="p_card no_border">
-                <div class="img_card">
-                    <img src="user_img/<?= $val["user_img"] ?>" width="400"
-                        alt="HOSTプロフィール画像">
+        <!-- プロフィール表示 -->
+        <div class="p_card no_border">
+            <div class="img_card">
+                <img src="user_img/<?= $val["user_img"] ?>"
+                    width="400" alt="HOSTプロフィール画像" class="profile-img">
+            </div>
+            <div class="txt_card">
+                <div class="txt_title_card name">
+                    <?= $val["nickname"] ?>
                 </div>
-                <div class="txt_card">
-                    <div class="txt_title_card">
-                        <?= $val["nickname"] ?>
-                    </div>
-                    <div class="txt_title_card">
-                        <?= $val["country"] ?><?= $val["user_area"] ?>
-                    </div>
-                    <div class="txt_title_card">
-                        <?= $val["introduction"] ?>
-                    </div>
+                <div class="txt_title_card">
+                    <?= $val["country"] ?><?= $val["user_area"] ?>
+                </div>
+                <div class="txt_title_card">
+                    <?= $val["introduction"] ?>
                 </div>
             </div>
-            <!-- Project表示 -->
-            <h2><?= $val["nickname"] ?>が用意したProject</h2><br>
-            <p><?php echo $view;?></p>
+        </div>
+        <!-- Project表示 -->
+        <h1 class="project-title">
+            <?= $val["nickname"] ?>が用意したProject
+        </h1><br>
+        <p><?php echo $view;?>
+        </p>
     </div>
 
     <?php include("component/footer.php") ?>
