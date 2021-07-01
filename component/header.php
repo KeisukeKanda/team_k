@@ -21,10 +21,8 @@
                 <li class="menu-list"><a href="user_schedule.php"><i class="bi bi-calendar-check"></i>予約一覧</a></li>
                 <li class="menu-list"><a href="favorites.php"><i class="bi bi-heart"></i>お気に入り一覧</a></li>
 
-                <!-- ログインユーザーがすでにhost登録済みの場合のみ表示 -->
-                <?php if ($val["host"] == 1): ?>
+
                 <li class="menu-list"><a href="host_index.php"><i class="bi bi-list-ul"></i>ホスト管理画面</a></li>
-                <?php endif; ?>
 
                 <li class="menu-list"><a href="auth/logout.php">ログアウト</a></li>
                 <?php endif; ?>
