@@ -1,5 +1,5 @@
-.box{
-    width: 50%;
+.box1{
+    width: 30%;
     margin: 0 auto;
     margin-top: 8vh;
     margin-bottom: 5vh;
@@ -7,10 +7,12 @@
 
 h1{
     margin: 4vh 0;
+    text-align: center;
 }
 
 p{
     margin: 6vh 0;
+    text-align: center;
 }
 
 .title{
@@ -19,12 +21,12 @@ p{
 }
 
 .star{
-    width: 20%;
+    width: 50%;
     padding: 0.2vw;
 }
 
 .comment{
-    width: 40%;
+    width: 100%;
     height: 20vh;
 }
 

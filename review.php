@@ -66,21 +66,22 @@ if ($status == false) {
   <link rel="stylesheet" href="./css/review.css">
   <link rel="stylesheet" href="./css/header.css">
   <link rel="stylesheet" href="./css/footer.css">
+  <link rel="stylesheet" href="./css/project.css">
   <title>ISEKAI</title>
 </head>
 
 <body>
-  <div class="wrap">
+  <div>
     <!-- componentフォルダからヘッダーを読み込み -->
     <?php include("component/header.php") ?>
-
-    <div class="box">
       <h1>体験のレビューを書いてみましょう！</h1>
       <p>ご利用ありがとうございます！あなたのレビューがサービスを支えています。
         <br>
         <br>
         本日の体験の感想をぜひ教えてください！
       </p>
+    <div class="box1">
+
       <form action="review_insert.php" method="post">
         <dl class="evaluation">
           <dt class="title">内容の満足度</dt>
@@ -88,7 +89,7 @@ if ($status == false) {
             <select name="contents_review" class="star">
               <option value="1">1</option>
               <option value="2">2</option>
-              <option value="3">3</option>
+              <option value="3" selected>3</option>
               <option value="4">4</option>
               <option value="5">5</option>
             </select>
@@ -98,7 +99,7 @@ if ($status == false) {
             <select name="hospitality_review" class="star">
               <option value="1">1</option>
               <option value="2">2</option>
-              <option value="3">3</option>
+              <option value="3" selected>3</option>
               <option value="4">4</option>
               <option value="5">5</option>
             </select>
@@ -108,17 +109,17 @@ if ($status == false) {
             <select name="communication_review" class="star">
               <option value="1">1</option>
               <option value="2">2</option>
-              <option value="3">3</option>
+              <option value="3" selected>3</option>
               <option value="4">4</option>
               <option value="5">5</option>
             </select>
           </dd>
           <dt class="title">旅の長さの満足度</dt>
-          <dd class="form">
+          <dd>
             <select name="time_review" class="star">
               <option value="1">1</option>
               <option value="2">2</option>
-              <option value="3">3</option>
+              <option value="3" selected>3</option>
               <option value="4">4</option>
               <option value="5">5</option>
             </select>
@@ -128,7 +129,7 @@ if ($status == false) {
             <select name="price_review" class="star">
               <option value="1">1</option>
               <option value="2">2</option>
-              <option value="3">3</option>
+              <option value="3" selected>3</option>
               <option value="4">4</option>
               <option value="5">5</option>
             </select>
@@ -146,13 +147,14 @@ if ($status == false) {
               value="<?= $project_id ?>">
           </dd>
         </dl>
-        <div><input type="submit" class="btn" value="登録する"></div>
+        <div><input type="submit" class="btn make-project" value="登録する" style="height:50px;"></div>
       </form>
     </div>
 
   </div>
   <!-- フッターを呼び出し -->
-  <?php include("component/footer.php") ?>
 </body>
+
+  <?php include("component/footer.php") ?>
 
 </html>
