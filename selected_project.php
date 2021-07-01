@@ -32,12 +32,12 @@ if ($status == false) {
     $res = $stmt->fetch(PDO::FETCH_ASSOC);
 }
 
-if($user_id==0){
-$zyoken='./auth/please_login.php';
-}elseif($user_id==$res["user_id"]){
-$zyoken='cannot_reserve.php';
-}else{
-$zyoken='reserve_confirmation.php';  
+if ($user_id==0) {
+    $zyoken='./auth/please_login.php';
+} elseif ($user_id==$res["user_id"]) {
+    $zyoken='cannot_reserve.php';
+} else {
+    $zyoken='reserve_confirmation.php';
 }
 
 
@@ -166,7 +166,7 @@ $total_review=($price_review + $communication_review + $hospitality_review +$con
   <link rel="stylesheet" href="./css/reset.css">
   <link rel="stylesheet" href="./css/all.css">
   <link rel="stylesheet" href="./css/header.css">
-  <link rel="stylesheet" href="./css/reservation.css">
+  <link rel="stylesheet" href="./css/reservation02.css">
   <link rel="stylesheet" href="./css/footer.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="./raty-3.0.0/lib/jquery.raty.js"></script>
@@ -253,17 +253,10 @@ $total_review=($price_review + $communication_review + $hospitality_review +$con
           </div>
         </div>
       </div>
-      <?php include("component/footer.php") ?>
     </div>
   </main>
-<script>
-  $("#check").on('click',function(){
-      <?php if($res["user_id"]==$user_id):?>
-      link(){href='cannot_reserve.php';}
-  )}
-  <?php endif; ?>
-</script>
 
 </body>
+<?php include("component/footer.php") ?>
 
 </html>
